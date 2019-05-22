@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <com.dealermela.utility.DmlTextViewBold
+        style="@style/transaction_textView_popup_item_title"
+        android:id="@+id/dmlTextViewBold9"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/order_no"
+        app:layout_constraintBottom_toBottomOf="@+id/tvOrderNo"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/tvOrderNo" />
+
+    <com.dealermela.utility.DmlTextViewBold
+        style="@style/transaction_textView_popup_item_title"
+        android:id="@+id/dmlTextViewBold10"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/name"
+        app:layout_constraintBottom_toBottomOf="@+id/tvName"
+        app:layout_constraintEnd_toEndOf="@+id/dmlTextViewBold9"
+        app:layout_constraintStart_toStartOf="@+id/dmlTextViewBold9"
+        app:layout_constraintTop_toTopOf="@+id/tvName" />
+
+    <com.dealermela.utility.DmlTextViewBold
+        style="@style/transaction_textView_popup_item_title"
+        android:id="@+id/dmlTextViewBold11"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/sku"
+        app:layout_constraintBottom_toBottomOf="@+id/tvSku"
+        app:layout_constraintEnd_toEndOf="@+id/dmlTextViewBold9"
+        app:layout_constraintStart_toStartOf="@+id/dmlTextViewBold9"
+        app:layout_constraintTop_toTopOf="@+id/tvSku" />
+
+    <com.dealermela.utility.DmlTextViewBold
+        style="@style/transaction_textView_popup_item_title"
+        android:id="@+id/dmlTextViewBold12"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/stone_quality"
+        app:layout_constraintBottom_toBottomOf="@+id/tvStoneQuality"
+        app:layout_constraintEnd_toEndOf="@+id/dmlTextViewBold9"
+        app:layout_constraintStart_toStartOf="@+id/dmlTextViewBold9"
+        app:layout_constraintTop_toTopOf="@+id/tvStoneQuality" />
+
+    <com.dealermela.utility.DmlTextViewBold
+        style="@style/transaction_textView_popup_item_title"
+        android:id="@+id/dmlTextViewBold13"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/metal_weight"
+        app:layout_constraintBottom_toBottomOf="@+id/tvMetalWeight"
+        app:layout_constraintEnd_toEndOf="@+id/dmlTextViewBold9"
+        app:layout_constraintStart_toStartOf="@+id/dmlTextViewBold9"
+        app:layout_constraintTop_toTopOf="@+id/tvMetalWeight" />
+
+    <com.dealermela.utility.DmlTextViewBold
+        style="@style/transaction_textView_popup_item_title"
+        android:id="@+id/dmlTextViewBold14"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/price_small"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPrice"
+        app:layout_constraintEnd_toEndOf="@+id/dmlTextViewBold9"
+        app:layout_constraintStart_toStartOf="@+id/dmlTextViewBold9"
+        app:layout_constraintTop_toTopOf="@+id/tvPrice" />
+
+    <com.dealermela.utility.DmlTextView
+        style="@style/transaction_textView_popup_item_data"
+        android:id="@+id/tvOrderNo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.dealermela.utility.DmlTextView
+        style="@style/transaction_textView_popup_item_data"
+        android:id="@+id/tvName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/tvOrderNo"
+        app:layout_constraintStart_toStartOf="@+id/tvOrderNo"
+        app:layout_constraintTop_toBottomOf="@+id/tvOrderNo" />
+
+    <com.dealermela.utility.DmlTextView
+        style="@style/transaction_textView_popup_item_data"
+        android:id="@+id/tvSku"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/tvOrderNo"
+        app:layout_constraintStart_toStartOf="@+id/tvOrderNo"
+        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+    <com.dealermela.utility.DmlTextView
+        style="@style/transaction_textView_popup_item_data"
+        android:id="@+id/tvStoneQuality"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/tvOrderNo"
+        app:layout_constraintStart_toStartOf="@+id/tvOrderNo"
+        app:layout_constraintTop_toBottomOf="@+id/tvSku" />
+
+    <com.dealermela.utility.DmlTextView
+        style="@style/transaction_textView_popup_item_data"
+        android:id="@+id/tvMetalWeight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/tvOrderNo"
+        app:layout_constraintStart_toStartOf="@+id/tvOrderNo"
+        app:layout_constraintTop_toBottomOf="@+id/tvStoneQuality" />
+
+    <com.dealermela.utility.DmlTextView
+        style="@style/transaction_textView_popup_item_data"
+        android:id="@+id/tvPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/tvOrderNo"
+        app:layout_constraintStart_toStartOf="@+id/tvOrderNo"
+        app:layout_constraintTop_toBottomOf="@+id/tvMetalWeight" />
+
+    <View
+        android:id="@+id/view8"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/sixteen_sp"
+        android:background="?transaction_line_color"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/tvPrice" />
+
+    <TextView
+        style="@style/transaction_textView_colon"
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="@string/colons"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvOrderNo"
+        app:layout_constraintEnd_toStartOf="@+id/tvOrderNo"
+        app:layout_constraintStart_toEndOf="@+id/dmlTextViewBold9"
+        app:layout_constraintTop_toTopOf="@+id/tvOrderNo" />
+
+    <TextView
+        android:id="@+id/textView3"
+        style="@style/transaction_textView_colon"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/colons"
+        app:layout_constraintBottom_toBottomOf="@+id/tvName"
+        app:layout_constraintEnd_toStartOf="@+id/tvName"
+        app:layout_constraintStart_toEndOf="@+id/dmlTextViewBold10"
+        app:layout_constraintTop_toTopOf="@+id/tvName" />
+
+    <TextView
+        android:id="@+id/textView4"
+        style="@style/transaction_textView_colon"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/colons"
+        app:layout_constraintBottom_toBottomOf="@+id/tvSku"
+        app:layout_constraintEnd_toStartOf="@+id/tvSku"
+        app:layout_constraintStart_toEndOf="@+id/dmlTextViewBold11"
+        app:layout_constraintTop_toTopOf="@+id/tvSku" />
+
+    <TextView
+        android:id="@+id/textView5"
+        style="@style/transaction_textView_colon"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/colons"
+        app:layout_constraintBottom_toBottomOf="@+id/tvStoneQuality"
+        app:layout_constraintEnd_toStartOf="@+id/tvStoneQuality"
+        app:layout_constraintStart_toEndOf="@+id/dmlTextViewBold12"
+        app:layout_constraintTop_toTopOf="@+id/tvStoneQuality" />
+
+    <TextView
+        android:id="@+id/textView6"
+        style="@style/transaction_textView_colon"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/colons"
+        app:layout_constraintBottom_toBottomOf="@+id/tvMetalWeight"
+        app:layout_constraintEnd_toStartOf="@+id/tvMetalWeight"
+        app:layout_constraintStart_toEndOf="@+id/dmlTextViewBold13"
+        app:layout_constraintTop_toTopOf="@+id/tvMetalWeight" />
+
+    <TextView
+        android:id="@+id/textView7"
+        style="@style/transaction_textView_colon"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/colons"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPrice"
+        app:layout_constraintEnd_toStartOf="@+id/tvPrice"
+        app:layout_constraintStart_toEndOf="@+id/dmlTextViewBold14"
+        app:layout_constraintTop_toTopOf="@+id/tvPrice" />
+</android.support.constraint.ConstraintLayout>

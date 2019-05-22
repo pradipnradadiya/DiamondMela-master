@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/alert_btn_round"
+    android:layout_margin="@dimen/twenty_four_dp"
+    >
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycleViewTransactionItemPopop"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/eight_sp"
+        android:layout_marginTop="@dimen/eight_sp"
+        android:layout_marginEnd="@dimen/eight_sp"
+        android:layout_marginBottom="@dimen/eight_sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnClose"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.dealermela.utility.DmlButton
+        android:id="@+id/btnClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/eight_sp"
+        android:layout_marginEnd="@dimen/eight_sp"
+        android:layout_marginBottom="@dimen/eight_sp"
+        android:text="@string/close"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

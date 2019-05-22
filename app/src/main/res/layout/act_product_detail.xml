@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/linButton"
+        android:layout_below="@+id/include"
+        android:background="?login_signup_text_color"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewPagerSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </RelativeLayout>
+
+            <HorizontalScrollView
+                android:id="@+id/hsvSlider"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="5dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/linContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" />
+
+            </HorizontalScrollView>
+
+            <com.dealermela.utility.DmlTextViewBold
+                android:id="@+id/tvProductName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ten_padding_margin"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <com.dealermela.utility.DmlTextView
+                android:id="@+id/tvProductPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="?dml_logo_color" />
+
+            <com.dealermela.utility.DmlTextView
+                android:id="@+id/tvColorGold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center" />
+
+            <View
+                style="@style/view_style_detail_page"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="20sp" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraintRTS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ten_padding_margin"
+                android:background="@color/white">
+
+                <com.dealermela.utility.DmlImageView
+                    android:id="@+id/imgPrevious"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/eight_margin_padding"
+                    android:src="@drawable/round_arrow_ic"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycleViewReadyToShip"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/imgNext"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="?login_signup_text_color"
+
+                    />
+
+                <com.dealermela.utility.DmlImageView
+                    android:id="@+id/imgNext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/eight_margin_padding"
+                    android:layout_marginEnd="@dimen/eight_margin_padding"
+                    android:layout_marginBottom="@dimen/eight_margin_padding"
+                    android:src="@drawable/round_arrow_ic_back"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <include
+                android:id="@+id/includeCustomise"
+                layout="@layout/act_product_detail_include_customise" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/twenty_sp"
+                android:layout_marginEnd="@dimen/activity_vertical_margin"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="@dimen/one_three_five_dp"
+                    android:layout_height="@dimen/ninenty_dp"
+                    app:cardBackgroundColor="?transaction_round_back"
+                    app:cardCornerRadius="@dimen/ten_sp"
+                    app:cardElevation="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/activity_horizontal_margin">
+
+                        <com.dealermela.utility.DmlTextView
+                            style="@style/product_full_detail_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/two_dp"
+                            android:text="@string/metal_without_colon"
+                            android:textColor="?dml_logo_color"
+
+                            />
+
+                        <View
+                            android:layout_width="@dimen/hundred_sp"
+                            android:layout_height="@dimen/one_sp_view"
+                            android:background="?toolbarTextColor"
+                            android:padding="@dimen/eight_margin_padding" />
+
+                        <com.dealermela.utility.DmlTextView
+                            android:id="@+id/tvMetalPrice"
+                            style="@style/product_full_detail_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/two_dp"
+                            android:textColor="?toolbarTextColor"
+
+                            />
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="@dimen/one_three_five_dp"
+                    android:layout_height="@dimen/ninenty_dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    app:cardBackgroundColor="?transaction_round_back"
+                    app:cardCornerRadius="@dimen/ten_sp"
+                    app:cardElevation="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/activity_horizontal_margin">
+
+                        <com.dealermela.utility.DmlTextView
+                            android:id="@+id/tvDiamondPiecesTitle"
+                            style="@style/product_full_detail_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/two_dp"
+                            android:textColor="?dml_logo_color"
+
+                            />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/one_sp_view"
+                            android:background="?toolbarTextColor"
+                            android:padding="@dimen/eight_margin_padding" />
+
+                        <com.dealermela.utility.DmlTextView
+                            android:id="@+id/tvDiamondPrice"
+                            style="@style/product_full_detail_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/two_dp"
+                            android:textColor="?toolbarTextColor"
+
+                            />
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginEnd="@dimen/activity_vertical_margin"
+                android:background="?transaction_round_back"
+                android:orientation="vertical">
+
+                <com.dealermela.utility.DmlTextView
+                    android:id="@+id/tvGrandTotal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/ten_padding_margin"
+                    android:textColor="?toolbarTextColor"
+                    android:textSize="20sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/one_sp_view"
+                    android:background="?transaction_line_color" />
+
+            </LinearLayout>
+
+            <include
+                android:id="@+id/includeProductDetail"
+                layout="@layout/act_product_detail_include_price_detail" />
+
+            <include layout="@layout/include_common_lifetime_exchange_promotional" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="visible"
+        android:orientation="horizontal">
+
+        <com.dealermela.utility.DmlButton
+            android:id="@+id/btnAddToCart"
+            style="@style/btnBankManage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/add_to_cart" />
+
+        <com.dealermela.utility.DmlButton
+            android:id="@+id/btnBuyNow"
+            style="@style/btnBankManage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/one_sp_view"
+            android:layout_weight="1"
+            android:text="@string/buy_now" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linProgress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="56dp"
+        android:background="#99000000"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/whiteprogressBarColor"
+            android:layout_gravity="center"
+             />
+
+        <com.dealermela.utility.DmlTextViewBold
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="@dimen/eight_margin_padding"
+            android:text="@string/please_wait"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+    <com.dealermela.utility.DmlButton
+        android:id="@+id/btnSoldOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/sold_out"
+        android:visibility="gone"
+        />
+
+
+</RelativeLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#000000</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <color name="primaryText">#000000</color>
+    <color name="buttonNormal">#E30425</color>
+    <color name="buttonHighlight">#ff554f</color>
+    <color name="buttonText">#FFFFFF</color>
+    <color name="bottom_navigation_background_color">#FFF3F2F2</color>
+
+    <color name="dml_logo_color">#9B0F56</color>
+    <color name="product_detail_select_metal_diamond_back">#f1eff0</color>
+    <color name="product_detail_grand_total">#f6f6f6</color>
+    <color name="gold">#F8B22E</color>
+    <color name="logout_background">#3E80B4</color>
+
+    <color name="filter_un_select_item_color">#F1F1F1</color>
+    <color name="filter_select_item_color">#9b0f56</color>
+    
+    <color name="transaction_round_back">#EEECED</color>
+    <color name="transaction_line_color">#B7B7B7</color>
+    <color name="product_detaol_grand_total_back">#F6F6F6</color>
+    <color name="toolbarShadowColor">#88333333</color>
+
+    <color name="edit_profile_text_header_back">#EEECED</color>
+
+    <color name="in_active_item_color">#AFABAB</color>
+    <color name="green">#4CAF50</color>
+    <color name="red">#F44336</color>
+
+
+    <!--payment-->
+    <color name="transparentColorBack">#B3000000</color>
+    <color name="colorBack">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+
+
+    <color name="transaction_line_color_black">#434242</color>
+    <color name="transaction_round_back_black">#2f2f2f</color>
+    <color name="download_disabled">#808080</color>
+
+</resources>

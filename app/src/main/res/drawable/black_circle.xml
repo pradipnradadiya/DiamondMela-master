@@ -1,0 +1,16 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+
+    <size
+        android:width="25dp"
+        android:height="25dp" />
+
+    <solid android:color="?toolbarTextColor" />
+
+    <padding
+        android:bottom="2dip"
+        android:left="2dp"
+        android:right="2dp"
+        android:top="2dip" />
+
+</shape>

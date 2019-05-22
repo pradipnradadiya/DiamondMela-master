@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/ToolbarTheme"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:titleTextColor="?toolbarTextColor">
+
+            <RelativeLayout
+                android:id="@+id/relCart"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="?actionBarSize"
+                android:gravity="end">
+
+                <com.dealermela.utility.DmlImageView
+                    android:layout_toLeftOf="@+id/tvDownloadCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_shopping_cart" />
+
+                <com.dealermela.utility.DmlTextView
+                    android:id="@+id/tvDownloadCount"
+                    style="@style/circle_text_drawer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="5sp"
+                    android:layout_marginRight="@dimen/five_sp"
+                    android:text="1" />
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+        <!--app:titleTextColor="@color/toolbar_view_color"-->
+
+    </android.support.design.widget.AppBarLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_sp_view"
+        android:background="?transaction_line_color" />
+
+</LinearLayout>

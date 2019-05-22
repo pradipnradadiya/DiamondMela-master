@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".authentication.myaccount.activity.ManageAddressAct">
+
+    <include
+        android:id="@+id/include5"
+        layout="@layout/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?transaction_round_back"
+                android:orientation="horizontal"
+                android:padding="@dimen/ten_padding_margin"
+                android:text="@string/address_book">
+
+                <com.dealermela.utility.DmlTextView
+                    style="@style/manage_address_header_text"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/ten_padding_margin"
+                    android:layout_weight="1"
+                    android:text="@string/default_billing_address" />
+
+                <com.dealermela.utility.DmlTextView
+                    style="@style/manage_address_header_text"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/ten_padding_margin"
+                    android:layout_weight="1"
+                    android:text="@string/default_shipping_address" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_sp_view"
+                android:background="?transaction_line_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                android:padding="@dimen/ten_padding_margin">
+
+                <LinearLayout
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/ten_padding_margin"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+
+                    <com.dealermela.utility.DmlTextView
+                        android:id="@+id/tvBName"
+                        style="@style/edit_profile_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <com.dealermela.utility.DmlTextView
+                        android:id="@+id/tvBAddress1"
+                        style="@style/edit_profile_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <com.dealermela.utility.DmlTextView
+                        android:id="@+id/tvBAddress2"
+                        style="@style/edit_profile_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone" />
+
+                    <com.dealermela.utility.DmlTextView
+                        android:id="@+id/tvBCity"
+                        style="@style/edit_profile_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <com.dealermela.utility.DmlTextView
+                        android:id="@+id/tvBCountry"
+                        style="@style/edit_profile_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <com.dealermela.utility.DmlTextView
+                        android:id="@+id/tvBTelephone"
+                        style="@style/edit_profile_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <com.dealermela.utility.DmlButton
+                        android:id="@+id/btnChangeBillingAddress"
+                        style="@style/edit_profile_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/btn_height"
+                        android:text="Change Address" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/ten_padding_margin"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+
+                    <com.dealermela.utility.DmlTextView
+                        android:id="@+id/tvSName"
+                        style="@style/edit_profile_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <com.dealermela.utility.DmlTextView
+                        android:id="@+id/tvSAddress1"
+                        style="@style/edit_profile_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <com.dealermela.utility.DmlTextView
+                        android:id="@+id/tvSAddress2"
+                        style="@style/edit_profile_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone" />
+
+                    <com.dealermela.utility.DmlTextView
+                        android:id="@+id/tvSCity"
+                        style="@style/edit_profile_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <com.dealermela.utility.DmlTextView
+                        android:id="@+id/tvSCountry"
+                        style="@style/edit_profile_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <com.dealermela.utility.DmlTextView
+                        android:id="@+id/tvSTelephone"
+                        style="@style/edit_profile_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <com.dealermela.utility.DmlButton
+                        android:id="@+id/btnChangeShippingAddress"
+                        style="@style/edit_profile_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/btn_height"
+                        android:text="Change Address" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <com.dealermela.utility.DmlButton
+                android:id="@+id/btnAddNewAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/btn_height"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:background="@drawable/ten_size_black_button_round"
+                android:paddingStart="10sp"
+                android:paddingEnd="10sp"
+                android:text="Add New Address"
+                android:textColor="@color/white" />
+
+            <com.dealermela.utility.DmlTextView
+                style="@style/manage_address_header_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="?transaction_round_back"
+                android:padding="@dimen/ten_padding_margin"
+                android:text="@string/additional_address" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycleViewAdditionalAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</android.support.constraint.ConstraintLayout>

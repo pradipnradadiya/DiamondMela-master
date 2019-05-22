@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".authentication.myaccount.activity.EditProfileAct">
+
+
+    <ScrollView
+        android:id="@+id/scrollViewEditProfile"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.dealermela.utility.DmlTextViewBold
+                style="@style/edit_profile_text_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/account_information" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_sp_view"
+                android:background="?transaction_line_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/activity_horizontal_margin">
+
+                <com.dealermela.utility.DmlTextView
+                    android:id="@+id/tvContactInformation"
+                    style="@style/edit_profile_text_sub_header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/contact_information" />
+
+                <com.dealermela.utility.DmlTextView
+                    android:id="@+id/tvEName"
+                    style="@style/edit_profile_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+                <com.dealermela.utility.DmlTextView
+                    android:id="@+id/tvEEmail"
+                    style="@style/edit_profile_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+                <com.dealermela.utility.DmlButton
+                    android:id="@+id/btnChangePassword"
+                    style="@style/edit_profile_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/btn_height"
+                    android:text="@string/change_password" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_sp_view"
+                android:background="?transaction_line_color" />
+
+            <com.dealermela.utility.DmlTextViewBold
+                style="@style/edit_profile_text_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/address_book" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_sp_view"
+                android:background="?transaction_line_color" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0sp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:padding="@dimen/activity_horizontal_margin">
+
+                        <com.dealermela.utility.DmlTextView
+                            android:id="@+id/tvBillingAddress"
+                            style="@style/edit_profile_text_sub_header"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/billing_address" />
+
+                        <com.dealermela.utility.DmlTextView
+                            android:id="@+id/tvBName"
+                            style="@style/edit_profile_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <com.dealermela.utility.DmlTextView
+                            android:id="@+id/tvBAddress1"
+                            style="@style/edit_profile_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <com.dealermela.utility.DmlTextView
+                            android:id="@+id/tvBAddress2"
+                            style="@style/edit_profile_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone" />
+
+                        <com.dealermela.utility.DmlTextView
+                            android:id="@+id/tvBCity"
+                            style="@style/edit_profile_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <com.dealermela.utility.DmlTextView
+                            android:id="@+id/tvBCountry"
+                            style="@style/edit_profile_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <com.dealermela.utility.DmlTextView
+                            android:id="@+id/tvBTelephone"
+                            style="@style/edit_profile_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0sp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:padding="@dimen/activity_horizontal_margin">
+
+                        <com.dealermela.utility.DmlTextView
+                            android:id="@+id/tvShippingAddress"
+                            style="@style/edit_profile_text_sub_header"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/shipping_address" />
+
+                        <com.dealermela.utility.DmlTextView
+                            android:id="@+id/tvSName"
+                            style="@style/edit_profile_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <com.dealermela.utility.DmlTextView
+                            android:id="@+id/tvSAddress1"
+                            style="@style/edit_profile_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <com.dealermela.utility.DmlTextView
+                            android:id="@+id/tvSAddress2"
+                            style="@style/edit_profile_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone" />
+
+                        <com.dealermela.utility.DmlTextView
+                            android:id="@+id/tvSCity"
+                            style="@style/edit_profile_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <com.dealermela.utility.DmlTextView
+                            android:id="@+id/tvSCountry"
+                            style="@style/edit_profile_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <com.dealermela.utility.DmlTextView
+                            android:id="@+id/tvSTelephone"
+                            style="@style/edit_profile_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <com.dealermela.utility.DmlButton
+                    android:id="@+id/btnManagePassword"
+                    style="@style/edit_profile_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/btn_height"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                    android:text="@string/manage_address" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_sp_view"
+                android:background="?transaction_line_color" />
+
+            <com.dealermela.utility.DmlTextViewBold
+                style="@style/edit_profile_text_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/referral_code" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_sp_view"
+                android:background="?transaction_line_color" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/activity_horizontal_margin">
+
+                <com.dealermela.utility.DmlTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/referral_code_colon"
+                    android:textColor="@color/dml_logo_color"
+                    android:textSize="12sp" />
+
+                <com.dealermela.utility.DmlTextView
+                    android:id="@+id/tvReferralCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_sp_view"
+                android:background="?transaction_line_color" />
+
+            <com.dealermela.utility.DmlTextViewBold
+                style="@style/edit_profile_text_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/bank_detail" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_sp_view"
+                android:background="?transaction_line_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/activity_horizontal_margin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.dealermela.utility.DmlButton
+                        android:id="@+id/btnAddBankDetail"
+                        style="@style/edit_profile_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/btn_height"
+                        android:text="@string/add_bank_detail" />
+
+                    <com.dealermela.utility.DmlButton
+                        android:id="@+id/btnManageBankDetail"
+                        style="@style/edit_profile_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/btn_height"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:text="@string/manage_bank_detail" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linBank"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+
+                    <android.support.design.widget.TextInputLayout
+                        style="@style/textAddBank"
+                        android:id="@+id/tilBankName"
+                        android:layout_width="match_parent"
+                        android:theme="@style/MyCustomTextInputStyle"
+                        android:layout_height="match_parent">
+
+                        <com.dealermela.utility.DmlTextInputEditText
+                            style="@style/common_text_color"
+                            android:id="@+id/edBankName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/bank_name"
+                            android:inputType="text"
+                            android:lines="1" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        style="@style/textAddBank"
+                        android:theme="@style/MyCustomTextInputStyle"
+                        android:id="@+id/tilBankAccNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.dealermela.utility.DmlTextInputEditText
+                            style="@style/common_text_color"
+                            android:id="@+id/edBankAccNo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/bank_account_number"
+                            android:inputType="number"
+                            android:lines="1" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        style="@style/textAddBank"
+                        android:theme="@style/MyCustomTextInputStyle"
+                        android:id="@+id/tilBankAccHolderName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.dealermela.utility.DmlTextInputEditText
+                            style="@style/common_text_color"
+                            android:id="@+id/edBankAccHolderName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/bank_account_holder_name"
+                            android:inputType="text"
+                            android:lines="1" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        style="@style/textAddBank"
+                        android:theme="@style/MyCustomTextInputStyle"
+                        android:id="@+id/tilIfscCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.dealermela.utility.DmlTextInputEditText
+                            style="@style/common_text_color"
+                            android:id="@+id/edIfscCode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/ifsc_code"
+                            android:inputType="textCapSentences"
+                            android:lines="1" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        style="@style/textAddBank"
+                        android:theme="@style/MyCustomTextInputStyle"
+                        android:id="@+id/tilBranchName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.dealermela.utility.DmlTextInputEditText
+                            style="@style/common_text_color"
+                            android:id="@+id/edBranchName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/branch_name"
+                            android:inputType="text"
+                            android:lines="1" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.dealermela.utility.DmlButton
+                            android:id="@+id/btnSave"
+                            style="@style/edit_profile_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/btn_height"
+                            android:text="@string/save" />
+
+                        <com.dealermela.utility.DmlButton
+                            android:id="@+id/btnCancel"
+                            style="@style/edit_profile_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/btn_height"
+                            android:layout_marginStart="@dimen/activity_horizontal_margin"
+                            android:text="@string/cancel" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        android:id="@+id/include3"
+        layout="@layout/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

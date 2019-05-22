@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/linNoData"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:visibility="visible"
+    android:layout_margin="@dimen/twenty_sp"
+    android:background="@drawable/ten_size_black_round_border"
+    android:orientation="vertical">
+
+    <com.dealermela.utility.DmlImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/maintenance" />
+
+    <com.dealermela.utility.DmlTextViewBold
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/fifteen_sp"
+        android:layout_marginTop="@dimen/thirty_dp"
+        android:layout_marginRight="@dimen/fifteen_sp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:letterSpacing="0.03"
+        android:text="@string/diamondmela_is_currently_down_for_maintenance"
+        android:textSize="@dimen/sixteen_sp" />
+
+    <com.dealermela.utility.DmlTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/twenty_sp"
+        android:layout_marginTop="@dimen/thirty_dp"
+        android:layout_marginRight="@dimen/twenty_sp"
+        android:gravity="center"
+        android:letterSpacing="0.03"
+        android:text="@string/we_expect_to_be_back_in_a_couple_hours_thanks_for_your_patence"
+        android:textSize="@dimen/twelve_sp" />
+
+    <com.dealermela.utility.DmlButton
+        android:id="@+id/btnOk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ok"
+        android:layout_margin="@dimen/twenty_sp"
+        android:background="@drawable/ten_size_black_round_border"
+        />
+
+</LinearLayout>

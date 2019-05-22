@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineRatio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.38" />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/imgProduct"
+        android:layout_width="0dp"
+        android:layout_height="111dp"
+        android:layout_marginStart="@dimen/sixteen_sp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="@dimen/sixteen_sp"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout6"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineRatio"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:placeholderImage="@drawable/dml_logo"
+        app:roundedCornerRadius="@dimen/ten_sp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/eight_sp"
+        android:layout_marginEnd="@dimen/sixteen_sp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guidelineRatio"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.dealermela.utility.DmlTextView
+            android:id="@+id/tvSku"
+            style="@style/cart_item_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.dealermela.utility.DmlTextView
+            android:id="@+id/tvRingSize"
+            style="@style/cart_item_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible" />
+
+        <com.dealermela.utility.DmlTextView
+            android:id="@+id/tvMetalDetail"
+            style="@style/cart_item_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.dealermela.utility.DmlTextView
+            android:id="@+id/tvStoneDetail"
+            style="@style/cart_item_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.dealermela.utility.DmlTextView
+            android:id="@+id/tvPrice"
+            style="@style/cart_item_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tvStoneDetail" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/viewBottomLin"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/twenty_four_dp"
+        android:background="?transaction_line_color"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout6"
+        app:layout_constraintStart_toStartOf="@+id/imgProduct"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
+
+    <View
+        android:id="@+id/viewTitleFooter"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="?transaction_line_color"
+        app:layout_constraintEnd_toEndOf="@+id/viewBottomLin"
+        app:layout_constraintStart_toStartOf="@+id/viewBottomLin"
+        app:layout_constraintTop_toBottomOf="@+id/tvRemove" />
+
+    <com.dealermela.utility.DmlTextView
+        android:id="@+id/tvRemove"
+        style="@style/cart_item_plus_minus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/eight_sp"
+        android:layout_marginTop="@dimen/eight_sp"
+        android:layout_marginEnd="@dimen/eight_sp"
+        android:text="@string/remove"
+        android:background="?attr/selectableItemBackground"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/viewCenter"
+        app:layout_constraintStart_toStartOf="@+id/imgProduct"
+        app:layout_constraintTop_toBottomOf="@+id/viewBottomLin" />
+
+    <View
+        android:id="@+id/viewCenter"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/eight_sp"
+        android:layout_marginTop="@dimen/eight_sp"
+        android:layout_marginEnd="@dimen/eight_sp"
+        android:layout_marginBottom="@dimen/eight_sp"
+        android:background="?transaction_line_color"
+        app:layout_constraintBottom_toTopOf="@+id/viewTitleFooter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewBottomLin" />
+
+    <com.dealermela.utility.DmlTextView
+        android:id="@+id/tvQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/eight_sp"
+        android:layout_marginEnd="@dimen/eight_sp"
+        android:text="1"
+        app:layout_constraintBottom_toBottomOf="@+id/tvRemove"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout6"
+        app:layout_constraintStart_toEndOf="@+id/viewCenter"
+        app:layout_constraintTop_toTopOf="@+id/tvRemove" />
+
+    <com.dealermela.utility.DmlImageView
+        style="@style/cart_item_plus_minus"
+        android:id="@+id/imgMinus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/sixteen_sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvQuantity"
+        app:layout_constraintEnd_toStartOf="@+id/tvQuantity"
+        app:layout_constraintTop_toTopOf="@+id/tvQuantity"
+        app:srcCompat="@drawable/ic_minus" />
+
+    <com.dealermela.utility.DmlImageView
+        style="@style/cart_item_plus_minus"
+        android:id="@+id/imgPlus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/sixteen_sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvQuantity"
+        app:layout_constraintStart_toEndOf="@+id/tvQuantity"
+        app:layout_constraintTop_toTopOf="@+id/tvQuantity"
+        app:srcCompat="@drawable/ic_plus" />
+
+</android.support.constraint.ConstraintLayout>

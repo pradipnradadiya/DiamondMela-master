@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    style="?attr/actionButtonStyle"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:clipToPadding="false"
+    android:focusable="true">
+
+    <com.dealermela.utility.DmlImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_shopping_cart"/>
+
+    <com.dealermela.utility.DmlTextView
+        android:id="@+id/cart_badge"
+        android:layout_width="@dimen/twenty_sp"
+        android:layout_height="@dimen/twenty_sp"
+        android:layout_gravity="right|end|top"
+        android:layout_marginEnd="-5dp"
+        android:layout_marginRight="-5dp"
+        android:layout_marginTop="@dimen/three_sp"
+        android:background="@drawable/badge_circle"
+        android:gravity="center"
+        android:padding="@dimen/three_sp"
+        android:textColor="?login_signup_text_color"
+        android:textSize="@dimen/ten_sp"/>
+
+</FrameLayout>

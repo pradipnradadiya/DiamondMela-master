@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".authentication.myaccount.activity.SignUpAct">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnSave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/activity_horizontal_margin"
+            android:paddingEnd="@dimen/activity_horizontal_margin">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilFnm"
+                android:theme="@style/MyCustomTextInputStyle"
+                style="@style/edit_contact_top"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.dealermela.utility.DmlTextInputEditText
+                    style="@style/common_text_color"
+                    android:id="@+id/edFnm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/first_name"
+                    android:inputType="textPersonName" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilLnm"
+                android:theme="@style/MyCustomTextInputStyle"
+                style="@style/edit_contact_top"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.dealermela.utility.DmlTextInputEditText
+                    style="@style/common_text_color"
+                    android:id="@+id/edLnm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/last_name"
+                    android:inputType="textPersonName" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilEmail"
+                android:theme="@style/MyCustomTextInputStyle"
+                style="@style/edit_contact_top"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.dealermela.utility.DmlTextInputEditText
+                    style="@style/common_text_color"
+                    android:id="@+id/edEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/email_address"
+                    android:inputType="textWebEmailAddress" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilContactNumber"
+                android:theme="@style/MyCustomTextInputStyle"
+                style="@style/edit_contact_top"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.dealermela.utility.DmlTextInputEditText
+                    style="@style/common_text_color"
+                    android:id="@+id/edContact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/contact_number"
+                    android:inputType="phone" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilAddress"
+                android:theme="@style/MyCustomTextInputStyle"
+                style="@style/edit_contact_top"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.dealermela.utility.DmlTextInputEditText
+                    style="@style/common_text_color"
+                    android:id="@+id/edAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/address"
+                    android:inputType="text" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <com.dealermela.utility.SearchableSpinner
+                android:id="@+id/spinnerCountry"
+                style="@style/SpinnerEditTheme"
+                android:layout_width="match_parent"
+                android:layout_height="40sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_sp_view"
+                android:background="?toolbarViewColor" />
+
+            <RelativeLayout
+                style="@style/edit_contact_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.dealermela.utility.SearchableSpinner
+                    android:id="@+id/spinnerState"
+                    android:layout_width="match_parent"
+                    style="@style/SpinnerEditTheme"
+                    android:layout_height="40sp" />
+
+                <View
+                    android:visibility="gone"
+                    android:id="@+id/view_state"
+                    android:layout_below="@id/spinnerState"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/one_sp_view"
+                    android:background="?toolbarViewColor" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilState"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
+
+                    <com.dealermela.utility.DmlTextInputEditText
+                        android:id="@+id/edState"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/state"
+                        android:inputType="text" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </RelativeLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilCity"
+                style="@style/edit_contact_top"
+                android:theme="@style/MyCustomTextInputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.dealermela.utility.DmlTextInputEditText
+                    style="@style/common_text_color"
+                    android:id="@+id/edCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/city"
+                    android:inputType="text" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilZipCode"
+                style="@style/edit_contact_top"
+                android:theme="@style/MyCustomTextInputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.dealermela.utility.DmlTextInputEditText
+                    style="@style/common_text_color"
+                    android:id="@+id/edZipCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/zip_code"
+                    android:inputType="numberDecimal" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilPanCard"
+                style="@style/edit_contact_top"
+                android:theme="@style/MyCustomTextInputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.dealermela.utility.DmlTextInputEditText
+                    style="@style/common_text_color"
+                    android:id="@+id/edPanCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/pancard_no"
+                    android:inputType="text" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilGstIn"
+                style="@style/edit_contact_top"
+                android:theme="@style/MyCustomTextInputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.dealermela.utility.DmlTextInputEditText
+                    style="@style/common_text_color"
+                    android:id="@+id/edGstIn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/gstin"
+                    android:inputType="text" />
+
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.dealermela.utility.DmlButton
+        android:id="@+id/btnSave"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/dml_logo_color"
+        android:text="@string/save"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

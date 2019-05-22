@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="@dimen/activity_vertical_margin"
+    android:layout_marginEnd="@dimen/activity_vertical_margin"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.dealermela.utility.DmlTextViewBold
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            tools:textAllCaps="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/customise_your_jewellery"
+            android:textAllCaps="true"
+            android:textSize="16sp" />
+
+        <com.dealermela.utility.DmlTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="?dml_logo_color"
+            android:textSize="12sp"
+            android:text="@string/create_your_own_customized_jwellery" />
+
+        <com.dealermela.utility.DmlTextView
+            android:id="@+id/tvRingSizeHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:text="@string/ring_size" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycleViewRingSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ten_padding_margin"
+            android:orientation="horizontal" />
+
+        <View
+            android:id="@+id/viewRing"
+            style="@style/view_style_detail_page"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20sp" />
+
+        <com.dealermela.utility.DmlTextView
+            android:id="@+id/tvPendentHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:text="@string/type" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycleViewPendentSets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ten_padding_margin"
+            android:orientation="horizontal" />
+
+        <View
+            android:id="@+id/viewPendentSets"
+            style="@style/view_style_detail_page"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20sp" />
+
+        <com.dealermela.utility.DmlTextView
+            android:id="@+id/tvBangleSizeHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:text="@string/bangle_size" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycleViewBangleSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ten_padding_margin"
+            android:orientation="horizontal" />
+
+        <View
+            android:id="@+id/viewBangle"
+            style="@style/view_style_detail_page"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20sp" />
+
+        <com.dealermela.utility.DmlTextView
+            android:id="@+id/tvBraceletsHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:text="@string/length" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycleViewBraceletSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ten_padding_margin"
+            android:orientation="horizontal" />
+
+        <View
+            android:id="@+id/viewBracelet"
+            style="@style/view_style_detail_page"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20sp" />
+
+        <com.dealermela.utility.DmlTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:text="@string/diamond" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycleViewDiamond"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ten_padding_margin"
+            android:orientation="horizontal" />
+
+        <View
+            style="@style/view_style_detail_page"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20sp" />
+
+        <com.dealermela.utility.DmlTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:text="@string/carat" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycleViewCarat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ten_padding_margin"
+            android:orientation="horizontal" />
+
+        <View
+            style="@style/view_style_detail_page"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20sp" />
+
+        <com.dealermela.utility.DmlTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:text="@string/metal" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycleViewMetal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ten_padding_margin"
+            android:orientation="horizontal" />
+
+        <View
+            style="@style/view_style_detail_page"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20sp" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

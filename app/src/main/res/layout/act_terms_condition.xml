@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".authentication.myaccount.activity.TermsConditionAct">
+
+    <include
+        android:id="@+id/include4"
+        layout="@layout/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.dealermela.utility.DmlImageView
+        android:id="@+id/dmlImageView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/dmlTextView2"
+        app:layout_constraintTop_toTopOf="@+id/dmlTextView2"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/background_image" />
+
+    <com.dealermela.utility.DmlTextView
+        android:id="@+id/dmlTextView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Terms\n\n 3.1. The initial term of this Agreement shall come into effect on the Effective Date and, unless terminated earlier in accordance with the terms of this Agreement, shall continue in full force and effect for a period of 1 (one) year (the “Initial Term”).\n\n 3.2. Provided Dealer shall have complied with all the terms and conditions hereof, this Agreement shall be automatically renewed at the end of the Initial Term for further 2 (two) years (the “Renewal Term”), as the case may be, on the same terms and conditions as set forth herein, unless either party shall have provided written notice to the other party that it does not intend to renew this Agreement at least 30 days prior to the expiration of the Initial Term. "
+        android:lineSpacingExtra="7sp"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:textColor="?login_signup_text_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include4" />
+
+</android.support.constraint.ConstraintLayout>

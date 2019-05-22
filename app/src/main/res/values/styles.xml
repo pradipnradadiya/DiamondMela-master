@@ -1,0 +1,677 @@
+<resources>
+
+    <!--Transparent Theme-->
+    <style name="AppTheme.Transparent" parent="WhiteTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="WhiteTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#ffffff</item>
+        <item name="colorPrimaryDark">#cccccc</item>
+        <item name="colorAccent">@color/black</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/black</item>
+        <item name="editTextColor">@color/black</item>
+
+        <!--used attr.xml-->
+        <item name="toolbarTextColor">@color/black</item>
+        <item name="toolbarViewColor">@color/black</item>
+        <item name="buttonTextColor">@color/black</item>
+        <item name="textViewTextColor">@color/black</item>
+        <item name="editTextTextColor">@color/black</item>
+        <item name="editTextTextHintColor">@color/white</item>
+        <item name="loginButtonTextColor">@color/black</item>
+        <item name="viewColor">@color/white</item>
+        <item name="cardTitleBackground">
+            @drawable/button_round
+        </item>
+        <item name="top_bottom_icon_tint_color">@color/black</item>
+        <item name="bottom_icon_inActive_tint_color">@color/black</item>
+        <item name="login_signup_text_color">@color/white</item>
+        <item name="drawer_view_color">#EEEEEE</item>
+        <item name="product_detaol_grand_total_back">#F6F6F6</item>
+
+        <item name="transaction_line_color">@color/transaction_line_color</item>
+        <item name="transaction_round_back">@color/transaction_round_back</item>
+
+
+        <item name="common_line_color">@color/transaction_line_color</item>
+        <item name="common_round_back">@color/transaction_round_back</item>
+
+        <item name="order_menu_color">@color/black</item>
+        <item name="order_tab_back_color">@color/black</item>
+        <item name="dml_logo_color">@color/dml_logo_color</item>
+
+        <item name="btn_un_select_border_color">@color/black</item>
+        <item name="btn_select_border_color">@color/dml_logo_color</item>
+        <item name="lbl_dml_logo_with_black">@color/dml_logo_color</item>
+
+
+        <item name="list_item_qty_round">#D9D9D9</item>
+
+
+        <item name="active_item_color">@color/black</item>
+        <item name="in_active_item_color">@color/in_active_item_color</item>
+        <item name="bottom_navigation_background_color">#FFF3F2F2</item>
+        <item name="actionOverflowButtonStyle">@style/MyOverflowButtonStyle</item>
+
+
+        <!--<item name="colorControlNormal">?login_signup_text_color</item>-->
+
+
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="BlackTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#181818</item>
+        <item name="colorPrimaryDark">#cccccc</item>
+        <item name="colorAccent">@color/black</item>
+        <item name="android:windowBackground">@color/black</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="editTextColor">@color/white</item>
+
+        <!--used attr.xml-->
+        <item name="toolbarTextColor">@color/white</item>
+        <item name="toolbarViewColor">@color/white</item>
+        <item name="buttonTextColor">@color/white</item>
+        <item name="textViewTextColor">@color/white</item>
+        <item name="editTextTextColor">@color/white</item>
+        <item name="editTextTextHintColor">@color/white</item>
+        <item name="loginButtonTextColor">@color/white</item>
+        <item name="viewColor">@color/white</item>
+
+        <item name="cardTitleBackground">
+            @drawable/button_round
+        </item>
+        <item name="top_bottom_icon_tint_color">@color/white</item>
+        <item name="bottom_icon_inActive_tint_color">@color/white</item>
+        <item name="login_signup_text_color">@color/black</item>
+        <item name="drawer_view_color">@color/white</item>
+        <item name="product_detaol_grand_total_back">@color/black</item>
+
+        <item name="transaction_line_color">#434242</item>
+        <item name="transaction_round_back">#2f2f2f</item>
+
+        <item name="common_line_color">#434242</item>
+        <item name="common_round_back">#2f2f2f</item>
+
+        <item name="list_item_qty_round">#2f2f2f</item>
+
+        <item name="order_menu_color">#2f2f2f</item>
+        <item name="order_tab_back_color">#2f2f2f</item>
+        <item name="dml_logo_color">@color/white</item>
+        <item name="lbl_dml_logo_with_black">#2f2f2f</item>
+
+        <item name="btn_un_select_border_color">@color/transaction_line_color</item>
+        <item name="btn_select_border_color">@color/dml_logo_color</item>
+
+        <item name="active_item_color">@color/white</item>
+        <item name="in_active_item_color">#F1EEEE</item>
+
+        <item name="bottom_navigation_background_color">#222222</item>
+        <item name="actionOverflowButtonStyle">@style/MyOverflowButtonStyle</item>
+
+        <!--<item name="colorControlNormal">?login_signup_text_color</item>-->
+
+
+    </style>
+
+    <style name="WhiteDrawerIconStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">?toolbarTextColor</item>
+    </style>
+
+    <style name="MyOverflowButtonStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@android:color/white</item>
+    </style>
+
+    <!--Full Screen Theme-->
+    <style name="WhiteTheme.FullScreen">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <!--Full Screen Theme-->
+    <style name="BlackTheme.FullScreen">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="WhiteTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--Login EditText style-->
+    <!--EditText style-->
+    <style name="edLogin" parent="Base.V7.Widget.AppCompat.EditText">
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textCursorDrawable">@null</item>
+    </style>
+
+    <!--EditText Sign up page-->
+    <style name="signUpEditText">
+        <item name="android:background">@null</item>
+        <item name="android:textColor">?editTextColor</item>
+    </style>
+
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <!-- Customize color of navigation drawer icon and back arrow -->
+        <item name="colorControlNormal">?toolbarTextColor</item>
+        <item name="actionMenuTextColor">#1bff3a</item>
+        <item name="colorControlActivated">?toolbarTextColor</item>
+        <item name="android:textColorPrimary">?toolbarTextColor</item>
+        <item name="actionButtonStyle">@style/Widget.AppCompat.ActionButton</item>
+        <item name="selectableItemBackground">?android:selectableItemBackground</item>
+        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackground</item>
+        <item name="colorControlHighlight">#99000000</item>
+
+    </style>
+
+    <style name="hintTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">?attr/editTextColor</item>
+    </style>
+
+    <style name="errorTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">?attr/editTextColor</item>
+    </style>
+
+    <!--Text Input layout sytle using for sign up-->
+    <style name="TextInputLayoutAppearance" parent="Widget.Design.TextInputLayout">
+        <!-- reference our hint & error styles -->
+        <item name="hintTextAppearance">@style/hintTextAppearance</item>
+        <item name="errorTextAppearance">@style/errorTextAppearance</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/white</item>
+        <item name="colorControlHighlight">@color/white</item>
+        <item name="android:layout_marginStart">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginEnd">@dimen/activity_horizontal_margin</item>
+    </style>
+
+    <style name="sign_up_top_margin">
+        <item name="android:layout_marginTop">@dimen/twenty_sp</item>
+    </style>
+
+    <style name="textInputStyleSignUp">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:maxLines">1</item>
+
+    </style>
+
+    <!--Drawer footer text style-->
+    <style name="drawer_footer_text">
+        <item name="android:textColor">?textViewTextColor</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+    </style>
+
+    <style name="SpinnerThemeLight">
+        <item name="android:colorBackground">?login_signup_text_color</item>
+        <item name="android:textColorPrimary">?login_signup_text_color</item>
+        <item name="android:textColorSecondary">?login_signup_text_color</item>
+        <item name="android:textColorTertiary">?login_signup_text_color</item>
+        <item name="android:textColorPrimaryDisableOnly">?login_signup_text_color</item>
+    </style>
+
+    <style name="SpinnerTheme" parent="android:Widget.Spinner">
+        <item name="android:background">@drawable/bg_spinner</item>
+    </style>
+
+    <style name="SpinnerEditTheme" parent="android:Widget.Spinner">
+        <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
+        <item name="android:background">@drawable/spinner_drawable</item>
+    </style>
+
+
+    <style name="mySpinnerItemStyle" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
+        <item name="android:textColor">?toolbarTextColor</item>
+    </style>
+
+
+    <!--Edit Profile-->
+    <style name="edit_profile_text_header">
+        <item name="android:textSize">@dimen/edit_profile_text_header_size</item>
+        <item name="android:background">?transaction_round_back</item>
+        <item name="android:padding">@dimen/ten_sp</item>
+
+    </style>
+
+    <style name="edit_profile_text_sub_header">
+        <item name="android:textSize">@dimen/ten_sp</item>
+        <item name="android:layout_marginTop">@dimen/eight_sp</item>
+        <item name="android:drawablePadding">@dimen/activity_horizontal_margin</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/dml_logo_color</item>
+        <item name="android:drawableEnd">@drawable/ic_edit</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+
+
+    </style>
+
+    <style name="edit_profile_text">
+        <item name="android:textSize">@dimen/twelve_sp</item>
+        <item name="android:layout_marginTop">@dimen/eight_sp</item>
+    </style>
+
+    <style name="edit_profile_button">
+        <item name="android:padding">@dimen/ten_sp</item>
+        <item name="android:textSize">@dimen/twelve_sp</item>
+        <item name="android:background">@drawable/edit_pro_btn</item>
+        <item name="android:layout_marginTop">@dimen/activity_horizontal_margin</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="textAddBank">
+        <item name="android:layout_marginStart">@dimen/zero_sp</item>
+        <item name="android:layout_marginEnd">@dimen/zero_sp</item>
+        <item name="android:layout_marginTop">@dimen/ten_sp</item>
+    </style>
+
+    <style name="manage_address_header_text">
+        <item name="android:textSize">@dimen/ten_sp</item>
+        <item name="android:textColor">?dml_logo_color</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="manage_address_btn">
+        <item name="android:textSize">@dimen/ten_sp</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+
+    <!--Edit Contact Information-->
+
+    <style name="edit_contact_top">
+        <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
+        <item name="android:textColor">?toolbarTextColor</item>
+    </style>
+
+    <style name="textBankManageLabel">
+        <item name="android:textColor">@color/dml_logo_color</item>
+        <item name="android:textSize">@dimen/twelve_sp</item>
+        <item name="android:layout_marginStart">@dimen/zero_sp</item>
+        <item name="android:layout_marginEnd">@dimen/zero_sp</item>
+        <item name="android:lineSpacingExtra">@dimen/eight_sp</item>
+        <item name="android:padding">@dimen/eight_sp</item>
+    </style>
+
+    <style name="textColon">
+        <item name="android:textColor">@color/dml_logo_color</item>
+        <item name="android:text">@string/colon</item>
+    </style>
+
+    <style name="textBankManage">
+        <item name="android:textSize">@dimen/twelve_sp</item>
+        <item name="android:layout_marginStart">@dimen/zero_sp</item>
+        <item name="android:layout_marginEnd">@dimen/zero_sp</item>
+        <item name="android:lineSpacingExtra">@dimen/eight_sp</item>
+        <item name="android:padding">@dimen/eight_sp</item>
+    </style>
+
+    <style name="btnBankManage">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/twelve_sp</item>
+        <item name="android:lineSpacingExtra">@dimen/eight_sp</item>
+        <item name="android:padding">@dimen/eight_sp</item>
+        <item name="android:background">?lbl_dml_logo_with_black</item>
+    </style>
+
+    <!--Referral-->
+    <style name="list_referral_text_header">
+        <item name="android:textSize">@dimen/twelve_sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <!--Drawer-->
+
+    <style name="tvDrawer">
+        <item name="android:layout_marginStart">@dimen/activity_horizontal_margin</item>
+    </style>
+
+    <style name="linDrawer">
+        <item name="android:padding">@dimen/fifteen_sp</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+    </style>
+
+    <style name="imgDrawer">
+        <item name="android:layout_marginStart">@dimen/activity_horizontal_margin</item>
+        <item name="android:tint">?toolbarTextColor</item>
+    </style>
+
+    <style name="imgTint">
+        <item name="android:tint">?toolbarTextColor</item>
+    </style>
+
+
+    <!--Listing-->
+    <style name="listing_sort_filter_text">
+        <item name="android:padding">@dimen/five_sp</item>
+        <item name="android:drawablePadding">@dimen/ten_sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:lines">1</item>
+        <item name="android:textColor">?toolbarTextColor</item>
+        <!--<item name="android:visibility">gone</item>-->
+    </style>
+
+
+    <style name="list_item_text">
+        <item name="android:textSize">@dimen/twelve_sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_marginTop">@dimen/three_sp</item>
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <!--Product detail style-->
+    <style name="view_style_detail_page">
+        <item name="android:background">?transaction_line_color</item>
+    </style>
+
+    <style name="dotted_view_style_detail_page">
+        <item name="android:background">@drawable/dotted</item>
+        <item name="android:layerType">software</item>
+    </style>
+
+    <style name="rts_item_header">
+        <item name="android:textSize">@dimen/twelve_sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:lines">1</item>
+    </style>
+
+    <style name="rts_item_sub_header">
+        <item name="android:textSize">@dimen/twelve_sp</item>
+        <item name="android:lines">1</item>
+
+    </style>
+
+    <style name="product_full_detail_text">
+        <item name="android:textSize">@dimen/twelve_sp</item>
+    </style>
+
+
+    <!--Transaction-->
+    <style name="transaction_card" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">?transaction_round_back</item>
+        <item name="cardCornerRadius">@dimen/ten_padding_margin</item>
+        <item name="android:layout_marginStart">@dimen/twenty_four_dp</item>
+    </style>
+
+    <style name="transaction_lin_layout">
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="transaction_text">
+        <item name="android:textSize">@dimen/twelve_sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:lines">1</item>
+    </style>
+
+    <style name="transaction_img">
+
+        <item name="android:tint">?toolbarTextColor</item>
+    </style>
+
+
+    <!--Cart List-->
+    <style name="cart_item_text">
+        <item name="android:textSize">@dimen/twelve_sp</item>
+        <item name="android:layout_marginTop">@dimen/eight_sp</item>
+    </style>
+
+    <style name="cart_item_plus_minus">
+        <item name="android:padding">@dimen/eight_sp</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+    </style>
+
+
+    <!--Download Product-->
+    <style name="download_btn">
+        <item name="android:textColor">?login_signup_text_color</item>
+        <item name="android:background">@color/dml_logo_color</item>
+    </style>
+
+    <style name="download_view">
+        <item name="android:background">?transaction_line_color</item>
+
+    </style>
+
+    <style name="download_text_title">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="download_popup_text">
+        <item name="android:textColor">?login_signup_text_color</item>
+        <item name="android:layout_marginStart">@dimen/eight_sp</item>
+        <item name="android:layout_marginEnd">@dimen/eight_sp</item>
+        <item name="android:lineSpacingExtra">@dimen/eight_sp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="AppCompatAlertDialogStyle" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="materialButtonStyle">@style/Widget.AppCompat.Button.Borderless</item>
+        <item name="dialogCornerRadius">@dimen/ten_sp</item>
+        <!--<item name="android:windowBackground">?toolbarTextColor</item>-->
+        <!--<item name="colorAccent">?login_signup_text_color</item>-->
+        <!--<item name="android:textColorPrimary">?login_signup_text_color</item>-->
+
+    </style>
+
+
+    <style name="download_item_icon">
+        <item name="android:padding">@dimen/eight_sp</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:tint">?toolbarTextColor</item>
+    </style>
+
+
+    <!--TRANSACTION-->
+    <style name="transaction_textView_popup_item_data">
+        <item name="android:textSize">@dimen/twelve_sp</item>
+        <item name="android:lineSpacingExtra">@dimen/eight_sp</item>
+        <item name="android:layout_marginTop">@dimen/sixteen_sp</item>
+    </style>
+
+    <style name="transaction_textView_popup_item_title">
+        <item name="android:textSize">@dimen/twelve_sp</item>
+        <item name="android:lineSpacingExtra">@dimen/eight_sp</item>
+    </style>
+
+    <style name="transaction_textView_colon">
+        <item name="android:textSize">@dimen/twelve_sp</item>
+    </style>
+
+
+    <!--ORDER-->
+    <style name="OrderCustomTabText" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="order_item_textView">
+        <!--<item name="android:lineSpacingExtra">@dimen/eight_sp</item>-->
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_marginTop">@dimen/eight_sp</item>
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="order_item_img">
+        <item name="android:padding">@dimen/ten_sp</item>
+        <item name="android:tint">@color/white</item>
+    </style>
+
+
+    <style name="shipping_address_text">
+        <item name="android:layout_marginTop">@dimen/eight_sp</item>
+        <item name="android:lineSpacingExtra">@dimen/eight_sp</item>
+        <item name="android:textSize">@dimen/twelve_sp</item>
+    </style>
+
+    <style name="shipping_chnage_add_btn">
+        <item name="android:layout_marginTop">@dimen/sixteen_sp</item>
+        <item name="android:background">@drawable/edit_pro_btn</item>
+        <item name="android:padding">@dimen/eight_sp</item>
+        <item name="android:text">@string/change_address</item>
+
+    </style>
+
+
+    <style name="circle_text_drawer">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">?login_signup_text_color</item>
+        <item name="android:background">@drawable/black_circle</item>
+    </style>
+
+
+    <!--ORDER SUMMERY-->
+
+    <style name="order_summary_bold_title">
+        <item name="android:textSize">@dimen/twelve_sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:lineSpacingExtra">@dimen/eight_sp</item>
+    </style>
+
+
+    <style name="order_lin">
+        <item name="android:padding">@dimen/fifteen_sp</item>
+        <item name="android:background">?transaction_round_back</item>
+    </style>
+
+    <style name="order_summary_regular_content">
+        <item name="android:textSize">@dimen/twelve_sp</item>
+        <item name="android:layout_marginStart">@dimen/twelve_sp</item>
+        <item name="android:lineSpacingExtra">@dimen/eight_sp</item>
+    </style>
+
+    <style name="order_table_text">
+        <item name="android:textSize">10sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:padding">@dimen/five_sp</item>
+        <item name="android:lines">1</item>
+    </style>
+
+
+    <style name="pop_product_image_tint">
+        <item name="android:tint">?toolbarViewColor</item>
+    </style>
+
+
+    <style name="download_radio_btn">
+        <item name="android:buttonTint">?toolbarTextColor</item>
+        <item name="android:textColor">?toolbarTextColor</item>
+    </style>
+
+    <style name="MyCustomTextInputStyle" parent="Widget.Design.TextInputLayout">
+        <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
+        <item name="android:textColorHint">?toolbarTextColor</item>
+        <item name="hintTextAppearance">@style/HintText</item>
+        <item name="android:textColor">?toolbarTextColor</item>
+        <item name="colorControlNormal">?toolbarTextColor</item>
+        <item name="colorControlActivated">?toolbarTextColor</item>
+        <item name="colorControlHighlight">?toolbarTextColor</item>
+        <item name="android:lineSpacingExtra">@dimen/eight_sp</item>
+    </style>
+
+    <style name="HintText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">?toolbarTextColor</item>
+    </style>
+
+    <style name="common_text_color">
+        <item name="android:textColor">?toolbarTextColor</item>
+    </style>
+
+
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">?toolbarViewColor</item>
+        <item name="boxStrokeWidth">2dp</item>
+    </style>
+
+
+    <style name="progressBarColor" parent="@style/Theme.AppCompat">
+        <item name="colorAccent">?toolbarTextColor</item>
+    </style>
+
+    <style name="whiteprogressBarColor" parent="@style/Theme.AppCompat">
+        <item name="colorAccent">@color/white</item>
+    </style>
+
+
+    <style name="check_box_radio">
+        <item name="android:textColor">?toolbarTextColor</item>
+        <item name="android:buttonTint">?toolbarTextColor</item>
+    </style>
+
+    <style name="custom_alert_text">
+        <item name="android:textColor">?toolbarTextColor</item>
+    </style>
+
+    <style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!-- Used for the buttons -->
+        <item name="colorAccent">@color/dml_logo_color</item>
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <!-- Used for the title and text -->
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+        <!--<item name="editTextColor">@color/black</item>-->
+        <!-- Used for the background -->
+        <item name="android:background">?transaction_round_back</item>
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
+    <style name="progressDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@color/transaction_round_back</item>
+        <item name="colorAccent">@color/black</item>
+
+    </style>
+
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <!-- Gets rid of the search icon -->
+        <item name="searchIcon">@drawable/ic_search</item>
+        <!-- Gets rid of the "underline" in the text -->
+        <item name="queryBackground">@color/white</item>
+        <!-- Gets rid of the search icon when the SearchView is expanded -->
+        <item name="searchHintIcon">@null</item>
+        <!-- The hint text that appears when the user has not typed anything -->
+    </style>
+
+
+    <style name="MyAlertMaintenanceDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!-- Used for the buttons -->
+        <item name="colorAccent">#FFC107</item>
+        <!-- Used for the title and text -->
+        <item name="android:textColorPrimary">#FFFFFF</item>
+        <!-- Used for the background -->
+        <item name="android:background">#4CAF50</item>
+    </style>
+
+    <style name="MyProgressDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@color/dml_logo_color</item>
+        <item name="colorAccent">@color/black</item>
+    </style>
+
+</resources>

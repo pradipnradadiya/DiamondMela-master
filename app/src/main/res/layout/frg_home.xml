@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:coverflow="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".home.fragment.HomeFrg">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycleViewHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/one_sp_view"
+                    android:layout_marginTop="@dimen/ten_sp"
+                    android:background="?transaction_line_color" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/banner_height"
+                android:layout_marginTop="@dimen/ten_sp"
+                android:visibility="visible">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewpagerSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <com.rd.PageIndicatorView
+                    android:id="@+id/pageIndicatorView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:padding="@dimen/ten_sp"
+                    app:piv_animationType="fill"
+                    app:piv_dynamicCount="true"
+                    app:piv_interactiveAnimation="true"
+                    app:piv_padding="@dimen/five_sp"
+                    app:piv_radius="@dimen/five_sp"
+                    app:piv_selectedColor="@color/white"
+                    app:piv_unselectedColor="@color/white"
+                    app:piv_viewPager="@id/viewpagerSlider"
+
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/fifteen_sp"
+                android:padding="@dimen/ten_sp"
+                android:visibility="visible">
+
+                <ImageView
+                    style="@style/pop_product_image_tint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/img_left_line"
+                    android:src="@drawable/ic_titltedesign"
+                    tools:ignore="ContentDescription" />
+
+                <ImageView
+                    style="@style/pop_product_image_tint"
+                    android:id="@+id/img_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/img_line"
+                    android:src="@drawable/ic_titledesignsecond"
+                    tools:ignore="ContentDescription" />
+
+                <ImageView
+                    style="@style/pop_product_image_tint"
+                    android:id="@+id/img_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/txt_popular_product"
+                    android:src="@drawable/ic_titledesignline"
+                    tools:ignore="ContentDescription" />
+
+
+                <ImageView
+                    style="@style/pop_product_image_tint"
+                    android:id="@+id/img_left_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/txt_popular_product"
+                    android:src="@drawable/ic_titledesignline"
+                    tools:ignore="ContentDescription" />
+
+
+                <com.dealermela.utility.DmlTextViewBold
+                    android:id="@+id/txt_popular_product"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/five_sp"
+                    android:layout_marginEnd="@dimen/five_sp"
+                    android:text="@string/popular_products"
+                    android:textAllCaps="true"
+                    android:textColor="?textViewTextColor"
+                    android:textSize="@dimen/sixteen_sp" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/eight_sp">
+
+                <it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow
+                    android:id="@+id/coverflow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-20dp"
+                    coverflow:coverHeight="90dp"
+                    coverflow:coverWidth="90dp"
+                    coverflow:maxScaleFactor="1.5"
+                    coverflow:reflectionGap="0px"
+                    coverflow:rotationThreshold="0.9"
+                    coverflow:scalingThreshold="0.5"
+                    coverflow:spacing="0.6" />
+            </LinearLayout>
+
+            <com.dealermela.utility.DmlButton
+                android:id="@+id/btnViewAll"
+                android:layout_width="@dimen/hundred_sp"
+                android:layout_height="@dimen/thirty_five_sp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/twenty_sp"
+                android:background="@drawable/black_button_round"
+                android:elevation="@dimen/ten_sp"
+                android:text="@string/view_all"
+                android:textColor="?buttonTextColor"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:id="@+id/linBackGrad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/twenty_sp"
+                android:background="@drawable/back_gradiant"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/ten_sp">
+
+                    <ImageView
+                        style="@style/pop_product_image_tint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@+id/img_left_line1"
+                        android:src="@drawable/ic_titltedesign"
+                        android:tint="@color/white"
+                        tools:ignore="ContentDescription" />
+
+                    <ImageView
+                        android:id="@+id/img_arrow1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/img_line1"
+                        android:src="@drawable/ic_titledesignsecond"
+                        android:tint="@color/white"
+                        tools:ignore="ContentDescription" />
+
+                    <ImageView
+                        android:id="@+id/img_line1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/txt_popular_product1"
+                        android:src="@drawable/ic_titledesignline"
+                        android:tint="@color/white"
+                        tools:ignore="ContentDescription" />
+
+
+                    <ImageView
+                        android:id="@+id/img_left_line1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@+id/txt_popular_product1"
+                        android:src="@drawable/ic_titledesignline"
+                        android:tint="@color/white"
+                        tools:ignore="ContentDescription" />
+
+
+                    <com.dealermela.utility.DmlTextViewBold
+                        android:id="@+id/txt_popular_product1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/five_sp"
+                        android:layout_marginEnd="@dimen/five_sp"
+                        android:text="@string/best_category"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sixteen_sp" />
+
+                </RelativeLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/one_sp_view"
+                    android:background="?transaction_line_color" />
+
+
+
+                    <LinearLayout
+                        android:id="@+id/lin_product"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/twenty_sp"
+                        android:orientation="vertical">
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/recycleViewBestProducts"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/eight_sp" />
+
+                    </LinearLayout>
+
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/one_sp_view"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:background="?transaction_line_color" />
+
+                <ImageView
+                    android:id="@+id/imgSingleBanner"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/banner_height"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/background_image"
+                    tools:ignore="ContentDescription" />
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/twenty_sp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            style="@style/pop_product_image_tint"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            app:srcCompat="@drawable/deliver_ic"
+                            tools:ignore="ContentDescription" />
+
+                        <com.dealermela.utility.DmlTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/ten_sp"
+                            android:text="@string/free_shpping_and_delivery"
+                            android:textColor="?buttonTextColor"
+                            android:textSize="@dimen/eight_sp" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="@dimen/two_dp"
+                        android:layout_height="@dimen/thirty_dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/eight_sp"
+                        android:layout_marginEnd="@dimen/eight_sp"
+                        android:background="@drawable/line_ic_one" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            style="@style/pop_product_image_tint"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            app:srcCompat="@drawable/lifetime_ic"
+                            tools:ignore="ContentDescription" />
+
+                        <com.dealermela.utility.DmlTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/ten_sp"
+                            android:text="@string/lifetime_exchange_policy"
+                            android:textColor="?buttonTextColor"
+                            android:textSize="@dimen/eight_sp" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="@dimen/two_dp"
+                        android:layout_height="@dimen/thirty_dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/eight_sp"
+                        android:layout_marginEnd="@dimen/eight_sp"
+                        android:background="@drawable/line_ic_one" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="@dimen/five_sp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            style="@style/pop_product_image_tint"
+                            android:id="@+id/imageView15"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            app:srcCompat="@drawable/gift_ic"
+                            tools:ignore="ContentDescription" />
+
+                        <com.dealermela.utility.DmlTextView
+                            android:id="@+id/textView15"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/ten_sp"
+                            android:text="@string/promotional_and_gift_codes"
+                            android:textColor="?buttonTextColor"
+                            android:textSize="@dimen/eight_sp" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_sp_view"
+                android:layout_marginTop="@dimen/twenty_sp"
+                android:background="?transaction_line_color" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/ten_sp">
+
+                <ImageView
+                    style="@style/pop_product_image_tint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/img_left"
+                    android:src="@drawable/ic_titltedesign"
+                    tools:ignore="ContentDescription" />
+
+                <ImageView
+                    style="@style/pop_product_image_tint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/img_right"
+                    android:src="@drawable/ic_titledesignsecond"
+                    tools:ignore="ContentDescription" />
+
+                <ImageView
+                    style="@style/pop_product_image_tint"
+                    android:id="@+id/img_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/txt_popular_product_new"
+                    android:src="@drawable/ic_titledesignline"
+                    tools:ignore="ContentDescription" />
+
+                <ImageView
+                    style="@style/pop_product_image_tint"
+                    android:id="@+id/img_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/txt_popular_product_new"
+                    android:src="@drawable/ic_titledesignline"
+                    tools:ignore="ContentDescription"
+                     />
+
+                <com.dealermela.utility.DmlTextViewBold
+                    android:id="@+id/txt_popular_product_new"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/five_sp"
+                    android:layout_marginEnd="@dimen/five_sp"
+                    android:text="@string/our_most_selling"
+                    android:textAllCaps="true"
+                    android:textColor="?textViewTextColor"
+                    android:textSize="@dimen/sixteen_sp" />
+
+                <com.dealermela.utility.DmlTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_popular_product_new"
+                    android:layout_marginTop="@dimen/ten_sp"
+                    android:gravity="center"
+                    android:text="@string/we_ve_got_something_for_every_occasion"
+                    android:textColor="?textViewTextColor"
+                    android:textSize="@dimen/ten_sp" />
+
+            </RelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycleViewMostSelling"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/two_hundred_dp"
+                android:orientation="horizontal"
+                app:reverseLayout="true" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_sp_view"
+                android:layout_marginTop="@dimen/fifteen_sp"
+                android:background="?transaction_line_color" />
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/home_bottom_logo_height_width"
+                    android:layout_height="@dimen/home_bottom_logo_height_width"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/twenty_sp"
+                    android:src="@drawable/dml_logo"
+                    tools:ignore="ContentDescription" />
+
+                <com.dealermela.utility.DmlTextView
+                    android:id="@+id/tvDiamondMela"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/ten_sp"
+                    android:gravity="center"
+                    android:lineSpacingExtra="@dimen/five_sp"
+                    android:textAllCaps="true"
+                    android:textColor="?dml_logo_color"
+                    android:textSize="@dimen/fifteen_sp" />
+
+                <com.dealermela.utility.DmlTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:lineSpacingExtra="@dimen/five_sp"
+                    android:paddingBottom="@dimen/eighty_sp"
+                    android:text="@string/all_right_reserved"
+                    android:textAllCaps="true"
+                    android:textColor="?textViewTextColor"
+                    android:textSize="@dimen/all_right_reserved_text_size" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+</LinearLayout>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linRts"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ten_rts_border"
+    android:orientation="vertical"
+    android:layout_marginStart="@dimen/eight_margin_padding"
+    android:padding="@dimen/rts_item_padding">
+
+    <com.dealermela.utility.DmlTextView
+        android:id="@+id/tvMetalTitle"
+        style="@style/rts_item_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/metal" />
+
+    <com.dealermela.utility.DmlTextViewBold
+        android:id="@+id/tvMetal"
+        style="@style/rts_item_sub_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <com.dealermela.utility.DmlTextView
+        android:id="@+id/tvStoneTitle"
+        style="@style/rts_item_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/ten_padding_margin"
+        android:text="@string/stone" />
+
+    <com.dealermela.utility.DmlTextViewBold
+        android:id="@+id/tvStone"
+        style="@style/rts_item_sub_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textSize="12sp" />
+
+    <com.dealermela.utility.DmlTextView
+        android:id="@+id/tvDiamondWeightTitle"
+        style="@style/rts_item_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/ten_padding_margin"
+        android:text="@string/diamond_weight" />
+
+    <com.dealermela.utility.DmlTextViewBold
+        android:id="@+id/tvDiamondWeight"
+        style="@style/rts_item_sub_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         />
+
+    <com.dealermela.utility.DmlTextView
+        android:id="@+id/tvSizeTitle"
+        style="@style/rts_item_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/ten_padding_margin"
+        android:text="@string/size" />
+
+    <com.dealermela.utility.DmlTextViewBold
+        android:id="@+id/tvSize"
+        style="@style/rts_item_sub_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         />
+
+</LinearLayout>

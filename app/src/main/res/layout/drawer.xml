@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_marginBottom="@dimen/drawer_margin_bottom"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/activity_horizontal_margin">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/imgUser"
+                android:layout_width="@dimen/drawer_user_icon_height_width"
+                android:layout_height="@dimen/drawer_user_icon_height_width"
+                app:placeholderImage="@drawable/ic_user" />
+
+            <com.dealermela.utility.DmlTextViewBold
+                android:id="@+id/tvLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_toEndOf="@+id/imgUser"
+                android:text="@string/log_in" />
+
+            <com.dealermela.utility.DmlImageView
+                android:id="@+id/imgDot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_toEndOf="@+id/tvLogin"
+                app:srcCompat="@drawable/ic_dot" />
+
+            <com.dealermela.utility.DmlTextView
+                android:id="@+id/tvSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_toEndOf="@+id/imgDot"
+                android:text="@string/sign_up_capital" />
+
+            <com.dealermela.utility.DmlImageView
+                android:id="@+id/imgArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:tint="?toolbarTextColor"
+                android:src="@drawable/ic_arrow_right_black_24dp" />
+
+            <com.dealermela.utility.DmlTextViewBold
+                android:id="@+id/tvUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_toStartOf="@+id/imgArrow"
+                android:layout_toEndOf="@+id/imgUser"
+                android:background="?attr/selectableItemBackground"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/two_dp"
+            android:background="@drawable/toolbar_dropshadow" />
+
+        <LinearLayout
+            android:id="@+id/linHome"
+            style="@style/linDrawer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.dealermela.utility.DmlImageView
+                style="@style/imgDrawer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/home" />
+
+            <com.dealermela.utility.DmlTextView
+                style="@style/tvDrawer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/home" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/one_sp_view"
+            android:background="?transaction_line_color" />
+
+        <LinearLayout
+            android:id="@+id/linCollection"
+            style="@style/linDrawer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.dealermela.utility.DmlImageView
+                style="@style/imgDrawer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_our_collection" />
+
+            <com.dealermela.utility.DmlTextView
+                style="@style/tvDrawer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableEnd="@drawable/ic_arrow_right_black_24dp"
+                android:text="@string/our_collection" />
+
+        </LinearLayout>
+
+
+
+        <ScrollView
+            android:visibility="gone"
+            android:id="@+id/scrollViewCollection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/linContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/one_sp_view"
+            android:background="?transaction_line_color" />
+
+
+        <LinearLayout
+            android:id="@+id/linMyStock"
+            style="@style/linDrawer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.dealermela.utility.DmlImageView
+                style="@style/imgDrawer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_my_stock" />
+
+            <com.dealermela.utility.DmlTextView
+                style="@style/tvDrawer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/my_stock" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/viewBottomMyStock"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/one_sp_view"
+            android:background="?transaction_line_color" />
+
+
+        <LinearLayout
+            android:id="@+id/linOrders"
+            style="@style/linDrawer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.dealermela.utility.DmlImageView
+                style="@style/imgDrawer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_order" />
+
+            <com.dealermela.utility.DmlTextView
+                style="@style/tvDrawer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/orders" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/viewBottomOrder"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/one_sp_view"
+            android:background="?transaction_line_color" />
+
+        <LinearLayout
+            android:id="@+id/linTransaction"
+            style="@style/linDrawer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.dealermela.utility.DmlImageView
+                style="@style/imgDrawer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_transactions" />
+
+            <com.dealermela.utility.DmlTextView
+                style="@style/tvDrawer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/transactions" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/viewBottomTransaction"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/one_sp_view"
+            android:background="?transaction_line_color" />
+
+        <LinearLayout
+            android:id="@+id/linDownload"
+            style="@style/linDrawer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.dealermela.utility.DmlImageView
+                style="@style/imgDrawer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_our_collection" />
+
+            <com.dealermela.utility.DmlTextView
+                style="@style/tvDrawer"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/downloads" />
+
+            <com.dealermela.utility.DmlTextView
+                android:id="@+id/tvDownloadCount"
+                style="@style/circle_text_drawer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/viewBottomDownload"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/one_sp_view"
+            android:background="?transaction_line_color" />
+
+
+        <LinearLayout
+            android:id="@+id/linPolicies"
+            style="@style/linDrawer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.dealermela.utility.DmlImageView
+                style="@style/imgDrawer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_chat" />
+
+            <com.dealermela.utility.DmlTextView
+                style="@style/tvDrawer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/policies" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/viewBottomPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/one_sp_view"
+            android:background="?transaction_line_color" />
+
+        <LinearLayout
+            android:id="@+id/linCart"
+            style="@style/linDrawer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.dealermela.utility.DmlImageView
+                style="@style/imgDrawer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_shopping_cart" />
+
+            <com.dealermela.utility.DmlTextView
+                style="@style/tvDrawer"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/cart" />
+
+            <com.dealermela.utility.DmlTextView
+                android:id="@+id/tvCartCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/circle_text_drawer"
+                />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/one_sp_view"
+            android:background="?transaction_line_color" />
+
+        <LinearLayout
+            android:id="@+id/linFAQ"
+            style="@style/linDrawer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="horizontal">
+
+            <com.dealermela.utility.DmlImageView
+                style="@style/imgDrawer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_info" />
+
+            <com.dealermela.utility.DmlTextView
+                style="@style/tvDrawer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/faq" />
+
+        </LinearLayout>
+
+        <View
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/one_sp_view"
+            android:background="?transaction_line_color" />
+
+        <LinearLayout
+            android:id="@+id/linContactUs"
+            style="@style/linDrawer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.dealermela.utility.DmlImageView
+                style="@style/imgDrawer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_contact" />
+
+            <com.dealermela.utility.DmlTextView
+                style="@style/tvDrawer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/contact_us" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/one_sp_view"
+            android:background="?transaction_line_color" />
+
+        <LinearLayout
+            android:id="@+id/linLogout"
+            style="@style/linDrawer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.dealermela.utility.DmlImageView
+                style="@style/imgDrawer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_logout" />
+
+            <com.dealermela.utility.DmlTextView
+                style="@style/tvDrawer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/logout" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

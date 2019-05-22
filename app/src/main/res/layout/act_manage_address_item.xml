@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8sp"
+    android:background="@drawable/top_border_round_white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:orientation="vertical">
+
+
+            <com.dealermela.utility.DmlTextView
+                android:id="@+id/tvBName"
+                style="@style/edit_profile_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="test" />
+
+            <com.dealermela.utility.DmlTextView
+                android:id="@+id/tvBAddress1"
+                style="@style/edit_profile_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="test" />
+
+            <com.dealermela.utility.DmlTextView
+                android:id="@+id/tvBAddress2"
+                style="@style/edit_profile_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="test"
+                android:visibility="gone" />
+
+            <com.dealermela.utility.DmlTextView
+                android:id="@+id/tvBCity"
+                style="@style/edit_profile_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="test" />
+
+            <com.dealermela.utility.DmlTextView
+                android:id="@+id/tvBCountry"
+                style="@style/edit_profile_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="test" />
+
+            <com.dealermela.utility.DmlTextView
+                android:id="@+id/tvBTelephone"
+                style="@style/edit_profile_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="test" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:layout_marginStart="@dimen/one_sp_view"
+            android:layout_marginEnd="@dimen/one_sp_view"
+            android:layout_marginBottom="@dimen/one_sp_view"
+            android:orientation="horizontal">
+
+            <com.dealermela.utility.DmlButton
+                android:id="@+id/btnEdit"
+                android:layout_width="0sp"
+                android:layout_height="@dimen/btn_height"
+                android:layout_weight="1"
+                android:background="?lbl_dml_logo_with_black"
+                android:text="@string/edit"
+                android:textColor="@color/white" />
+
+            <com.dealermela.utility.DmlButton
+                android:id="@+id/btnDelete"
+                android:layout_width="0sp"
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginStart="@dimen/one_sp_view"
+                android:layout_weight="1"
+                android:background="?lbl_dml_logo_with_black"
+                android:text="@string/delete"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

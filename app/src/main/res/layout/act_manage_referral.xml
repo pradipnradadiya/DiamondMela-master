@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".referral.activity.ManageReferralAct">
+
+    <include
+        android:id="@+id/include7"
+        layout="@layout/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:theme="@style/progressBarColor"
+        app:layout_constraintBottom_toTopOf="@+id/btnCreateReferral"
+        app:layout_constraintEnd_toEndOf="@+id/recycleViewReferralList"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/recycleViewReferralList" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include7">
+
+
+        <com.dealermela.utility.DmlTextViewBold
+            style="@style/list_referral_text_header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="@string/name" />
+
+        <View
+            android:layout_width="@dimen/one_sp_view"
+            android:layout_height="@dimen/view_height"
+            android:background="@drawable/verticle_dashed_line"
+            />
+
+        <com.dealermela.utility.DmlTextViewBold
+            style="@style/list_referral_text_header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/discount" />
+
+        <View
+            android:layout_width="@dimen/one_sp_view"
+            android:layout_height="@dimen/view_height"
+            android:background="@drawable/verticle_dashed_line"
+            />
+
+        <com.dealermela.utility.DmlTextViewBold
+            style="@style/list_referral_text_header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/action" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_sp_view"
+        android:background="?transaction_line_color"
+        app:layout_constraintTop_toTopOf="@+id/recycleViewReferralList" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycleViewReferralList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnCreateReferral"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <com.dealermela.utility.DmlButton
+        android:id="@+id/btnCreateReferral"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/dml_logo_color"
+        android:text="@string/create_referral"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

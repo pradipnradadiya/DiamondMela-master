@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/app_bar_main">
+
+    <FrameLayout
+        android:id="@+id/frame_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <com.luseen.spacenavigation.SpaceNavigationView
+        android:id="@+id/space"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        app:active_centre_button_icon_color="@color/white"
+        app:active_item_color="?active_item_color"
+        app:centre_button_color="?toolbarViewColor"
+        app:centre_button_icon="@drawable/cart_ic"
+        app:inactive_centre_button_icon_color="?login_signup_text_color"
+        app:inactive_item_color="?in_active_item_color"
+        app:space_background_color="?bottom_navigation_background_color"
+        app:space_item_icon_only_size="@dimen/space_item_icon_only_size"
+        app:space_item_icon_size="@dimen/space_item_icon_default_size"
+        app:space_item_text_size="@dimen/space_item_text_default_size"
+        />
+
+    <com.dealermela.utility.DmlTextView
+        android:id="@+id/tvCartCountHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="?login_signup_text_color"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="40dp"
+        />
+
+</RelativeLayout>

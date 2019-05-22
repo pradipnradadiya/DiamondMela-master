@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/drawer_footer_height"
+    android:background="?login_signup_text_color">
+
+    <com.dealermela.utility.DmlTextView
+        android:id="@+id/tvMyAccount"
+        style="@style/drawer_footer_text"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/my_account"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/viewVerticle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.dealermela.utility.DmlTextView
+        android:id="@+id/tvCreateReferral"
+        style="@style/drawer_footer_text"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/create_referral"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/viewVerticle"
+
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/viewVerticle"
+        android:layout_width="@dimen/one_sp_view"
+        android:layout_height="wrap_content"
+        android:background="?toolbarViewColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvCreateReferral"
+        app:layout_constraintStart_toEndOf="@+id/tvMyAccount"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/viewHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/two_dp"
+        android:background="@drawable/toolbar_dropshadow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/main_layout"
+
+
+    >
+
+    <com.dealermela.utility.DmlImageView
+        android:layout_marginStart="5dp"
+        android:id="@+id/image_linear"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="@dimen/ten_padding_margin"
+        android:background="?toolbarTextColor"
+        app:srcCompat="@drawable/dml_logo"
+         />
+
+</android.support.constraint.ConstraintLayout>

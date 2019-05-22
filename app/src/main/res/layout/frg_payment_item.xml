@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?transaction_round_back"
+    android:layout_marginStart="@dimen/ten_sp"
+    android:layout_marginEnd="@dimen/ten_sp"
+    android:layout_marginTop="@dimen/ten_sp"
+    android:orientation="vertical">
+
+    <RadioButton
+        android:id="@+id/radioButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RadioButton"
+        android:textColor="?toolbarTextColor"
+        android:textStyle="bold"
+        android:padding="@dimen/eight_sp"
+        android:layout_marginStart="@dimen/twelve_sp"
+        android:layout_marginEnd="@dimen/twenty_sp"
+        android:buttonTint="?toolbarTextColor"
+        android:clickable="false"
+        />
+
+    <com.dealermela.utility.DmlTextView
+        android:id="@+id/tvInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="@dimen/eight_sp"
+        android:layout_marginTop="@dimen/twelve_sp"
+        android:layout_marginStart="@dimen/fifty_dp"
+        android:layout_marginEnd="@dimen/thirty_dp"
+        android:textSize="@dimen/twelve_sp"
+
+        />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/imgPaymentLogo"
+        android:layout_width="197dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="@dimen/twelve_sp"
+        app:placeholderImage="@drawable/dml_logo"
+        android:layout_marginStart="@dimen/fifty_dp"
+        android:layout_marginEnd="@dimen/thirty_dp"
+         />
+
+
+    <com.dealermela.utility.DmlTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="By placing an Order, you agree to Terms of Use and Privacy Policy of Diamondmela.com"
+        android:lineSpacingExtra="@dimen/eight_sp"
+        android:layout_marginTop="@dimen/twenty_sp"
+        android:layout_marginStart="@dimen/twenty_sp"
+        android:layout_marginEnd="@dimen/twenty_sp"
+        android:textSize="@dimen/twelve_sp"
+        android:paddingBottom="@dimen/ten_sp"
+        />
+
+</LinearLayout>
+

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/logout_card_height"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    android:gravity="center"
+    app:cardBackgroundColor="?transaction_round_back"
+    app:cardCornerRadius="@dimen/ten_padding_margin"
+    android:layout_margin="@dimen/activity_vertical_margin"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.dealermela.utility.DmlTextViewBold
+            android:id="@+id/txt_dia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/are_you_sure_you_want_log_out"
+            android:textColor="?dml_logo_color"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:orientation="horizontal">
+
+            <com.dealermela.utility.DmlButton
+                android:id="@+id/btn_yes"
+                android:layout_width="@dimen/logout_btn_width"
+                android:layout_height="@dimen/logout_btn_height"
+                android:background="@drawable/edit_pro_btn"
+                android:text="@string/yes"
+                android:textStyle="bold" />
+
+            <com.dealermela.utility.DmlButton
+                android:id="@+id/btn_no"
+                android:layout_width="@dimen/logout_btn_width"
+                android:layout_height="@dimen/logout_btn_height"
+                android:layout_marginStart="@dimen/eight_margin_padding"
+                android:background="@drawable/edit_pro_btn"
+                android:text="@string/no"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

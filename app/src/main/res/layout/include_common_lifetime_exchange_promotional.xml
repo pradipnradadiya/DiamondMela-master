@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/five_sp">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                style="@style/imgDrawer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/deliver_ic"
+                tools:ignore="ContentDescription" />
+
+            <com.dealermela.utility.DmlTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10sp"
+                android:text="@string/free_shpping_and_delivery"
+                android:textColor="?buttonTextColor"
+                android:textSize="@dimen/eight_sp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/two_dp"
+            android:layout_height="@dimen/thirty_dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/eight_sp"
+            android:layout_marginEnd="@dimen/eight_sp"
+            android:background="@drawable/line_ic_one" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                style="@style/imgDrawer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/lifetime_ic"
+                tools:ignore="ContentDescription" />
+
+            <com.dealermela.utility.DmlTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/ten_sp"
+                android:text="@string/lifetime_exchange_policy"
+                android:textColor="?buttonTextColor"
+                android:textSize="@dimen/eight_sp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/two_dp"
+            android:layout_height="@dimen/thirty_dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/eight_sp"
+            android:layout_marginEnd="@dimen/eight_sp"
+            android:background="@drawable/line_ic_one" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/five_sp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                style="@style/imgDrawer"
+                android:id="@+id/imageView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/gift_ic"
+                tools:ignore="ContentDescription" />
+
+            <com.dealermela.utility.DmlTextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/ten_sp"
+                android:text="@string/promotional_and_gift_codes"
+                android:textColor="?buttonTextColor"
+                android:textSize="@dimen/eight_sp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

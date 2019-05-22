@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?transaction_round_back"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="2">
+
+            <com.dealermela.utility.DmlTextView
+                android:id="@+id/tvProductName"
+                style="@style/order_table_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="name" />
+
+            <com.dealermela.utility.DmlTextView
+                android:id="@+id/tvStoneQuality"
+                style="@style/order_table_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Stone Quality" />
+
+            <com.dealermela.utility.DmlTextView
+                android:id="@+id/tvMetalQuality"
+                style="@style/order_table_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Metal Quality"
+
+                />
+
+            <com.dealermela.utility.DmlTextView
+                android:id="@+id/tvSize"
+                style="@style/order_table_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <com.dealermela.utility.DmlTextView
+                    android:id="@+id/tvQty"
+                    style="@style/order_table_text"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Qty : 1" />
+
+                <com.dealermela.utility.DmlTextView
+                    android:id="@+id/tvSubPrice"
+                    style="@style/order_table_text"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Rs. 7,508" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/one_sp_view"
+            android:layout_height="135dp"
+            android:background="?transaction_line_color" />
+
+        <com.dealermela.utility.DmlTextView
+            android:id="@+id/tvPrice"
+            style="@style/order_table_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="" />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_sp_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="?transaction_line_color"
+        />
+</android.support.constraint.ConstraintLayout>

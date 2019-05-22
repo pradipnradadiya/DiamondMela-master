@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.dealermela.cart.activity.OrderSummaryAct">
+
+    <include
+        android:id="@+id/include13"
+        layout="@layout/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/btnPlaceOrder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include13">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                style="@style/order_lin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.dealermela.utility.DmlTextViewBold
+                    style="@style/order_summary_bold_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.2"
+                    android:text="Payment Method" />
+
+                <com.dealermela.utility.DmlTextView
+                    android:id="@+id/tvPaymentMethod"
+                    style="@style/order_summary_regular_content"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="NEFT OR RTGS" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    style="@style/order_lin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/twenty_sp"
+                    android:orientation="horizontal">
+
+                    <com.dealermela.utility.DmlTextViewBold
+                        style="@style/order_summary_bold_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.2"
+                        android:text="@string/billing_address" />
+
+                    <com.dealermela.utility.DmlTextView
+                        android:id="@+id/tvDefaultBillingAddress"
+                        style="@style/order_summary_regular_content"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="A-403 Time Square II, Ramdas Road, Near, Avalon Hotel Rd, Bodakdev, Ahmedabad, Gujarat 380054" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/one_sp_view"
+                    android:background="?transaction_line_color"
+                    android:paddingBottom="@dimen/five_sp" />
+
+                <LinearLayout
+                    style="@style/order_lin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.dealermela.utility.DmlTextViewBold
+                        style="@style/order_summary_bold_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.2"
+                        android:text="@string/shipping_address" />
+
+                    <com.dealermela.utility.DmlTextView
+                        android:id="@+id/tvDefaultShippingAddress"
+                        style="@style/order_summary_regular_content"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="A-403 Time Square II, Ramdas Road, Near, Avalon Hotel Rd, Bodakdev, Ahmedabad, Gujarat 380054" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/twenty_sp"
+                android:background="?transaction_round_back"
+                android:orientation="horizontal">
+
+                <com.dealermela.utility.DmlTextViewBold
+                    style="@style/order_table_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="PRODUCT NAME" />
+
+                <View
+                    android:layout_width="@dimen/one_sp_view"
+                    android:layout_height="@dimen/fifty_dp"
+                    android:background="?transaction_line_color" />
+
+                <com.dealermela.utility.DmlTextViewBold
+                    style="@style/order_table_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="SUB TOTAL" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_sp_view"
+                android:background="?transaction_line_color" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycleViewOrderSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/eight_sp">
+
+                    <com.dealermela.utility.DmlTextViewBold
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="Sub Total"
+                        android:textAlignment="textEnd" />
+
+                    <com.dealermela.utility.DmlTextView
+                        android:id="@+id/tvSubTotal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/twenty_sp"
+                        android:layout_weight="1"
+                        android:textAlignment="textEnd" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/eight_sp">
+
+                    <com.dealermela.utility.DmlTextViewBold
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="Shipping Charge"
+                        android:textAlignment="textEnd" />
+
+                    <com.dealermela.utility.DmlTextView
+                        android:id="@+id/tvShippingCharge"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/twenty_sp"
+                        android:layout_weight="1"
+                        android:textAlignment="textEnd" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/eight_sp">
+
+                    <com.dealermela.utility.DmlTextViewBold
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="Tax"
+
+                        android:textAlignment="textEnd" />
+
+                    <com.dealermela.utility.DmlTextView
+                        android:id="@+id/tvTax"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/twenty_sp"
+                        android:layout_weight="1"
+                        android:textAlignment="textEnd" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/one_sp_view"
+                    android:background="?transaction_line_color"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/eight_sp">
+
+                    <com.dealermela.utility.DmlTextViewBold
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="Grand Total"
+                        android:textAlignment="textEnd" />
+
+                    <com.dealermela.utility.DmlTextView
+                        android:id="@+id/tvGrandTotal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/twenty_sp"
+                        android:layout_weight="1"
+                        android:textAlignment="textEnd" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <com.dealermela.utility.DmlButton
+        android:id="@+id/btnPlaceOrder"
+        style="@style/btnBankManage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/place_order"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</android.support.constraint.ConstraintLayout>
