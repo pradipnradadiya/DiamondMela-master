@@ -410,7 +410,9 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
                     tvBraceletsHeading.setVisibility(View.VISIBLE);
 
                     viewPendentSets.setVisibility(View.GONE);
+
                     tvPendentHeading.setVisibility(View.GONE);
+
 
                 } else if (productCategoryId.equalsIgnoreCase(AppConstants.BANGLE_ID)) {
                     viewRing.setVisibility(View.GONE);
