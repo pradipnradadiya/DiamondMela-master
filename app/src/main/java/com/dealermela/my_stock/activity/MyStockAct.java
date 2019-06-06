@@ -310,4 +310,5 @@ public class MyStockAct extends DealerMelaBaseActivity implements View.OnClickLi
 
 
     }
+
 }

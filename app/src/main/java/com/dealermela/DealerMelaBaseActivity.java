@@ -147,6 +147,8 @@ public abstract class DealerMelaBaseActivity extends AppCompatActivity implement
                 braceletProductId = "";
                 bangleProductId = "";
                 pendentProId = "";
+
+
                 finish();
             }
         });

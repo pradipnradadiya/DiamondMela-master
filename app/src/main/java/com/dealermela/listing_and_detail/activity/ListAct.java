@@ -636,4 +636,5 @@ public class ListAct extends DealerMelaBaseActivity implements View.OnClickListe
             }
         });
     }
+
 }

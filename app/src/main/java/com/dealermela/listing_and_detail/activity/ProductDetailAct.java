@@ -109,6 +109,7 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
 
     //using hide show MTO RTS items
     private View includeCustomise, includeProductDetail;
+
     private ConstraintLayout constraintRTS;
 
     //using check current position
@@ -1008,6 +1009,7 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
                 ringOptionTypeId = "";
                 stoneOptionId = "";
                 stoneOptionTypeId = "";
+
             } else {
                 if (productCategoryId.equalsIgnoreCase(AppConstants.RING_ID)) {
                     cRingSize = ringValue;

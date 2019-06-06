@@ -105,6 +105,7 @@ public class ShippingChargeAdapter extends RecyclerView.Adapter<ShippingChargeAd
                 }
             }
             ((ShippingChargeAct) activity).getSelectShipping(itemArrayList.get(getAdapterPosition()).getCode(),itemArrayList.get(getAdapterPosition()).getPrice());
+
 //            paymentFrg.getSelectPayment(itemArrayList.get(getAdapterPosition()).getValue());
             notifyDataSetChanged();
         }
