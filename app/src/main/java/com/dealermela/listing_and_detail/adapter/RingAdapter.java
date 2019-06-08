@@ -46,6 +46,7 @@ public class RingAdapter extends RecyclerView.Adapter<RingAdapter.ViewHolder> {
         holder.tvName.setText(itemArrayList.get(i).getTitle());
 
         if (themePreferences.getTheme().equalsIgnoreCase("black")) {
+
             if (itemArrayList.get(i).getTitle().equalsIgnoreCase(ringValue)) {
                 holder.linRing.setBackground(activity.getResources().getDrawable(R.drawable.pro_detail_customise_pro_select_black));
                 holder.tvName.setTextColor(activity.getResources().getColor(R.color.dml_logo_color));
@@ -57,6 +58,7 @@ public class RingAdapter extends RecyclerView.Adapter<RingAdapter.ViewHolder> {
                 holder.linRing.setBackground(activity.getResources().getDrawable(R.drawable.pro_detail_customise_pro_unselect_black));
                 holder.tvName.setTextColor(activity.getResources().getColor(R.color.white));
             }
+
 
         } else if (themePreferences.getTheme().equalsIgnoreCase("white")) {
             if (itemArrayList.get(i).getTitle().equalsIgnoreCase(ringValue)) {

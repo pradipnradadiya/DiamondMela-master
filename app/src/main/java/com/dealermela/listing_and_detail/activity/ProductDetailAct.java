@@ -497,6 +497,7 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
                         cBangle = response.body().getBangleSize().get(0).getLabel();
                         BangleAdapter bangleAdapter = new BangleAdapter(ProductDetailAct.this, response.body().getBangleSize());
                         recycleViewBangleSize.setAdapter(bangleAdapter);
+
                     }
 
 
@@ -745,6 +746,7 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
                 tvMetalWeightApprox.setText(response.body().getMetaldetails().get(0).getMetalweight());
                 tvMetalEstimatedTotal.setText(AppConstants.RS + String.valueOf(response.body().getMetaldetails().get(0).getMetalestimatedprice()));
                 linProgress.setVisibility(View.GONE);
+
 
 //                float grandTotal = metalPrice + Float.parseFloat(response.body().getDiamondmainprice().get(0).getDimondprice());
 
@@ -1102,7 +1104,6 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
         });
 
     }
-
 
     private void buyNow(String productId, String customerId, String optionId, String optionTypeId, String stoneOptionId, String stoneOptionTypeId, String qty) {
         showProgressDialog("Cart", "Item is adding to cart..");
