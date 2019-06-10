@@ -52,7 +52,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linFilter"
+            android:id="@+id/linFilterOrder"
             android:layout_width="@dimen/sort_by_filter_width"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"

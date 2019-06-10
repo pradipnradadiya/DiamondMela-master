@@ -15,7 +15,6 @@ import com.dealermela.util.ThemePreferences;
 
 import java.util.List;
 
-
 public class CaratAdapter extends RecyclerView.Adapter<CaratAdapter.ViewHolder> {
 
     private final Activity activity;

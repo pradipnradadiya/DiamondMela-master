@@ -2,6 +2,7 @@ package com.dealermela.order.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,12 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.dealermela.DealerMelaBaseFragment;
 import com.dealermela.R;
 import com.dealermela.authentication.myaccount.model.LoginResponse;
-import com.dealermela.download.model.DownloadItem;
-import com.dealermela.home.activity.MainActivity;
 import com.dealermela.order.adapter.MyOrderAdapter;
 import com.dealermela.order.model.OrderItem;
 import com.dealermela.retrofit.APIClient;
@@ -51,6 +51,7 @@ public class MyOrderFrg extends DealerMelaBaseFragment {
     private int visibleItemCount;
     private int totalItemCount;
     private List<OrderItem.Datum> detailList;
+    private String orderFilter="all";
 
     public MyOrderFrg() {
         // Required empty public constructor
@@ -97,6 +98,80 @@ public class MyOrderFrg extends DealerMelaBaseFragment {
 
     @Override
     public void addListener() {
+
+        LinearLayout linFilterOrder=rootView.findViewById(R.id.linFilterOrder);
+        linFilterOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final BottomSheetDialog mBottomSheetDialog = new BottomSheetDialog(getActivity());
+                View sheetView = getActivity().getLayoutInflater().inflate(R.layout.dialog_bottom_filter_order, null);
+                mBottomSheetDialog.setContentView(sheetView);
+                mBottomSheetDialog.show();
+
+                LinearLayout com =  sheetView.findViewById(R.id.linComp);
+                LinearLayout can =  sheetView.findViewById(R.id.linCancel);
+                LinearLayout pen =  sheetView.findViewById(R.id.linPen);
+
+                com.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mBottomSheetDialog.dismiss();
+                        orderFilter="complete";
+                        page_count=1;
+                        detailList.clear();
+
+                        myOrderAdapter = new MyOrderAdapter(getActivity(), detailList);
+                        recycleViewMyOrder.setAdapter(myOrderAdapter);
+                        AppLogger.e("customerId", "----------" + customerId);
+                        AppLogger.e("groupId", "----------" + loginResponse.getData().getGroupId());
+                        AppLogger.e("order", "----------" + orderType);
+                        AppLogger.e("page", "----------" + page_count);
+//        getOrderList("984", loginResponse.getData().getGroupId(), orderType, String.valueOf(page_count));
+                        getOrderList(customerId, loginResponse.getData().getGroupId(), orderType, String.valueOf(page_count));
+                    }
+                });
+
+                can.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mBottomSheetDialog.dismiss();
+                        orderFilter="canceled";
+                        page_count=1;
+                        detailList.clear();
+
+                        myOrderAdapter = new MyOrderAdapter(getActivity(), detailList);
+                        recycleViewMyOrder.setAdapter(myOrderAdapter);
+                        AppLogger.e("customerId", "----------" + customerId);
+                        AppLogger.e("groupId", "----------" + loginResponse.getData().getGroupId());
+                        AppLogger.e("order", "----------" + orderType);
+                        AppLogger.e("page", "----------" + page_count);
+//        getOrderList("984", loginResponse.getData().getGroupId(), orderType, String.valueOf(page_count));
+                        getOrderList(customerId, loginResponse.getData().getGroupId(), orderType, String.valueOf(page_count));
+                    }
+                });
+
+                pen.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mBottomSheetDialog.dismiss();
+                        orderFilter="pending";
+                        page_count=1;
+                        detailList.clear();
+
+                        myOrderAdapter = new MyOrderAdapter(getActivity(), detailList);
+                        recycleViewMyOrder.setAdapter(myOrderAdapter);
+                        AppLogger.e("customerId", "----------" + customerId);
+                        AppLogger.e("groupId", "----------" + loginResponse.getData().getGroupId());
+                        AppLogger.e("order", "----------" + orderType);
+                        AppLogger.e("page", "----------" + page_count);
+//        getOrderList("984", loginResponse.getData().getGroupId(), orderType, String.valueOf(page_count));
+                        getOrderList(customerId, loginResponse.getData().getGroupId(), orderType, String.valueOf(page_count));
+                    }
+                });
+
+            }
+        });
+
         recycleViewMyOrder.addOnScrollListener(new RecyclerView.OnScrollListener() {
                                                    @Override
                                                    public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
@@ -159,7 +234,7 @@ public class MyOrderFrg extends DealerMelaBaseFragment {
             progressBarBottom.setVisibility(View.VISIBLE);
         }
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
-        Call<OrderItem> callApi = apiInterface.orderList(customerId, groupId, order, page);
+        Call<OrderItem> callApi = apiInterface.orderList(customerId, groupId, order, page,orderFilter);
         callApi.enqueue(new Callback<OrderItem>() {
             @Override
             public void onResponse(@NonNull Call<OrderItem> call, @NonNull Response<OrderItem> response) {

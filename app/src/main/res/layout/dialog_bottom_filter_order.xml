@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_history_menu_bottom"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:background="?login_signup_text_color"
+    android:orientation="vertical"
+    app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+
+    <LinearLayout
+        android:id="@+id/linComp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:text="Completed Order" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_sp_view"
+        android:background="?transaction_line_color"/>
+
+    <LinearLayout
+        android:id="@+id/linCancel"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="16dp"
+            android:text="Canceled Order" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_sp_view"
+        android:background="?transaction_line_color"/>
+
+    <LinearLayout
+        android:id="@+id/linPen"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:text="Pending Order" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_sp_view"
+        android:background="?transaction_line_color"/>
+
+</LinearLayout>

@@ -145,7 +145,7 @@ public class ListAct extends DealerMelaBaseActivity implements View.OnClickListe
         bindToolBar(CommonUtils.capitalizeString(name));
 
         linSortBy = findViewById(R.id.linSortBy);
-        linFilter = findViewById(R.id.linFilter);
+        linFilter = findViewById(R.id.linFilterOrder);
         progressCenter = findViewById(R.id.progressCenter);
         progressBottom = findViewById(R.id.progressBottom);
 
@@ -386,7 +386,7 @@ public class ListAct extends DealerMelaBaseActivity implements View.OnClickListe
 
                 break;
 
-            case R.id.linFilter:
+            case R.id.linFilterOrder:
                 Intent intent = new Intent(ListAct.this, FilterAct.class);
                 Gson gson = new Gson();
                 String data = gson.toJson(filterItems);

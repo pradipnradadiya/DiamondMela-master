@@ -5,15 +5,42 @@
     android:layout_height="match_parent"
     tools:context="com.dealermela.order.fragment.MyOrderFrg">
 
+    <LinearLayout
+        android:id="@+id/linFilterOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/list_sort_filter_back_border"
+        android:gravity="center"
+        android:padding="@dimen/three_sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.dealermela.utility.DmlImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_filter" />
+
+        <com.dealermela.utility.DmlTextView
+            style="@style/listing_sort_filter_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/filter_order"
+
+            />
+
+    </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycleViewMyOrder"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toBottomOf="@+id/linFilterOrder">
 
     </android.support.v7.widget.RecyclerView>
 
@@ -54,4 +81,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

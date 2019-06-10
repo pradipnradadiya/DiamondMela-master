@@ -85,7 +85,7 @@ public class MyStockAct extends DealerMelaBaseActivity implements View.OnClickLi
     public void initView() {
         bindToolBar("My Stock");
         linSortBy = findViewById(R.id.linSortBy);
-        linFilter = findViewById(R.id.linFilter);
+        linFilter = findViewById(R.id.linFilterOrder);
         progressCenter = findViewById(R.id.progressCenter);
         progressBottom = findViewById(R.id.progressBottom);
 
@@ -180,7 +180,7 @@ public class MyStockAct extends DealerMelaBaseActivity implements View.OnClickLi
 
                 break;
 
-            case R.id.linFilter:
+            case R.id.linFilterOrder:
                 startNewActivity(FilterAct.class);
                 break;
 

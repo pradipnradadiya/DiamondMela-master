@@ -365,7 +365,8 @@ public interface ApiInterface {
     Call<OrderItem> orderList(@Field("customer_id") String customerId,
                               @Field("group_id") String group_id,
                               @Field("order") String order,
-                              @Field("pagesize") String page);
+                              @Field("pagesize") String page,
+                              @Field("status") String orderFilter);
 
     @FormUrlEncoded
     @POST("dmlapi/allorder/OrderViewDetail/")

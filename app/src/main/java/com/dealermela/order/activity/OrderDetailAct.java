@@ -37,7 +37,7 @@ import static com.dealermela.home.activity.MainActivity.customerId;
 
 public class OrderDetailAct extends DealerMelaBaseActivity implements View.OnClickListener {
 
-    private TextView tvOrderDate, tvBillingAddress, tvShippingAddress, tvShippingMethod, tvPaymentMethod, tvSubTotal, tvShippingCharge, tvTax, tvGrandTotal;
+    private TextView tvOrderDate, tvBillingAddress, tvShippingAddress, tvShippingMethod, tvPaymentMethod, tvSubTotal, tvShippingCharge, tvTax, tvGrandTotal,tvOrderStatus;
     private RecyclerView recycleViewOrderList;
     private String orderId,status;
     private ProgressBar progressBar;
@@ -74,6 +74,7 @@ public class OrderDetailAct extends DealerMelaBaseActivity implements View.OnCli
         linCancel = findViewById(R.id.linCancel);
         linPrintOrder = findViewById(R.id.linPrintOrder);
         linearLayout = findViewById(R.id.linearLayout);
+        tvOrderStatus = findViewById(R.id.tvOrderStatus);
     }
 
     @Override
@@ -118,6 +119,7 @@ public class OrderDetailAct extends DealerMelaBaseActivity implements View.OnCli
                 if (response.body().getStatus().equalsIgnoreCase(AppConstants.STATUS_CODE_SUCCESS)) {
                     progressBar.setVisibility(View.GONE);
                     tvOrderDate.setText("ORDER DATE : " + response.body().getData().get(0).getOrder_date());
+                    tvOrderStatus.setText("ORDER STATUS : " + status);
                     tvBillingAddress.setText(response.body().getData().get(0).getBillingAddress());
                     tvShippingAddress.setText(response.body().getData().get(0).getShiipingAddress());
                     tvPaymentMethod.setText(response.body().getData().get(0).getPaymentMethod());

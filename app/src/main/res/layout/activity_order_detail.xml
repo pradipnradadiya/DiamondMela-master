@@ -102,6 +102,23 @@
                 android:padding="@dimen/ten_sp">
 
                 <com.dealermela.utility.DmlTextView
+                    android:id="@+id/tvOrderStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_sp_view"
+                android:background="?transaction_line_color" />
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/ten_sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?transaction_round_back"
+                android:padding="@dimen/ten_sp">
+
+                <com.dealermela.utility.DmlTextView
                     android:id="@+id/tvOrderDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />

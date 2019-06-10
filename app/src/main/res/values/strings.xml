@@ -245,5 +245,6 @@
     <string name="search_jewellery">Search jewellery</string>
     <string name="diamondmela_is_currently_down_for_maintenance">Diamondmela is currently down for maintenance.</string>
     <string name="we_expect_to_be_back_in_a_couple_hours_thanks_for_your_patence">We expect to be back in a couple hours, Thanks for your patence.</string>
+    <string name="filter_order">Filter Order</string>
 
 </resources>
