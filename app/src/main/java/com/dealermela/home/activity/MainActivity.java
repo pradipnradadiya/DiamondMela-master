@@ -136,21 +136,21 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
                     fragment = new HomeFrg();
                     replaceFragment(fragment);
                 } else if (itemIndex == 1) {
-                    if (sharedPreferences.getLoginData().equalsIgnoreCase("")){
+                    if (sharedPreferences.getLoginData().equalsIgnoreCase("")) {
                         showSnackBar(drawer);
-                    }else {
+                    } else {
                         startNewActivity(TransactionAct.class);
                     }
                 } else if (itemIndex == 2) {
-                    if (sharedPreferences.getLoginData().equalsIgnoreCase("")){
+                    if (sharedPreferences.getLoginData().equalsIgnoreCase("")) {
                         showSnackBar(drawer);
-                    }else {
+                    } else {
                         startNewActivity(OrderTabActivity.class);
                     }
                 } else if (itemIndex == 3) {
-                    if (sharedPreferences.getLoginData().equalsIgnoreCase("")){
+                    if (sharedPreferences.getLoginData().equalsIgnoreCase("")) {
                         showSnackBar(drawer);
-                    }else {
+                    } else {
                         startNewActivity(EditProfileAct.class);
                     }
                 }
@@ -162,21 +162,21 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
                     fragment = new HomeFrg();
                     replaceFragment(fragment);
                 } else if (itemIndex == 1) {
-                    if (sharedPreferences.getLoginData().equalsIgnoreCase("")){
+                    if (sharedPreferences.getLoginData().equalsIgnoreCase("")) {
                         showSnackBar(drawer);
-                    }else {
+                    } else {
                         startNewActivity(TransactionAct.class);
                     }
                 } else if (itemIndex == 2) {
-                    if (sharedPreferences.getLoginData().equalsIgnoreCase("")){
+                    if (sharedPreferences.getLoginData().equalsIgnoreCase("")) {
                         showSnackBar(drawer);
-                    }else {
+                    } else {
                         startNewActivity(OrderTabActivity.class);
                     }
                 } else if (itemIndex == 3) {
-                    if (sharedPreferences.getLoginData().equalsIgnoreCase("")){
+                    if (sharedPreferences.getLoginData().equalsIgnoreCase("")) {
                         showSnackBar(drawer);
-                    }else {
+                    } else {
                         startNewActivity(EditProfileAct.class);
                     }
                 }
@@ -231,10 +231,12 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
                     themePreferences.saveTheme("white");
                     finish();
                     startActivity(getIntent());
+                    overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
                 } else {
                     themePreferences.saveTheme("black");
                     finish();
                     startActivity(getIntent());
+                    overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
                 }
             }
         });
@@ -256,8 +258,6 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
     @SuppressLint("SetTextI18n")
     @Override
     public void init() {
-
-
 
 
     }
@@ -342,7 +342,7 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
             tvUserName.setVisibility(View.VISIBLE);
             tvUserName.setText(loginResponse.getData().getFirstname() + " " + loginResponse.getData().getLastname());
 
-            if (loginResponse.getCustomerRole().equalsIgnoreCase("Referral")){
+            if (loginResponse.getCustomerRole().equalsIgnoreCase("Referral")) {
                 tvCreateReferral.setVisibility(View.GONE);
             }
 
@@ -662,11 +662,11 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
                         }
 
                         if (jsonObject.getInt("download_count") != 0) {
-                            if (jsonObject.getInt("download_count")>99){
+                            if (jsonObject.getInt("download_count") > 99) {
 
                                 tvDownloadCount.setVisibility(View.VISIBLE);
                                 tvDownloadCount.setText("99+");
-                            }else{
+                            } else {
                                 tvDownloadCount.setVisibility(View.VISIBLE);
                                 tvDownloadCount.setText(String.valueOf(jsonObject.getInt("download_count")));
                             }
@@ -696,7 +696,7 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
         });
     }
 
-    private void showSnackBar(View v){
+    private void showSnackBar(View v) {
         Snackbar snackBar = Snackbar
                 .make(v, "Please first login", Snackbar.LENGTH_LONG)
                 .setAction("SIGN IN", new View.OnClickListener() {

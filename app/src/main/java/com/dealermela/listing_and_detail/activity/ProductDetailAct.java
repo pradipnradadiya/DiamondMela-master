@@ -456,6 +456,9 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
                     tvPendentHeading.setVisibility(View.GONE);
                 }
 
+
+
+
                 ImageSliderAdapter imageSliderAdapter = new ImageSliderAdapter(ProductDetailAct.this, response.body().getSlider());
                 cImageUrl = response.body().getSlider().get(0);
                 viewPagerSlider.setAdapter(imageSliderAdapter);
@@ -919,6 +922,7 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
                     tvMetalWeightApprox.setText(response.body().getMetaldetails().get(0).getMetalweight());
                     tvMetalEstimatedTotal.setText(AppConstants.RS + String.valueOf(response.body().getMetaldetails().get(0).getMetalestimatedprice()));
                     linProgress.setVisibility(View.GONE);
+
                     if (productCategoryId.equalsIgnoreCase(AppConstants.COLLECTION_ID) || productCategoryId.equalsIgnoreCase(AppConstants.RUBBER_ID)) {
                         relBelt.setVisibility(View.VISIBLE);
                         viewBelt.setVisibility(View.VISIBLE);

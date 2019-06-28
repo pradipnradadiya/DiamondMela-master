@@ -109,7 +109,6 @@ public class DownloadAct extends DealerMelaBaseActivity implements View.OnClickL
         gridLayout = new GridLayoutManager(DownloadAct.this, 1);
         gridLayout.setOrientation(LinearLayoutManager.VERTICAL);
         recycleViewDownloadProducts.setLayoutManager(gridLayout);
-
     }
 
     @Override
@@ -333,9 +332,7 @@ public class DownloadAct extends DealerMelaBaseActivity implements View.OnClickL
 
     private void downloadAllProduct(String customerId, String productId) {
         //show progress
-        hud = KProgressHUD.create(DownloadAct.this)
-                .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE);
-        hud.show();
+        showProgressDialog("Download Product", "Please wait product image is downloading.");
         AppLogger.e("customerId", customerId);
         AppLogger.e("productId", productId);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
@@ -345,7 +342,7 @@ public class DownloadAct extends DealerMelaBaseActivity implements View.OnClickL
             public void onResponse(@NonNull Call<JsonObject> call, @NonNull Response<JsonObject> response) {
                 assert response.body() != null;
                 AppLogger.e(AppConstants.RESPONSE, "---------" + response.body());
-                hud.dismiss();
+               hideProgressDialog();
                 try {
                     JSONObject jsonObject = new JSONObject(response.body().toString());
                     if (jsonObject.getString("status").equalsIgnoreCase(AppConstants.STATUS_CODE_SUCCESS)) {
@@ -356,10 +353,10 @@ public class DownloadAct extends DealerMelaBaseActivity implements View.OnClickL
 
                         JSONArray jsonArray = jsonObject.getJSONArray("image");
                         // Call this method in a loop to DOwnLoad Multiple Images.
-
-                        for (int i = 0; i < jsonArray.length() - 1; i++) {
+                        AppLogger.e("length", "" + (jsonArray.length()));
+                        for (int i = 0; i < jsonArray.length(); i++) {
                             AppLogger.e("image", jsonArray.get(i).toString());
-                            AppLogger.e("length", "" + (jsonArray.length() - 1));
+
                             AppLogger.e("i", "" + i);
                             new DownloadImages(DownloadAct.this, jsonArray.get(i).toString(), photoPictureDirectoryPath);
                             if (i == jsonArray.length() - 2) {
@@ -439,8 +436,11 @@ public class DownloadAct extends DealerMelaBaseActivity implements View.OnClickL
         }
 
         if (listString.toString().equals("")) {
-            CommonUtils.showToast(DownloadAct.this, "Please select at least one item after download all.");
+            downloadAllProduct(customerId, "");
+//            CommonUtils.showToast(DownloadAct.this, "Please select at least one item after download all.");
         } else {
+            listString.deleteCharAt(listString.length() - 1);
+            AppLogger.e("list string","----------"+listString);
             downloadAllProduct(customerId, listString.toString());
         }
 

@@ -1,6 +1,7 @@
 package com.dealermela.other.activity;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
@@ -13,6 +14,7 @@ import android.widget.Button;
 
 import com.dealermela.DealerMelaBaseActivity;
 import com.dealermela.R;
+import com.dealermela.listing_and_detail.activity.ListAct;
 import com.dealermela.listing_and_detail.activity.ProductDetailAct;
 import com.dealermela.retrofit.APIClient;
 import com.dealermela.retrofit.ApiInterface;
@@ -21,6 +23,7 @@ import com.dealermela.util.AppLogger;
 import com.dealermela.util.CommonUtils;
 import com.dealermela.util.Validator;
 import com.google.gson.JsonObject;
+import com.ligl.android.widget.iosdialog.IOSDialog;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,6 +33,8 @@ import java.util.Objects;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.dealermela.home.activity.MainActivity.customerId;
 
 public class ContactUsAct extends DealerMelaBaseActivity implements View.OnClickListener {
 
@@ -144,6 +149,7 @@ public class ContactUsAct extends DealerMelaBaseActivity implements View.OnClick
                 boolean valid = validateData();
                 if (valid) {
                     AppLogger.e("valid", "-------");
+                    addContactUs(Objects.requireNonNull(edName.getText()).toString(),edComment.getText().toString(),edEmail.getText().toString());
                 } else {
                     AppLogger.e("not valid", "-------");
                 }
@@ -152,7 +158,7 @@ public class ContactUsAct extends DealerMelaBaseActivity implements View.OnClick
     }
 
     private void addContactUs(String name, String comment, String email) {
-        showProgressDialog("Contact", "Item is adding to cart..");
+        showProgressDialog("Contact", "Please wait..");
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<JsonObject> callApi = apiInterface.contactUs(name,comment,email);
         callApi.enqueue(new Callback<JsonObject>() {
@@ -166,6 +172,24 @@ public class ContactUsAct extends DealerMelaBaseActivity implements View.OnClick
                     JSONObject jsonObject = new JSONObject(response.body().toString());
                     if (jsonObject.getString("status").equalsIgnoreCase(AppConstants.STATUS_CODE_SUCCESS)) {
 
+                        new IOSDialog.Builder(ContactUsAct.this)
+                                .setTitle("Success")
+                                .setMessage(jsonObject.getString("message"))
+                                .setCancelable(false)
+                                .setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+
+                                        edName.setText("");
+                                        edComment.setText("");
+                                        edEmail.setText("");
+
+
+
+                                    }
+                                })
+                                .show();
                     }
 
                 } catch (JSONException e) {

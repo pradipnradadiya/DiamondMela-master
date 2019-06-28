@@ -108,15 +108,18 @@
             <com.dealermela.utility.DmlButton
                 android:id="@+id/btnSave"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/thirty_five_sp"
                 android:text="@string/save"
+                android:background="@drawable/ten_size_black_button_round"
+
                 android:textColor="@color/white" />
 
             <com.dealermela.utility.DmlButton
                 android:id="@+id/btnCancel"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/thirty_five_sp"
                 android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:background="@drawable/ten_size_black_button_round"
                 android:text="@string/cancel"
                 android:textColor="@color/white" />
 

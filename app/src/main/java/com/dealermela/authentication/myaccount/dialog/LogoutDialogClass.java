@@ -64,7 +64,6 @@ public class LogoutDialogClass extends Dialog implements android.view.View.OnCli
     }
 
 
-
 //    used
 //    CustomDialogClass cdd=new CustomDialogClass(Values.this);
 //cdd.show();

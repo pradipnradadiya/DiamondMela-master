@@ -216,7 +216,6 @@ public class RTSRecyclerAdapter extends RecyclerView.Adapter<RTSRecyclerAdapter.
             ((ProductDetailAct) activity).rtsClick(itemArrayList.get(getAdapterPosition()).getEntityId());
             ((ProductDetailAct) activity).tvColorGold.setText(itemArrayList.get(getAdapterPosition()).getMetalQualityValue());
 
-
             notifyDataSetChanged();
         }
 
