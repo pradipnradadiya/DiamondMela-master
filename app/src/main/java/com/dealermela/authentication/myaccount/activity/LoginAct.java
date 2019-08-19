@@ -163,7 +163,7 @@ public class LoginAct extends DealerMelaBaseActivity implements View.OnClickList
 
 
                 } else if (response.body().getStatus().equalsIgnoreCase(AppConstants.STATUS_CODE_FAILED)) {
-                    CommonUtils.showToast(LoginAct.this, getString(R.string.login_invalid_unm_pwd));
+                    CommonUtils.showErrorToast(LoginAct.this, getString(R.string.login_invalid_unm_pwd));
                     AppLogger.e(AppConstants.RESPONSE, "-----------------" + response.body().getStatus());
                 } else {
                     AppLogger.e(AppConstants.RESPONSE, "-----------------" + response.body().getStatus());
@@ -195,7 +195,7 @@ public class LoginAct extends DealerMelaBaseActivity implements View.OnClickList
                     JSONObject jsonObject = new JSONObject(response.body().toString());
                     if (jsonObject.getString("status").equalsIgnoreCase(AppConstants.STATUS_CODE_SUCCESS)) {
 
-                        CommonUtils.showToast(LoginAct.this, "Item added in cart.");
+                        CommonUtils.showSuccessToast(LoginAct.this, "Item added in cart.");
 //                        cartCount++;
 //                        setupBadge();
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
@@ -11,7 +12,8 @@
         android:id="@+id/linBank"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/tilBankName"
@@ -111,7 +113,6 @@
                 android:layout_height="@dimen/thirty_five_sp"
                 android:text="@string/save"
                 android:background="@drawable/ten_size_black_button_round"
-
                 android:textColor="@color/white" />
 
             <com.dealermela.utility.DmlButton

@@ -360,7 +360,7 @@ public class DownloadAct extends DealerMelaBaseActivity implements View.OnClickL
                             AppLogger.e("i", "" + i);
                             new DownloadImages(DownloadAct.this, jsonArray.get(i).toString(), photoPictureDirectoryPath);
                             if (i == jsonArray.length() - 2) {
-                                CommonUtils.showToast(DownloadAct.this, "All image saved in gallery");
+                                CommonUtils.showSuccessToast(DownloadAct.this, "All image saved in gallery");
                             }
                         }
 

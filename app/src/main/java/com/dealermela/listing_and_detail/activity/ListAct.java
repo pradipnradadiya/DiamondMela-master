@@ -189,7 +189,7 @@ public class ListAct extends DealerMelaBaseActivity implements View.OnClickListe
                     }
                 }
                 if (stringBuilder.toString().equals("")) {
-                    CommonUtils.showToast(ListAct.this, "Loaded Product is already downloaded, scroll down and download.");
+                    CommonUtils.showWarningToast(ListAct.this, "Loaded Product is already downloaded, scroll down and download.");
                 } else {
                     new IOSDialog.Builder(ListAct.this)
                             .setTitle("Download Product")

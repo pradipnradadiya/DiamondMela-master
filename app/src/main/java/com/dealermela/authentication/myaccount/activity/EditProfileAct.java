@@ -249,7 +249,7 @@ public class EditProfileAct extends DealerMelaBaseActivity implements View.OnCli
                                 });
                         alertDialog.show();*/
                     } else {
-                        CommonUtils.showToast(EditProfileAct.this, message);
+                        CommonUtils.showErrorToast(EditProfileAct.this, message);
                     }
 
                 }

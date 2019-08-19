@@ -574,7 +574,7 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
             }
 
             this.doubleBackToExitPressedOnce = true;
-            CommonUtils.showToast(MainActivity.this, getString(R.string.double_back));
+            CommonUtils.showWarningToast(MainActivity.this, getString(R.string.double_back));
 
             new Handler().postDelayed(new Runnable() {
                 @Override

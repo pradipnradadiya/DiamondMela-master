@@ -182,7 +182,7 @@ public class CreateReferralAct extends DealerMelaBaseActivity implements View.On
                 boolean valid = validateCreateReferral();
                 if (valid) {
                     if (spinnerDiscount.getSelectedItem() == "Select Discount") {
-                        CommonUtils.showToast(CreateReferralAct.this, "Please select discount.");
+                        CommonUtils.showWarningToast(CreateReferralAct.this, "Please select discount.");
                     } else {
                         addReferral("0", Objects.requireNonNull(edFnm.getText()).toString(), Objects.requireNonNull(edLnm.getText()).toString(), Objects.requireNonNull(edEmail.getText()).toString(), "5", password, spinnerDiscount.getSelectedItem().toString(), loginResponse.getData().getEntityId(), Objects.requireNonNull(edTelephone.getText()).toString(), "customer", "0");
                     }

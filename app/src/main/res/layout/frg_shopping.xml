@@ -87,7 +87,8 @@
                         android:id="@+id/tvSubTotal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true" />
+                        android:layout_alignParentEnd="true"
+                        tools:ignore="RelativeOverlap" />
 
                 </RelativeLayout>
 
@@ -105,7 +106,8 @@
                         android:id="@+id/tvTax"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true" />
+                        android:layout_alignParentEnd="true"
+                        tools:ignore="RelativeOverlap" />
 
                 </RelativeLayout>
 
@@ -125,7 +127,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:ignore="RelativeOverlap" />
 
                 </RelativeLayout>
 
@@ -153,7 +156,8 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/btnContinue"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="DisableBaselineAlignment">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -164,19 +168,19 @@
             android:padding="5sp">
 
             <com.dealermela.utility.DmlImageView
+                style="@style/imgTint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/imgTint"
                 android:src="@drawable/gift_ic" />
 
             <com.dealermela.utility.DmlTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5sp"
+                android:layout_marginTop="@dimen/five_dp"
                 android:gravity="center"
                 android:lines="2"
-                android:text="30 day\n Return"
-                android:textSize="8sp" />
+                android:text="@string/_30_day_n_return"
+                android:textSize="@dimen/eight_sp" />
 
         </LinearLayout>
 
@@ -189,11 +193,10 @@
             android:padding="5sp">
 
             <com.dealermela.utility.DmlImageView
+                style="@style/imgTint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/gift_ic"
-                style="@style/imgTint"
-                />
+                android:src="@drawable/gift_ic" />
 
             <com.dealermela.utility.DmlTextView
                 android:layout_width="wrap_content"
@@ -201,8 +204,8 @@
                 android:layout_marginTop="5sp"
                 android:gravity="center"
                 android:lines="2"
-                android:text="100%\n Refund"
-                android:textSize="8sp" />
+                android:text="@string/_100_n_refund"
+                android:textSize="@dimen/eight_sp" />
 
         </LinearLayout>
 
@@ -215,19 +218,19 @@
             android:padding="5sp">
 
             <com.dealermela.utility.DmlImageView
+                style="@style/imgTint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/imgTint"
                 android:src="@drawable/gift_ic" />
 
             <com.dealermela.utility.DmlTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5sp"
+                android:layout_marginTop="@dimen/five_dp"
                 android:gravity="center"
                 android:lines="2"
-                android:text="Free\n Shipping"
-                android:textSize="8sp" />
+                android:text="@string/free_n_shipping"
+                android:textSize="@dimen/eight_sp" />
 
         </LinearLayout>
 
@@ -240,19 +243,19 @@
             android:padding="5sp">
 
             <com.dealermela.utility.DmlImageView
+                style="@style/imgTint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/imgTint"
                 android:src="@drawable/gift_ic" />
 
             <com.dealermela.utility.DmlTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5sp"
+                android:layout_marginTop="@dimen/five_dp"
                 android:gravity="center"
                 android:lines="2"
-                android:text="Lifetime\n Exchange"
-                android:textSize="8sp" />
+                android:text="@string/lifetime_n_exchange"
+                android:textSize="@dimen/eight_sp" />
 
         </LinearLayout>
 
@@ -265,19 +268,19 @@
             android:padding="5sp">
 
             <com.dealermela.utility.DmlImageView
+                style="@style/imgTint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/imgTint"
                 android:src="@drawable/gift_ic" />
 
             <com.dealermela.utility.DmlTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5sp"
+                android:layout_marginTop="@dimen/five_dp"
                 android:gravity="center"
                 android:lines="2"
-                android:text="Certified\n Jewellery"
-                android:textSize="8sp" />
+                android:text="@string/certified_n_jewellery"
+                android:textSize="@dimen/eight_sp" />
 
         </LinearLayout>
 
@@ -288,8 +291,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/dml_logo_color"
-        android:text="Proceed To Checkout"
         android:enabled="false"
+        android:text="@string/proceed_to_checkout"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -298,17 +301,17 @@
     <ProgressBar
         android:id="@+id/progressBarCart"
         style="?android:attr/progressBarStyle"
-        android:theme="@style/progressBarColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:theme="@style/progressBarColor"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/btnContinue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
@@ -342,7 +345,7 @@
             android:gravity="center"
             android:letterSpacing="0.03"
             android:lines="1"
-            android:text="Cart is empty"
+            android:text="@string/cart_is_empty"
             android:textSize="@dimen/sixteen_sp" />
 
         <com.dealermela.utility.DmlTextView

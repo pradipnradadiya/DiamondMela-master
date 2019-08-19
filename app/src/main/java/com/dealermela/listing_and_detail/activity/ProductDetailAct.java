@@ -600,7 +600,11 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
 
                 tvDiamondPiecesTitle.setText("Diamond (" + response.body().getDiamondmainprice().get(0).getPices() + ")");
                 tvDiamondPrice.setText(AppConstants.RS + CommonUtils.rupeeFormat(response.body().getDiamondmainprice().get(0).getDimondprice()));
-                tvEstimatedTotalValue.setText(AppConstants.RS + CommonUtils.rupeeFormat(response.body().getDiamondmainprice().get(0).getDimondprice()));
+                try {
+                    tvEstimatedTotalValue.setText(AppConstants.RS + CommonUtils.rupeeFormat(response.body().getDiamondmainprice().get(0).getDimondprice()));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 tvMetalPurity.setText(response.body().getMetaldetails().get(0).getMetalquality());
                 tvMetalWeightApprox.setText(response.body().getMetaldetails().get(0).getMetalweight());
 
@@ -961,7 +965,7 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
             cursor = databaseCartAdapter.findRecordCheck(cProductId);
             if (cursor.getCount() > 0) {
                 AppLogger.e("Record", "-------Found");
-                CommonUtils.showToast(ProductDetailAct.this, "Product is already in cart");
+                CommonUtils.showWarningToast(ProductDetailAct.this, "Product is already in cart");
             } else {
                 AppLogger.e("Record", "-------Not found");
                 if (productType.equalsIgnoreCase("simple")) {
@@ -1090,7 +1094,7 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
                 try {
                     JSONObject jsonObject = new JSONObject(response.body().toString());
                     if (jsonObject.getString("status").equalsIgnoreCase(AppConstants.STATUS_CODE_SUCCESS)) {
-                        CommonUtils.showToast(ProductDetailAct.this, "Item added in cart.");
+                        CommonUtils.showSuccessToast(ProductDetailAct.this, "Item added in cart.");
                         cartCount++;
                         setupBadge();
                     }

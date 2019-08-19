@@ -154,7 +154,7 @@ public class MyStockRecyclerAdapter extends RecyclerView.Adapter<MyStockRecycler
                 try {
                     JSONObject jsonObject = new JSONObject(response.body().toString());
                     if (jsonObject.getString("status").equalsIgnoreCase(AppConstants.STATUS_CODE_SUCCESS)) {
-                        CommonUtils.showToast(activity, jsonObject.getString("message"));
+                        CommonUtils.showSuccessToast(activity, jsonObject.getString("message"));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

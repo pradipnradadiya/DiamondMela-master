@@ -37,7 +37,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/banner_heightPr"
+                android:layout_height="@dimen/banner_height"
                 android:layout_marginTop="@dimen/ten_sp"
                 android:visibility="visible">
 

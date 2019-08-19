@@ -246,5 +246,16 @@
     <string name="diamondmela_is_currently_down_for_maintenance">Diamondmela is currently down for maintenance.</string>
     <string name="we_expect_to_be_back_in_a_couple_hours_thanks_for_your_patence">We expect to be back in a couple hours, Thanks for your patence.</string>
     <string name="filter_order">Filter Order</string>
+    <string name="close_text">Close</string>
+    <string name="stock_n_in">Stock  In</string>
+    <string name="sold_n_out">Sold  out</string>
+    <string name="_30_day_n_return">30 day  Return</string>
+    <string name="_100_n_refund">100%  Refund</string>
+    <string name="free_n_shipping">Free  Shipping</string>
+    <string name="lifetime_n_exchange">Lifetime  Exchange</string>
+    <string name="certified_n_jewellery">Certified  Jewellery</string>
+    <string name="proceed_to_checkout">Proceed To Checkout</string>
+    <string name="cart_is_empty">Cart is empty</string>
+    <string name="submit">Submit</string>
 
 </resources>

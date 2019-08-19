@@ -73,8 +73,6 @@ public class RTSRecyclerAdapter extends RecyclerView.Adapter<RTSRecyclerAdapter.
                     ((ProductDetailAct) activity).cStoneDetail = rtsSlider.getRtsStoneQuality();
                     ((ProductDetailAct) activity).cStoneWeight = String.valueOf(rtsSlider.getDiamondWeight());
                     ((ProductDetailAct) activity).cPrice = rtsSlider.getCustomPrice();
-
-
                     ((ProductDetailAct) activity).rtsClick(rtsSlider.getEntityId());
                 }
             }

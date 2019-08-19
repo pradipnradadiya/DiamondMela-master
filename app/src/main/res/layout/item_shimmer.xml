@@ -5,12 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="horizontal"
-    android:layout_marginRight="@dimen/eight_sp"
+    android:layout_marginEnd="@dimen/eight_sp"
     android:layout_height="wrap_content">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <RelativeLayout
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content">
@@ -30,7 +28,7 @@
                 android:background="@drawable/shimmer_drawable"
 
 
-                >
+                tools:ignore="UselessParent">
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -147,7 +145,7 @@
             android:layout_marginTop="@dimen/five_sp"
             android:background="@drawable/left_round_green"
             android:padding="@dimen/eight_sp"
-            android:text="Stock\n In"
+            android:text="@string/stock_n_in"
             android:textAlignment="center"
             android:textColor="?login_signup_text_color"
             android:textSize="@dimen/eight_sp"
@@ -161,7 +159,7 @@
             android:layout_marginTop="@dimen/five_sp"
             android:background="@drawable/left_round_red"
             android:padding="@dimen/eight_sp"
-            android:text="Sold\n out"
+            android:text="@string/sold_n_out"
             android:textAlignment="center"
             android:textColor="?login_signup_text_color"
             android:textSize="@dimen/eight_sp"
@@ -169,9 +167,7 @@
 
     </RelativeLayout>
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <RelativeLayout
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content">
@@ -191,7 +187,7 @@
                 android:background="@drawable/shimmer_drawable"
 
 
-                >
+                tools:ignore="UselessParent">
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -313,7 +309,7 @@
             android:layout_marginTop="@dimen/five_sp"
             android:background="@drawable/left_round_green"
             android:padding="@dimen/eight_sp"
-            android:text="Stock\n In"
+            android:text="@string/stock_n_in"
             android:textAlignment="center"
             android:textColor="?login_signup_text_color"
             android:textSize="@dimen/eight_sp"
@@ -328,7 +324,7 @@
             android:layout_marginTop="@dimen/five_sp"
             android:background="@drawable/left_round_red"
             android:padding="@dimen/eight_sp"
-            android:text="Sold\n out"
+            android:text="@string/sold_n_out"
             android:textAlignment="center"
             android:textColor="?login_signup_text_color"
             android:textSize="@dimen/eight_sp"

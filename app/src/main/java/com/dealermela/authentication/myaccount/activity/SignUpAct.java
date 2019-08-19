@@ -336,7 +336,7 @@ public class SignUpAct extends DealerMelaBaseActivity implements View.OnClickLis
 //                                CommonUtils.showToast(SignUpAct.this,"Please select state.");
 //                            }else {
                             if (spinnerState.getSelectedItem() == "Select State") {
-                                CommonUtils.showToast(SignUpAct.this, "Please select state.");
+                                CommonUtils.showInfoToast(SignUpAct.this, "Please select state.");
                             } else {
 
                                 AppLogger.e("state id","---------"+stateId);
@@ -360,7 +360,7 @@ public class SignUpAct extends DealerMelaBaseActivity implements View.OnClickLis
                             }
                         }
                     } else {
-                        CommonUtils.showToast(SignUpAct.this, "Please check the terms & condition. ");
+                        CommonUtils.showInfoToast(SignUpAct.this, "Please check the terms & condition. ");
                     }
 
                 }

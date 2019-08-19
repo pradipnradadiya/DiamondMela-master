@@ -199,7 +199,7 @@ public class PopularRecyclerAdapter extends RecyclerView.Adapter<PopularRecycler
                 try {
                     JSONObject jsonObject = new JSONObject(response.body().toString());
                     if (jsonObject.getString("status").equalsIgnoreCase(AppConstants.STATUS_CODE_SUCCESS)) {
-                        CommonUtils.showToast(activity, "Product added in download list");
+                        CommonUtils.showSuccessToast(activity, "Product added in download list");
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

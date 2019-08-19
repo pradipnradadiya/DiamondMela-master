@@ -81,7 +81,9 @@ public abstract class DealerMelaBaseActivity extends AppCompatActivity implement
             setTheme(R.style.WhiteTheme_FullScreen);
         }
         Fresco.initialize(this);
+
         setContentView(getLayoutResourceId());
+
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         if (NetworkUtils.isNetworkConnected(DealerMelaBaseActivity.this)) {

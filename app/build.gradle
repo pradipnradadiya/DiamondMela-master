@@ -12,6 +12,7 @@ apply plugin: 'io.fabric'
 
 repositories {
     maven { url 'https://maven.fabric.io/public' }
+    maven { url "https://jitpack.io" }
 }
 
 
@@ -86,6 +87,9 @@ dependencies {
     implementation 'com.facebook.shimmer:shimmer:0.4.0'
 
     implementation 'com.itlgl:iosdialog:1.0.1'
+
+    //Material Toast message
+    implementation 'com.github.GrenderG:Toasty:1.4.2'
 
 
 }

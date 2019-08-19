@@ -274,7 +274,7 @@ public class BankRecyclerAdapter extends RecyclerView.Adapter<BankRecyclerAdapte
                                 });
                         alertDialog.show();
                     } else {
-                        CommonUtils.showToast(activity, message);
+                        CommonUtils.showErrorToast(activity, message);
                     }
 
                 }

@@ -125,7 +125,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/eight_sp"
         android:layout_marginEnd="@dimen/eight_sp"
-        android:text="1"
         app:layout_constraintBottom_toBottomOf="@+id/tvRemove"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout6"
         app:layout_constraintStart_toEndOf="@+id/viewCenter"

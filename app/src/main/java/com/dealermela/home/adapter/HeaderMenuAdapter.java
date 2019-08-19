@@ -43,7 +43,6 @@ public class HeaderMenuAdapter extends RecyclerView.Adapter<HeaderMenuAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int i) {
 
-
         Glide.with(activity)
                 .load(itemArrayList.get(i).getIconImg())
                 .apply(new RequestOptions().placeholder(R.drawable.dml_logo).error(R.drawable.dml_logo))

@@ -92,7 +92,7 @@ public class DownloadProductAdapter extends RecyclerView.Adapter<DownloadProduct
         holder.imgDeleteFlag.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CommonUtils.showToast(activity, "Already Downloaded.");
+                CommonUtils.showWarningToast(activity, "Already Downloaded.");
             }
         });
 
@@ -334,7 +334,7 @@ public class DownloadProductAdapter extends RecyclerView.Adapter<DownloadProduct
 
                             DownloadManager manager = (DownloadManager) activity.getSystemService(Context.DOWNLOAD_SERVICE);
                             manager.enqueue(request);
-                            CommonUtils.showToast(activity, "Image Download in Gallery");
+                            CommonUtils.showSuccessToast(activity, "Image Download in Gallery");
 
                             itemArrayList.get(position).setFlag("0");
                             notifyItemChanged(position);

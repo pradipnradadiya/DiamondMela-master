@@ -39,9 +39,12 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.Random;
 
+import es.dmoral.toasty.Toasty;
+
 public final class CommonUtils {
     @SuppressLint("SimpleDateFormat")
     private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
     private static final String ALLOWED_CHARACTERS = AppConstants.RANDOM_STR;
 
     public static String rupeeFormat(String value) {
@@ -76,7 +79,6 @@ public final class CommonUtils {
         from.finishAffinity();
     }
 
-
     //String encode
     public static String encodeEmoji(String message) {
         try {
@@ -86,7 +88,6 @@ public final class CommonUtils {
             return message;
         }
     }
-
 
     //String decode
     public static String decodeEmoji(String message) {
@@ -98,7 +99,6 @@ public final class CommonUtils {
             return message;
         }
     }
-
 
     public static Date convert_date(String date) {
         Date mDate = null;
@@ -114,7 +114,6 @@ public final class CommonUtils {
         Calendar cal = Calendar.getInstance();
         return sdf.format(cal.getTime());
     }
-
 
     public static String getRandomString(final int sizeOfRandomString) {
         final Random random = new Random();
@@ -133,6 +132,26 @@ public final class CommonUtils {
         view1.setBackgroundResource(R.color.green);
 //        view1.setTextColor(Color.WHITE);
         toast.show();
+
+    }
+
+    public static void showSuccessToast(Context context, String message) {
+        Toasty.success(context, message, Toast.LENGTH_LONG, true).show();
+
+    }
+
+    public static void showErrorToast(Context context, String message) {
+        Toasty.error(context, message, Toast.LENGTH_LONG, true).show();
+
+    }
+
+    public static void showInfoToast(Context context, String message) {
+        Toasty.info(context, message, Toast.LENGTH_LONG, true).show();
+
+    }
+
+    public static void showWarningToast(Context context, String message) {
+        Toasty.warning(context, message, Toast.LENGTH_LONG, true).show();
 
     }
 
@@ -272,7 +291,6 @@ public final class CommonUtils {
         }
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
-
 
     //character capital of white space
     public static String capitalizeString(String string) {

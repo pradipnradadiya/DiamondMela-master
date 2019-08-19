@@ -150,7 +150,7 @@ public class ChangePasswordDialogClass extends Dialog implements View.OnClickLis
 
 
                     } else {
-                        CommonUtils.showToast(activity, message);
+                        CommonUtils.showErrorToast(activity, message);
                     }
 
 
