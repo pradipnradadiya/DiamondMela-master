@@ -137,7 +137,6 @@ public final class CommonUtils {
 
     public static void showSuccessToast(Context context, String message) {
         Toasty.success(context, message, Toast.LENGTH_LONG, true).show();
-
     }
 
     public static void showErrorToast(Context context, String message) {

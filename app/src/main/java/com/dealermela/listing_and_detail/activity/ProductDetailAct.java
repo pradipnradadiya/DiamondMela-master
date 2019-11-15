@@ -170,7 +170,7 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
 
     @Override
     public void initView() {
-        bindToolBar("");
+        bindToolBar("Detail Page");
         relBelt = findViewById(R.id.relBelt);
         tvBeltPrice = findViewById(R.id.tvBeltPrice);
         viewBelt = findViewById(R.id.viewBelt);
@@ -582,7 +582,7 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
                 }
                 //Product Detail
                 tvProductName.setText(response.body().getProductDetails().get(0).getProductName());
-                bindToolBar(response.body().getProductDetails().get(0).getProductName());
+               // bindToolBar(response.body().getProductDetails().get(0).getProductName());
                 tvSku.setText(response.body().getProductDetails().get(0).getSku());
                 cSku = response.body().getProductDetails().get(0).getSku();
                 tvCertificateNo.setText(response.body().getProductDetails().get(0).getCertificateNo());

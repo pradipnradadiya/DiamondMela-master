@@ -498,8 +498,10 @@ public class ListAct extends DealerMelaBaseActivity implements View.OnClickListe
         listingRecyclerAdapter = new ListingRecyclerAdapter(ListAct.this, itemArrayList);
         recycleViewListing.setAdapter(listingRecyclerAdapter);
         if (sharedPreferences.getLoginData().equalsIgnoreCase("")) {
+            AppLogger.e("sort by if", "-----------" + sort_by);
             getCategoryProduct(id, "", String.valueOf(page_count), price, gold_purity, diamond_quality, diamond_shape, sku, availability, sort_by);
         } else {
+            AppLogger.e("sort by else ", "-----------" + sort_by);
             getCategoryProduct(id, loginResponse.getData().getGroupId(), String.valueOf(page_count), price, gold_purity, diamond_quality, diamond_shape, sku, availability, sort_by);
         }
 

@@ -73,7 +73,6 @@ public interface ApiInterface {
     @GET("routers/")
     Call<LoginResponse> getResponseData();
 
-
     //    Get All Country
     @GET("dmlapi/customers/getallcountrylist/")
     Call<CountryResponse> getCountry();
