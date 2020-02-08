@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:shimmer="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -46,7 +46,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sort_by"
-
                 />
 
         </LinearLayout>
@@ -70,8 +69,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/filter"
-
                 />
+
+            <com.dealermela.utility.DmlTextView
+                android:id="@+id/tvCount"
+                style="@style/circle_text_drawer"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:textSize="8sp"
+                android:visibility="gone" />
 
         </LinearLayout>
 
@@ -114,10 +120,8 @@
                 android:id="@+id/parentShimmerLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:shimmer_duration="1000"
                 android:layout_gravity="center"
-
-                >
+                app:shimmer_duration="1000">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -129,6 +133,7 @@
                     <include layout="@layout/item_shimmer" />
 
                     <include layout="@layout/item_shimmer" />
+
                 </LinearLayout>
 
             </com.facebook.shimmer.ShimmerFrameLayout>
@@ -144,11 +149,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_above="@+id/progressBottom"
-                    android:visibility="gone"
+                    android:visibility="gone" />
 
-                    />
             </android.support.v4.widget.SwipeRefreshLayout>
-
 
             <ProgressBar
                 android:id="@+id/progressBottom"

@@ -4,17 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-
     <RadioButton
         android:id="@+id/radioFilter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:clickable="false"
-        android:buttonTint="?toolbarTextColor"
-        android:textColor="?toolbarTextColor"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp" />
-
+        android:layout_marginEnd="8dp"
+        android:button="@drawable/filter_radio_button"
+        android:buttonTint="?toolbarTextColor"
+        android:clickable="false"
+        android:textColor="?toolbarTextColor" />
 
 </LinearLayout>

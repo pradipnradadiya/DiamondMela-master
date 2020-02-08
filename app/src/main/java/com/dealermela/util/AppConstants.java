@@ -1,10 +1,15 @@
 package com.dealermela.util;
 
+import android.app.Activity;
+
+import com.dealermela.R;
+
 public final class AppConstants {
     //    API base url
-    public static final String BASE_URL = "http://www.diamondmela.com/";
-//    public static final String BASE_URL = "http://123.108.51.11/index.php/";
-
+//    public static final String BASE_URL = "http://www.diamondmela.com/";
+    public static final String BASE_URL = "http://123.108.51.11/index.php/";
+    public static final String BASE_URL_LARAVEL = "http://203.112.144.109/dmlsoftwaretest/";
+    public static final String INVENTORY_IMAGE = "http://203.112.144.7/media/catalog/product";
     public static final String IMAGE_URL = "http://www.diamondmela.com/media/";
 //    public static final String IMAGE_URL = "http://123.108.51.11/media/";
 
@@ -22,6 +27,7 @@ public final class AppConstants {
 
     public static final String STATUS_CODE_SUCCESS = "success";
     public static final String STATUS_CODE_FAILED = "failure";
+    public static final String STATUS_CODE_FAIL = "fail";
 
     public static final String MY_PREF = "MyPrefs";
     public static final String WHITE_THEME = "whiteTheme";
@@ -59,5 +65,6 @@ public final class AppConstants {
     public static final String bannerListCheck="banner";
     public static final String USER_NAME="dealermela";
     public static final String PASSWORD="4FgTc&8mbv\"D$6eW";
+    public static final String PLEASE_WAIT = "Please wait";
 
 }

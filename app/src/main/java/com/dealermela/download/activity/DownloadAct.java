@@ -332,7 +332,7 @@ public class DownloadAct extends DealerMelaBaseActivity implements View.OnClickL
 
     private void downloadAllProduct(String customerId, String productId) {
         //show progress
-        showProgressDialog("Download Product", "Please wait product image is downloading.");
+        showProgressDialog(AppConstants.PLEASE_WAIT);
         AppLogger.e("customerId", customerId);
         AppLogger.e("productId", productId);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);

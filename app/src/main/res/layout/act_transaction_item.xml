@@ -20,6 +20,7 @@
             android:layout_height="50dp"
             android:layout_weight="0.01"
             android:background="?transaction_line_color" />
+
         <com.dealermela.utility.DmlTextView
             android:id="@+id/tvOrderId"
             style="@style/transaction_text"

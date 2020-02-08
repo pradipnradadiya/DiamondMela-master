@@ -74,7 +74,7 @@ public class SelectAddressAct extends DealerMelaBaseActivity implements View.OnC
     }
 
     private void getAddress(String customerId) {
-        showProgressDialog(getString(R.string.address), getString(R.string.please_wait));
+        showProgressDialog(AppConstants.PLEASE_WAIT);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<AddressManageResponse> callApi = apiInterface.getAllAddress(customerId);
         callApi.enqueue(new Callback<AddressManageResponse>() {

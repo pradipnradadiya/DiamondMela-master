@@ -13,6 +13,11 @@ import com.dealermela.home.model.BannerSliderItem;
 import com.dealermela.home.model.HeaderItem;
 import com.dealermela.home.model.MostSellingItem;
 import com.dealermela.home.model.PopularProductItem;
+import com.dealermela.inventary.model.InventoryActionItem;
+import com.dealermela.inventary.model.InventoryInvoiceItem;
+import com.dealermela.inventary.model.InventoryItem;
+import com.dealermela.inventary.model.InventoryPaymentItem;
+import com.dealermela.inventary.model.InventoryProductItem;
 import com.dealermela.listing_and_detail.model.FilterItem;
 import com.dealermela.listing_and_detail.model.ListingItem;
 import com.dealermela.listing_and_detail.model.ProductDetailItem;
@@ -30,7 +35,6 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
-import retrofit2.http.Query;
 
 public interface ApiInterface {
 
@@ -254,7 +258,6 @@ public interface ApiInterface {
     Call<JsonObject> deleteReferral(@Field("referral_customer_id") String referralCustomerId);
 
     //HOME
-
     //Banner Slider
     @GET("dmlapi/home/gethomeslider")
     Call<BannerSliderItem> getBannerImage();
@@ -309,13 +312,11 @@ public interface ApiInterface {
     @POST("dmlapi/product/getrtssliderdetails")
     Call<RTSItem> getRTSDetail(@Field("product_id") String productId);
 
-
     //DOWNLOAD
     //Download product list
     @FormUrlEncoded
     @POST("dmlapi/downloadproduct/downloadview/")
     Call<DownloadItem> getDownloadProductList(@Field("customer_id") String customerId, @Field("pagesize") String pageSize);
-
 
     //Download product add in download list
     @FormUrlEncoded
@@ -349,7 +350,6 @@ public interface ApiInterface {
     Call<JsonObject> downloadAllProductImage(@Field("customer_id") String customerId,
                                              @Field("product_ids") String productId,
                                              @Field("price") String price);
-
 
     //TRANSACTION
     @FormUrlEncoded
@@ -470,24 +470,62 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("dmlapi/product/search")
     Call<ListingItem> searchProduct(@Field("search_term") String searchTerm,
-                                         @Field("page") String page);
+                                    @Field("page") String page);
 
 
     //print order
     @FormUrlEncoded
     @POST("dmlapi/allorder/downloadpdf")
-    Call<JsonObject> printOrder(@Field("order_id") String order_id,@Field("customer_id") String customer_id,@Field("group_id") String group_id);
+    Call<JsonObject> printOrder(@Field("order_id") String order_id, @Field("customer_id") String customer_id, @Field("group_id") String group_id);
 
     //contact us
     @FormUrlEncoded
     @POST("dmlapi/home/contactus")
-    Call<JsonObject> contactUs(@Field("name") String name,@Field("comment") String comment,@Field("email") String email);
+    Call<JsonObject> contactUs(@Field("name") String name, @Field("comment") String comment, @Field("email") String email);
 
 
     //add to download
     @FormUrlEncoded
     @POST("dmlapi/downloadproduct/addtodownloadlisting/")
-    Call<JsonObject> addToDownloadProduct(@Field("product_ids") String product_ids,@Field("customer_id") String customer_id);
+    Call<JsonObject> addToDownloadProduct(@Field("product_ids") String product_ids, @Field("customer_id") String customer_id);
+
+
+    //**************************************Inventory***********************************************
+    @FormUrlEncoded
+    @POST("dmlapi/inventory/manageinventory")
+    Call<InventoryItem> getManageInventory(@Field("page") String page);
+
+
+    //get Inventory list
+    @FormUrlEncoded
+    @POST("public/api/inventoryactions")
+    Call<InventoryActionItem> inventoryAction(@Field("productIds") String productIds, @Field("price") String action);
+
+
+    //get invoice list
+    @FormUrlEncoded
+    @POST("public/api/getInvoiceList")
+    Call<InventoryInvoiceItem> getInvoiseList(@Field("page") String page, @Field("invoice_status") String invoice_status, @Field("search_value") String search_value, @Field("customer_id") String customer_id);
+
+    //get payment list
+    @FormUrlEncoded
+    @POST("public/api/getPaymentList")
+    Call<InventoryPaymentItem> getPaymentList(@Field("page") String page, @Field("customer_id") String customer_id);
+
+    //get product list
+    @FormUrlEncoded
+    @POST("public/api/getTryProductsList")
+    Call<InventoryProductItem> getTryProductsList(@Field("page") String page, @Field("customer_id") String customer_id,@Field("date") String date,@Field("submit_to_dml") String submitToDml);
+
+    //Try product Add
+    @FormUrlEncoded
+    @POST("public/api/StoreTryProduct")
+    Call<JsonObject> storeTryProduct(@Field("product_id") String page, @Field("customer_id") String customer_id);
+
+    //delete product from try list
+    @FormUrlEncoded
+    @POST("public/api/deleteProductFromTry")
+    Call<JsonObject> deleteProductFromTry(@Field("customer_id") String customer_id, @Field("product_id") String product_id);
 
 
 }

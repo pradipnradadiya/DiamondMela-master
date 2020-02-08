@@ -148,6 +148,10 @@ public final class CommonUtils {
         Toasty.info(context, message, Toast.LENGTH_LONG, true).show();
 
     }
+    public static void showInfoToastShort(Context context, String message) {
+        Toasty.info(context, message, Toast.LENGTH_SHORT, true).show();
+
+    }
 
     public static void showWarningToast(Context context, String message) {
         Toasty.warning(context, message, Toast.LENGTH_LONG, true).show();

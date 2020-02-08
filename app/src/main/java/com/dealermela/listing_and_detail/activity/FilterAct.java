@@ -1,9 +1,6 @@
 package com.dealermela.listing_and_detail.activity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -15,7 +12,6 @@ import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -25,9 +21,6 @@ import com.dealermela.R;
 import com.dealermela.listing_and_detail.adapter.FilterRecyclerAdapter;
 import com.dealermela.listing_and_detail.adapter.FilterTitleListAdapter;
 import com.dealermela.listing_and_detail.model.FilterItem;
-import com.dealermela.retrofit.APIClient;
-import com.dealermela.retrofit.ApiInterface;
-import com.dealermela.util.AppConstants;
 import com.dealermela.util.AppLogger;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -36,12 +29,9 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
-import java.util.Set;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import static com.dealermela.listing_and_detail.activity.ListAct.filterSelectItems;
+
 
 public class FilterAct extends DealerMelaBaseActivity implements View.OnClickListener {
     private ListView listViewFilter;
@@ -49,7 +39,8 @@ public class FilterAct extends DealerMelaBaseActivity implements View.OnClickLis
     private FilterRecyclerAdapter filterRecyclerAdapter;
     private RecyclerView recycleViewFilterData;
     private LinearLayoutManager linearLayoutManager;
-    private List<FilterItem.Datum> filterItems = new ArrayList<>();
+    //    public static List<FilterItem.Datum> filterItems = new ArrayList<>();
+//    private List<FilterItem.Datum> filterItems = new ArrayList<>();
     private EditText edText;
     private ImageView imgBack;
     private TextView tvReset;
@@ -62,6 +53,9 @@ public class FilterAct extends DealerMelaBaseActivity implements View.OnClickLis
     private ProgressBar progressBarFilter;
     private HorizontalScrollView hsView;
     private GridLayout linContainer;
+    private int pos = 0;
+    public static int filterCurrentPosition = 0;
+    private ArrayList<FilterItem.OptionDatum> selectFilterArray = new ArrayList<>();
 
     @Override
     protected int getLayoutResourceId() {
@@ -70,13 +64,11 @@ public class FilterAct extends DealerMelaBaseActivity implements View.OnClickLis
 
     @Override
     public void init() {
-        Gson gson=new Gson();
+        Gson gson = new Gson();
         Intent intent = getIntent();
-
-        Type listType = new TypeToken<List<FilterItem.Datum>>(){}.getType();
-        filterItems= gson.fromJson(intent.getStringExtra(AppConstants.NAME), listType);
-
-
+        Type listType = new TypeToken<List<FilterItem.Datum>>() {
+        }.getType();
+//        filterSelectItems= gson.fromJson(intent.getStringExtra(AppConstants.NAME), listType);
     }
 
     @Override
@@ -100,9 +92,9 @@ public class FilterAct extends DealerMelaBaseActivity implements View.OnClickLis
         recycleViewFilterData.setLayoutManager(linearLayoutManager);
 
 
-        if (mapFilter.isEmpty()){
+        if (mapFilter.isEmpty()) {
 
-        }else{
+        } else {
             bindSelectFilter();
         }
 
@@ -118,12 +110,13 @@ public class FilterAct extends DealerMelaBaseActivity implements View.OnClickLis
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 adapter.selectedPosition = position;
+                filterCurrentPosition = position;
                 adapter.notifyDataSetChanged();
 
                 if (adapter.items.get(position).getOption_type().equalsIgnoreCase("text")) {
                     edText.setVisibility(View.VISIBLE);
                     recycleViewFilterData.setVisibility(View.GONE);
-                    paramKey = filterItems.get(position).getOptionName();
+                    paramKey = filterSelectItems.get(position).getOptionName();
                     if (mapFilter.containsKey(paramKey)) {
                         //key exists
                         String key = mapFilter.get(paramKey);
@@ -132,27 +125,24 @@ public class FilterAct extends DealerMelaBaseActivity implements View.OnClickLis
                         //key does not exists
                         mapFilter.put(paramKey, "");
                         selectFilter.put(paramKey, "");
-
                     }
-
 
                 } else {
 
                     edText.setVisibility(View.GONE);
                     recycleViewFilterData.setVisibility(View.VISIBLE);
 
-                    paramKey = filterItems.get(position).getOptionName();
+                    paramKey = filterSelectItems.get(position).getOptionName();
                     if (mapFilter.containsKey(paramKey)) {
                         //key exists
                     } else {
                         //key does not exists
                         mapFilter.put(paramKey, "");
                     }
-                    filterRecyclerAdapter = new FilterRecyclerAdapter(FilterAct.this, filterItems.get(position).getOptionData());
+                    pos = position;
+                    filterRecyclerAdapter = new FilterRecyclerAdapter(FilterAct.this, filterSelectItems.get(position).getOptionData());
                     recycleViewFilterData.setAdapter(filterRecyclerAdapter);
-
                 }
-
             }
         });
 
@@ -180,88 +170,26 @@ public class FilterAct extends DealerMelaBaseActivity implements View.OnClickLis
 
     @Override
     public void loadData() {
-//        setFilter();
-        adapter = new FilterTitleListAdapter(FilterAct.this, filterItems);
+        adapter = new FilterTitleListAdapter(FilterAct.this, filterSelectItems);
         listViewFilter.setAdapter(adapter);
         tvReset.setEnabled(true);
-
-        paramKey = filterItems.get(0).getOptionName();
-
-        if (mapFilter.containsKey(paramKey)) {
-            //key exists
-        } else {
-            //key does not exists
-            mapFilter.put(paramKey, "");
-            selectFilter.put(paramKey, "");
-        }
-
-        filterRecyclerAdapter = new FilterRecyclerAdapter(FilterAct.this, filterItems.get(0).getOptionData());
+        filterRecyclerAdapter = new FilterRecyclerAdapter(FilterAct.this, filterSelectItems.get(0).getOptionData());
         recycleViewFilterData.setAdapter(filterRecyclerAdapter);
-
         btnApply.setEnabled(true);
 
-    }
-
-    public void setFilter() {
-        progressBarFilter.setVisibility(View.VISIBLE);
-        ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
-        Call<FilterItem> callApi = apiInterface.setFilter();
-        callApi.enqueue(new Callback<FilterItem>() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void onResponse(@NonNull Call<FilterItem> call, @NonNull Response<FilterItem> response) {
-                AppLogger.e(AppConstants.RESPONSE, "--------------" + response.body());
-                assert response.body() != null;
-                progressBarFilter.setVisibility(View.GONE);
-                if (response.body().getStatus().equalsIgnoreCase(AppConstants.STATUS_CODE_SUCCESS)) {
-
-                    filterItems.addAll(response.body().getData());
-                    adapter = new FilterTitleListAdapter(FilterAct.this, response.body().getData());
-                    listViewFilter.setAdapter(adapter);
-                    tvReset.setEnabled(true);
-
-                    paramKey = filterItems.get(0).getOptionName();
-
-                    if (mapFilter.containsKey(paramKey)) {
-                        //key exists
-                    } else {
-                        //key does not exists
-                        mapFilter.put(paramKey, "");
-                        selectFilter.put(paramKey, "");
-                    }
-
-                    filterRecyclerAdapter = new FilterRecyclerAdapter(FilterAct.this, filterItems.get(0).getOptionData());
-                    recycleViewFilterData.setAdapter(filterRecyclerAdapter);
-
-                    btnApply.setEnabled(true);
-
-                }
-
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<FilterItem> call, @NonNull Throwable t) {
-                progressBarFilter.setVisibility(View.GONE);
-            }
-
-        });
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tvReset:
-                mapFilter.clear();
-                selectFilter.clear();
-                bindSelectFilter();
-                adapter = new FilterTitleListAdapter(FilterAct.this, filterItems);
+                resetFilter();
+                adapter = new FilterTitleListAdapter(FilterAct.this, filterSelectItems);
                 listViewFilter.setAdapter(adapter);
-
-                paramKey = filterItems.get(0).getOptionName();
-                filterRecyclerAdapter = new FilterRecyclerAdapter(FilterAct.this, filterItems.get(0).getOptionData());
+                filterRecyclerAdapter = new FilterRecyclerAdapter(FilterAct.this, filterSelectItems.get(0).getOptionData());
                 recycleViewFilterData.setAdapter(filterRecyclerAdapter);
                 edText.setText("");
-
+                bindSelectFilter();
                 break;
 
             case R.id.imgBack:
@@ -270,20 +198,31 @@ public class FilterAct extends DealerMelaBaseActivity implements View.OnClickLis
                 break;
 
             case R.id.btnApply:
-                /*for (Object key : mapFilter.keySet()) {
-                    String value = mapFilter.get(key);
-
-                    AppLogger.e("key", "--------" + key);
-                    AppLogger.e("Value", "--------" + value);
-                }*/
-
-                if (mapFilter.isEmpty()) {
-                    filterFlag = 0;
-                } else {
-                    filterFlag = 1;
-                }
+                filterFlag = 1;
                 finish();
                 break;
+        }
+    }
+
+    public void resetFilter() {
+        for (int i = 0; i < filterSelectItems.size(); i++) {
+            if (filterSelectItems.get(i).getOptionName().equalsIgnoreCase("price")) {
+                for (int j = 0; j < filterSelectItems.get(i).getOptionData().size(); j++) {
+                    filterSelectItems.get(i).getOptionData().get(j).setSelected(false);
+                }
+            } else if (filterSelectItems.get(i).getOptionName().equalsIgnoreCase("gold_purity")) {
+                for (int j = 0; j < filterSelectItems.get(i).getOptionData().size(); j++) {
+                    filterSelectItems.get(i).getOptionData().get(j).setSelected(false);
+                }
+            } else if (filterSelectItems.get(i).getOptionName().equalsIgnoreCase("diamond_quality")) {
+                for (int j = 0; j < filterSelectItems.get(i).getOptionData().size(); j++) {
+                    filterSelectItems.get(i).getOptionData().get(j).setSelected(false);
+                }
+            } else if (filterSelectItems.get(i).getOptionName().equalsIgnoreCase("diamond_shape")) {
+                for (int j = 0; j < filterSelectItems.get(i).getOptionData().size(); j++) {
+                    filterSelectItems.get(i).getOptionData().get(j).setSelected(false);
+                }
+            }
         }
     }
 
@@ -301,60 +240,89 @@ public class FilterAct extends DealerMelaBaseActivity implements View.OnClickLis
         TextView tvSelectFilterName;
         ImageView imgClose;
 
-        // Iterating keys using keySet()
-        Set<String> filters = selectFilter.keySet();
-        for(final String fil : filters) {
+        selectFilterArray.clear();
 
-            if (!Objects.requireNonNull(selectFilter.get(fil)).equalsIgnoreCase("")){
-                imageLayout = getLayoutInflater().inflate(R.layout.item_bind_select_filter, null);
-                imgClose = imageLayout.findViewById(R.id.imgClose);
-                tvSelectFilterName = imageLayout.findViewById(R.id.tvSelectFilterName);
-
-                tvSelectFilterName.setText(selectFilter.get(fil));
-                imgClose.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        selectFilter.put(fil,"");
-                        mapFilter.put(fil,"");
-                        bindSelectFilter();
+        for (int i = 0; i < filterSelectItems.size(); i++) {
+            if (filterSelectItems.get(i).getOptionName().equalsIgnoreCase("price")) {
+                for (int j = 0; j < filterSelectItems.get(i).getOptionData().size(); j++) {
+                    if (filterSelectItems.get(i).getOptionData().get(j).isSelected()) {
+                        selectFilterArray.add(filterSelectItems.get(i).getOptionData().get(j));
                     }
-                });
-                System.out.println("Key : "  + fil + "\t\t" +
-                        "Value : "  + selectFilter.get(fil));
-                linContainer.addView(imageLayout);
+                }
+            } else if (filterSelectItems.get(i).getOptionName().equalsIgnoreCase("gold_purity")) {
+                for (int j = 0; j < filterSelectItems.get(i).getOptionData().size(); j++) {
+                    if (filterSelectItems.get(i).getOptionData().get(j).isSelected()) {
+                        selectFilterArray.add(filterSelectItems.get(i).getOptionData().get(j));
+                    }
+                }
+            } else if (filterSelectItems.get(i).getOptionName().equalsIgnoreCase("diamond_quality")) {
+                for (int j = 0; j < filterSelectItems.get(i).getOptionData().size(); j++) {
+                    if (filterSelectItems.get(i).getOptionData().get(j).isSelected()) {
+                        selectFilterArray.add(filterSelectItems.get(i).getOptionData().get(j));
+                    }
+                }
+            } else if (filterSelectItems.get(i).getOptionName().equalsIgnoreCase("diamond_shape")) {
+                for (int j = 0; j < filterSelectItems.get(i).getOptionData().size(); j++) {
+                    if (filterSelectItems.get(i).getOptionData().get(j).isSelected()) {
+                        selectFilterArray.add(filterSelectItems.get(i).getOptionData().get(j));
+                    }
+                }
             }
-
         }
 
-
-
-
-
-
-
-
-
-        /*for (int i = 0; i < mapFilter.size(); i++) {
+        for (int k = 0; k < selectFilterArray.size(); k++) {
             imageLayout = getLayoutInflater().inflate(R.layout.item_bind_select_filter, null);
             imgClose = imageLayout.findViewById(R.id.imgClose);
             tvSelectFilterName = imageLayout.findViewById(R.id.tvSelectFilterName);
+            tvSelectFilterName.setText(selectFilterArray.get(k).getLabel());
+            final int finalK = k;
+            imgClose.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
-            imgClose.setOnClickListener(
-                    onChagePageClickListener(i)
-            );
-            tvSelectFilterName.setText(String.valueOf(i));
+                    for (int i = 0; i < filterSelectItems.size(); i++) {
+                        if (filterSelectItems.get(i).getOptionName().equalsIgnoreCase("price")) {
+                            for (int j = 0; j < filterSelectItems.get(i).getOptionData().size(); j++) {
+                                if (selectFilterArray.get(finalK).getValue().equalsIgnoreCase(filterSelectItems.get(i).getOptionData().get(j).getValue())) {
+                                    filterSelectItems.get(i).getOptionData().get(j).setSelected(false);
+                                }
+                            }
+                        } else if (filterSelectItems.get(i).getOptionName().equalsIgnoreCase("gold_purity")) {
+                            for (int j = 0; j < filterSelectItems.get(i).getOptionData().size(); j++) {
+                                if (selectFilterArray.get(finalK).getValue().equalsIgnoreCase(filterSelectItems.get(i).getOptionData().get(j).getValue())) {
+                                    filterSelectItems.get(i).getOptionData().get(j).setSelected(false);
+                                }
+                            }
+                        } else if (filterSelectItems.get(i).getOptionName().equalsIgnoreCase("diamond_quality")) {
+                            for (int j = 0; j < filterSelectItems.get(i).getOptionData().size(); j++) {
+                                if (selectFilterArray.get(finalK).getValue().equalsIgnoreCase(filterSelectItems.get(i).getOptionData().get(j).getValue())) {
+                                    filterSelectItems.get(i).getOptionData().get(j).setSelected(false);
+                                }
+                            }
+                        } else if (filterSelectItems.get(i).getOptionName().equalsIgnoreCase("diamond_shape")) {
+                            for (int j = 0; j < filterSelectItems.get(i).getOptionData().size(); j++) {
+                                if (selectFilterArray.get(finalK).getValue().equalsIgnoreCase(filterSelectItems.get(i).getOptionData().get(j).getValue())) {
+                                    filterSelectItems.get(i).getOptionData().get(j).setSelected(false);
+                                }
+                            }
+                        }
+                    }
+
+                    AppLogger.e("click", "-----------------" + filterCurrentPosition + "---" + finalK);
+//                    filterSelectItems.get(filterCurrentPosition).getOptionData().get(finalK).setSelected(false);
+                    bindSelectFilter();
+                    filterRecyclerAdapter = new FilterRecyclerAdapter(FilterAct.this, filterSelectItems.get(filterCurrentPosition).getOptionData());
+                    recycleViewFilterData.setAdapter(filterRecyclerAdapter);
+
+                }
+            });
             linContainer.addView(imageLayout);
-        }*/
+        }
+
     }
 
-    //horizontal slide image click
-    private View.OnClickListener onChagePageClickListener(final int i) {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        };
+    public void updateFilterData(int position, boolean selectFlag) {
+        filterSelectItems.get(filterCurrentPosition).getOptionData().get(position).setSelected(selectFlag);
     }
 
 }

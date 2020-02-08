@@ -17,14 +17,14 @@ public class InitialScreenActivity extends AppCompatActivity {
 	private EditText accessCode, merchantId, currency, amount, orderId, rsaKeyUrl, redirectUrl, cancelUrl;
 
 	private void init(){
-		accessCode = (EditText) findViewById(R.id.accessCode);
-		merchantId = (EditText) findViewById(R.id.merchantId);
-		orderId  = (EditText) findViewById(R.id.orderId);
-		currency = (EditText) findViewById(R.id.currency);
-		amount = (EditText) findViewById(R.id.amount);
-		rsaKeyUrl = (EditText) findViewById(R.id.rsaUrl);
-		redirectUrl = (EditText) findViewById(R.id.redirectUrl);
-		cancelUrl = (EditText) findViewById(R.id.cancelUrl);
+		accessCode = findViewById(R.id.accessCode);
+		merchantId = findViewById(R.id.merchantId);
+		orderId  = findViewById(R.id.orderId);
+		currency = findViewById(R.id.currency);
+		amount = findViewById(R.id.amount);
+		rsaKeyUrl = findViewById(R.id.rsaUrl);
+		redirectUrl = findViewById(R.id.redirectUrl);
+		cancelUrl = findViewById(R.id.cancelUrl);
 
 	}
 
@@ -50,7 +50,6 @@ public class InitialScreenActivity extends AppCompatActivity {
 			intent.putExtra(AvenuesParams.ORDER_ID, ServiceUtility.chkNull(orderId.getText()).toString().trim());
 			intent.putExtra(AvenuesParams.CURRENCY, ServiceUtility.chkNull(currency.getText()).toString().trim());
 			intent.putExtra(AvenuesParams.AMOUNT, ServiceUtility.chkNull(amount.getText()).toString().trim());
-			
 			intent.putExtra(AvenuesParams.REDIRECT_URL, ServiceUtility.chkNull(redirectUrl.getText()).toString().trim());
 			intent.putExtra(AvenuesParams.CANCEL_URL, ServiceUtility.chkNull(cancelUrl.getText()).toString().trim());
 			intent.putExtra(AvenuesParams.RSA_KEY_URL, ServiceUtility.chkNull(rsaKeyUrl.getText()).toString().trim());

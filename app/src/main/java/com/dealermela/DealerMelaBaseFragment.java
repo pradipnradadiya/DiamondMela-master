@@ -21,14 +21,13 @@ public abstract class DealerMelaBaseFragment extends Fragment implements ViewBin
 
     private KProgressHUD hud;
     protected ProgressDialog mProgressDialog;
-    public void onCreate(Bundle savedInstanceState)
-    {
+
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup parent, Bundle savedInstanseState)
-    {
-        View view = myFragmentView(inflater,parent,savedInstanseState);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup parent, Bundle savedInstanseState) {
+        View view = myFragmentView(inflater, parent, savedInstanseState);
         hud = new KProgressHUD(getActivity());
         init();
         initView();
@@ -38,7 +37,7 @@ public abstract class DealerMelaBaseFragment extends Fragment implements ViewBin
         return view;
     }
 
-    public abstract View myFragmentView(LayoutInflater inflater,ViewGroup parent, Bundle savedInstanceState);
+    public abstract View myFragmentView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState);
 
     public void replaceFragment(Fragment fragment) {
         FragmentManager fm = getFragmentManager();
@@ -73,14 +72,14 @@ public abstract class DealerMelaBaseFragment extends Fragment implements ViewBin
 
     protected void showProgressDialog(String title, String message) {
 
-    if (hud !=null){
-      hud.dismiss();
-    }
-    hud = KProgressHUD.create(getActivity())
-            .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-            .setLabel(title)
-            .setDetailsLabel(message)
-            .show();
+        if (hud != null) {
+            hud.dismiss();
+        }
+        hud = KProgressHUD.create(Objects.requireNonNull(getActivity()))
+                .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                .setLabel(title)
+                .setDetailsLabel(message)
+                .show();
 
        /* if (mProgressDialog != null) {
             mProgressDialog.dismiss();
@@ -94,10 +93,10 @@ public abstract class DealerMelaBaseFragment extends Fragment implements ViewBin
             mProgressDialog = null;
         }*/
 
-    if (hud != null && hud.isShowing()){
-      hud.dismiss();
-      hud=null;
-    }
+        if (hud != null && hud.isShowing()) {
+            hud.dismiss();
+            hud = null;
+        }
 
     }
 

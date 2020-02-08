@@ -155,6 +155,7 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
         return R.layout.act_product_detail;
     }
 
+
     @Override
     public void init() {
         c_position = 0;
@@ -164,7 +165,6 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
 
         databaseCartAdapter = new DatabaseCartAdapter(ProductDetailAct.this);
         sharedPreferences = new SharedPreferences(ProductDetailAct.this);
-
 
     }
 
@@ -1082,7 +1082,7 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
         AppLogger.e("stoneOptionTypeId", "-------" + stoneOptionTypeId);
         AppLogger.e("qty", "-------" + qty);
 
-        showProgressDialog("Cart", "Item is adding to cart..");
+        showProgressDialog(AppConstants.PLEASE_WAIT);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<JsonObject> callApi = apiInterface.addToCart(productId, customerId, optionId, optionTypeId, stoneOptionId, stoneOptionTypeId, qty);
         callApi.enqueue(new Callback<JsonObject>() {
@@ -1114,7 +1114,7 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
     }
 
     private void buyNow(String productId, String customerId, String optionId, String optionTypeId, String stoneOptionId, String stoneOptionTypeId, String qty) {
-        showProgressDialog("Cart", "Item is adding to cart..");
+        showProgressDialog(AppConstants.PLEASE_WAIT);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<JsonObject> callApi = apiInterface.addToCart(productId, customerId, optionId, optionTypeId, stoneOptionId, stoneOptionTypeId, qty);
         callApi.enqueue(new Callback<JsonObject>() {

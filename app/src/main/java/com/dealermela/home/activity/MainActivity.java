@@ -22,11 +22,9 @@ import android.view.WindowManager;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.dealermela.DealerMelaBaseActivity;
 import com.dealermela.R;
@@ -36,10 +34,10 @@ import com.dealermela.authentication.myaccount.activity.SignUpAct;
 import com.dealermela.authentication.myaccount.dialog.LogoutDialogClass;
 import com.dealermela.authentication.myaccount.model.LoginResponse;
 import com.dealermela.cart.activity.CartAct;
-import com.dealermela.ccavenue.activity.InitialScreenActivity;
 import com.dealermela.download.activity.DownloadAct;
 import com.dealermela.home.fragment.HomeFrg;
 import com.dealermela.home.model.HeaderItem;
+import com.dealermela.inventary.activity.InventoryListAct;
 import com.dealermela.listing_and_detail.activity.ListAct;
 import com.dealermela.my_stock.activity.MyStockAct;
 import com.dealermela.order.activity.OrderTabActivity;
@@ -449,8 +447,8 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
                 break;
 
             case R.id.linHome:
-//                Intent intent = new Intent(MainActivity.this, InitialScreenActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, InventoryListAct.class);
+                startActivity(intent);
                 onBackPressed();
                 break;
 

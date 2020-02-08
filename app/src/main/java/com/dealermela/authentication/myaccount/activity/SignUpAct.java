@@ -207,7 +207,7 @@ public class SignUpAct extends DealerMelaBaseActivity implements View.OnClickLis
     }
 
     private void getCountryList() {
-        showProgressDialog(getString(R.string.get_country), getString(R.string.please_wait));
+        showProgressDialog(AppConstants.PLEASE_WAIT);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<CountryResponse> callApi = apiInterface.getCountry();
         callApi.enqueue(new Callback<CountryResponse>() {
@@ -237,7 +237,7 @@ public class SignUpAct extends DealerMelaBaseActivity implements View.OnClickLis
     }
 
     private void getStateList(String countryId) {
-        showProgressDialog(getString(R.string.get_state), getString(R.string.please_wait));
+        showProgressDialog(AppConstants.PLEASE_WAIT);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<StateResponse> callApi = apiInterface.getState(countryId);
         callApi.enqueue(new Callback<StateResponse>() {
@@ -268,7 +268,7 @@ public class SignUpAct extends DealerMelaBaseActivity implements View.OnClickLis
 
     private void signUp(String firstName, String lastName, String email, String contactNumber, String community, String street, String countryId, String region, String city, String postcode, String entityCustomer, String password, String confirmPassword) {
 
-        showProgressDialog(getString(R.string.sign_up), getString(R.string.please_wait));
+        showProgressDialog(AppConstants.PLEASE_WAIT);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<JsonObject> callApi = apiInterface.signUp(firstName, lastName, email, contactNumber, community, street, countryId, region, city, postcode, entityCustomer, password, confirmPassword);
         callApi.enqueue(new Callback<JsonObject>() {

@@ -20,6 +20,10 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning"
         tools:targetApi="n">
+        <activity android:name=".inventary.activity.InvoiceListAct"></activity>
+        <activity
+            android:name=".inventary.activity.InventoryListAct"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".order.activity.OrderPrintAct"
             android:screenOrientation="portrait" />
@@ -130,6 +134,9 @@
         <activity
             android:name=".ccavenue.activity.StatusActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".inventary.activity.PaymentListAct" />
+        <activity android:name=".inventary.activity.ProductListAct" />
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="f2e3b7adc560f7def2b1126969c387485bc43cdc" />

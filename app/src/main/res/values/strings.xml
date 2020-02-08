@@ -257,5 +257,13 @@
     <string name="proceed_to_checkout">Proceed To Checkout</string>
     <string name="cart_is_empty">Cart is empty</string>
     <string name="submit">Submit</string>
+    <string name="more">more</string>
+
+    <string-array name="inventory_action">
+        <item>with price and with logo</item>
+        <item>with price and without logo</item>
+        <item>without price and with logo</item>
+        <item>without price and without logo</item>
+    </string-array>
 
 </resources>

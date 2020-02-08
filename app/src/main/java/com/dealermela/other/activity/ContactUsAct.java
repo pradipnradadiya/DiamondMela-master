@@ -158,7 +158,7 @@ public class ContactUsAct extends DealerMelaBaseActivity implements View.OnClick
     }
 
     private void addContactUs(String name, String comment, String email) {
-        showProgressDialog("Contact", "Please wait..");
+        showProgressDialog(AppConstants.PLEASE_WAIT);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<JsonObject> callApi = apiInterface.contactUs(name,comment,email);
         callApi.enqueue(new Callback<JsonObject>() {

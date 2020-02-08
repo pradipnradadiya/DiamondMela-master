@@ -127,8 +127,6 @@
 
         </LinearLayout>
 
-
-
         <ScrollView
             android:visibility="gone"
             android:id="@+id/scrollViewCollection"

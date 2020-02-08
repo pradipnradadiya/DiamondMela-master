@@ -237,7 +237,7 @@ public class EditContactInfoAct extends DealerMelaBaseActivity implements View.O
 
     private void editContactInfo(String token, String customerId, String firstName, String lastName, String email, String contactNumber, String street, String countryId, String region, String city, String postCode, String panCardNo, String gstIn) {
 
-        showProgressDialog(getString(R.string.contact_information), getString(R.string.please_wait));
+        showProgressDialog(AppConstants.PLEASE_WAIT);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<LoginResponse> callApi = apiInterface.editContactInfo(token, customerId, firstName, lastName, email, contactNumber, street, countryId, region, city, postCode, panCardNo, gstIn);
         callApi.enqueue(new Callback<LoginResponse>() {
@@ -290,7 +290,7 @@ public class EditContactInfoAct extends DealerMelaBaseActivity implements View.O
     }
 
     private void getCountryList() {
-        showProgressDialog(getString(R.string.get_country), getString(R.string.please_wait));
+        showProgressDialog(AppConstants.PLEASE_WAIT);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<CountryResponse> callApi = apiInterface.getCountry();
         callApi.enqueue(new Callback<CountryResponse>() {
@@ -320,7 +320,7 @@ public class EditContactInfoAct extends DealerMelaBaseActivity implements View.O
     }
 
     private void getStateList(String countryId) {
-        showProgressDialog(getString(R.string.get_state), getString(R.string.please_wait));
+        showProgressDialog(AppConstants.PLEASE_WAIT);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<StateResponse> callApi = apiInterface.getState(countryId);
         callApi.enqueue(new Callback<StateResponse>() {

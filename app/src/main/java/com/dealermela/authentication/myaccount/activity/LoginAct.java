@@ -136,7 +136,7 @@ public class LoginAct extends DealerMelaBaseActivity implements View.OnClickList
 
 
     private void checkLogin(String email, String password, String deviceId, String token) {
-        showProgressDialog(getString(R.string.login), getString(R.string.please_wait));
+        showProgressDialog(AppConstants.PLEASE_WAIT);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<LoginResponse> callApi = apiInterface.Login(email, password, deviceId, token);
         callApi.enqueue(new Callback<LoginResponse>() {
@@ -150,6 +150,7 @@ public class LoginAct extends DealerMelaBaseActivity implements View.OnClickList
 //                    Save data to session
                     Gson gson = new Gson();
                     String json = gson.toJson(response.body());
+                    AppLogger.e(AppConstants.RESPONSE, "-----------------" + json);
                     sharedPreferences.saveLoginData(json);
                     customerId = response.body().getData().getEntityId();
 
@@ -242,7 +243,7 @@ public class LoginAct extends DealerMelaBaseActivity implements View.OnClickList
 
         if (c.getCount() > 0) {
 
-            showProgressDialog("Cart", "Item is adding to cart..");
+            showProgressDialog(AppConstants.PLEASE_WAIT);
             for (int i = 0; i < c.getCount(); i++) {
 
                 addToCart(c.getString(c.getColumnIndex(DatabaseCartAdapter.PRODUCT_ID)), customerId, c.getString(c.getColumnIndex(DatabaseCartAdapter.RING_OPTION_ID)), c.getString(c.getColumnIndex(DatabaseCartAdapter.RING_OPTION_TYPE_ID)), c.getString(c.getColumnIndex(DatabaseCartAdapter.STONE_OPTION_ID)), c.getString(c.getColumnIndex(DatabaseCartAdapter.STONE_OPTION_TYPE_ID)), c.getString(c.getColumnIndex(DatabaseCartAdapter.QTY)));

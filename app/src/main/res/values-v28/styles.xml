@@ -10,7 +10,7 @@
     <!-- Base application theme. -->
     <style name="WhiteTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">default</item>
         <item name="colorPrimary">#ffffff</item>
         <item name="colorPrimaryDark">#cccccc</item>
         <item name="colorAccent">@color/black</item>
@@ -74,7 +74,7 @@
     <style name="BlackTheme" parent="Theme.AppCompat.Light.NoActionBar">
 
         <!-- Customize your theme here. -->
-        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">default</item>
         <item name="colorPrimary">#181818</item>
         <item name="colorPrimaryDark">#cccccc</item>
         <item name="colorAccent">@color/black</item>
@@ -142,13 +142,13 @@
 
     <!--Full Screen Theme-->
     <style name="WhiteTheme.FullScreen">
-        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowFullscreen">false</item>
         <!--<item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>-->
     </style>
 
     <!--Full Screen Theme-->
     <style name="BlackTheme.FullScreen">
-        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowFullscreen">false</item>
         <!--<item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>-->
     </style>
 

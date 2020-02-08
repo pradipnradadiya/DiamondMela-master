@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        app:cardBackgroundColor="?transaction_round_back"
+        app:cardCornerRadius="@dimen/five_sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/ten_padding_margin">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/imgInventoryProduct"
+                    android:layout_width="@dimen/image_width_height_inventory"
+                    android:layout_height="@dimen/image_width_height_inventory"
+                    app:actualImageResource="@drawable/background_image"
+                    app:actualImageScaleType="fitXY"
+                    app:placeholderImage="@drawable/background_image"
+                    app:roundedCornerRadius="@dimen/five_sp" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxInventory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/checkbox" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/five_sp"
+                    android:layout_toEndOf="@id/imgInventoryProduct"
+                    android:orientation="vertical">
+
+                    <com.dealermela.utility.DmlTextView
+                        android:id="@+id/tvSku"
+                        style="@style/tvInventoryItemTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <com.dealermela.utility.DmlTextView
+                        android:id="@+id/tvCertificate"
+                        style="@style/tvInventoryItemTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <com.dealermela.utility.DmlTextView
+                        android:id="@+id/tvCategory"
+                        style="@style/tvInventoryItemTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <com.dealermela.utility.DmlTextView
+                        android:id="@+id/tvPrice"
+                        style="@style/tvInventoryItemTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/linHideShow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/image_width_height_inventory2"
+                android:alpha="1"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <com.dealermela.utility.DmlTextView
+                    android:id="@+id/tvDiamondQuality"
+                    style="@style/tvInventoryItemTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <com.dealermela.utility.DmlTextView
+                    android:id="@+id/tvVirtualProductPosition"
+                    style="@style/tvInventoryItemTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <com.dealermela.utility.DmlTextView
+                    android:id="@+id/tvStatus"
+                    style="@style/tvInventoryItemTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <com.dealermela.utility.DmlTextView
+                    android:id="@+id/tvName"
+                    style="@style/tvInventoryItemTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <com.dealermela.utility.DmlImageView
+                android:id="@+id/imgHideShowToggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="?attr/selectableItemBackground"
+                android:src="@drawable/ic_down"
+                android:tint="?toolbarTextColor"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:background="@drawable/inventory_more_less">
+
+                <com.dealermela.utility.DmlTextView
+                    android:id="@+id/tvMoreLess"
+                    style="@style/more_less_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</android.support.constraint.ConstraintLayout>

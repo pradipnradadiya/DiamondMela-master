@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.dealermela.R;
 import com.dealermela.listing_and_detail.model.FilterItem;
 import com.dealermela.listing_and_detail.model.FilterTitleItem;
+import com.dealermela.util.AppLogger;
 import com.dealermela.util.ThemePreferences;
 import com.dealermela.util.Utils;
 
@@ -33,7 +34,7 @@ public class FilterTitleListAdapter extends BaseAdapter {
     public FilterTitleListAdapter(Activity context, List<FilterItem.Datum> items) {
         this.context = context;
         this.items = items;
-        themePreferences=new ThemePreferences(context);
+        themePreferences = new ThemePreferences(context);
     }
 
     @Override
@@ -78,7 +79,8 @@ public class FilterTitleListAdapter extends BaseAdapter {
         }*/
 
 
-        Utils.fetchSvg(context, items.get(position).getIcon(), imgIcon);
+        AppLogger.e("svg url", "-------"+items.get(position).getIcon());
+//        Utils.fetchSvg(context, items.get(position).getIcon(), imgIcon);
 
 
         if (selectedPosition == position) {
@@ -88,16 +90,16 @@ public class FilterTitleListAdapter extends BaseAdapter {
             imgIcon.setColorFilter(context.getResources().getColor(R.color.white), PorterDuff.Mode.SRC_IN);
 
         } else {
-            if (themePreferences.getTheme().equalsIgnoreCase("black")){
+            if (themePreferences.getTheme().equalsIgnoreCase("black")) {
                 linLayout.setBackgroundColor(context.getResources().getColor(R.color.transaction_round_back_black));
                 tvTitle.setTextColor(context.getResources().getColor(R.color.white));
                 relArrow.setVisibility(View.GONE);
-                imgIcon.setColorFilter(context.getResources().getColor(R.color.white),PorterDuff.Mode.SRC_IN);
-            }else {
+                imgIcon.setColorFilter(context.getResources().getColor(R.color.white), PorterDuff.Mode.SRC_IN);
+            } else {
                 linLayout.setBackgroundColor(context.getResources().getColor(R.color.filter_un_select_item_color));
                 tvTitle.setTextColor(context.getResources().getColor(R.color.black));
                 relArrow.setVisibility(View.GONE);
-                imgIcon.setColorFilter(context.getResources().getColor(R.color.black),PorterDuff.Mode.SRC_IN);
+                imgIcon.setColorFilter(context.getResources().getColor(R.color.black), PorterDuff.Mode.SRC_IN);
             }
         }
 

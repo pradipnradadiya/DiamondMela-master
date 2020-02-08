@@ -16,15 +16,12 @@ import com.dealermela.util.AppLogger;
 
 import java.util.List;
 
-import static com.dealermela.listing_and_detail.activity.FilterAct.mapFilter;
-import static com.dealermela.listing_and_detail.activity.FilterAct.paramKey;
-import static com.dealermela.listing_and_detail.activity.FilterAct.selectFilter;
+import static com.dealermela.listing_and_detail.activity.FilterAct.filterCurrentPosition;
 
 public class FilterRecyclerAdapter extends RecyclerView.Adapter<FilterRecyclerAdapter.ViewHolder> {
 
     private final Activity activity;
     private final List<FilterItem.OptionDatum> itemArrayList;
-    private int selectFlag = 0;
 
     public FilterRecyclerAdapter(Activity activity, List<FilterItem.OptionDatum> itemArrayList) {
         super();
@@ -43,37 +40,11 @@ public class FilterRecyclerAdapter extends RecyclerView.Adapter<FilterRecyclerAd
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int i) {
 
-//        AppLogger.e("fliter arraylist", "-------------" + arrayListFilter);
-        AppLogger.e("mapFilter", "-------------" + mapFilter);
         holder.radioFilter.setText(itemArrayList.get(i).getLabel());
-
-        if (selectFlag == 0) {
-            if (mapFilter.isEmpty()) {
-                if (itemArrayList.get(i).isSelected()) {
-                    holder.radioFilter.setChecked(true);
-                } else {
-                    holder.radioFilter.setChecked(false);
-                }
-            } else {
-                String key = mapFilter.get(paramKey);
-
-                assert key != null;
-                if (key.equalsIgnoreCase(itemArrayList.get(i).getValue())) {
-                    holder.radioFilter.setChecked(true);
-                    itemArrayList.get(i).setSelected(true);
-                } else {
-                    holder.radioFilter.setChecked(false);
-                    itemArrayList.get(i).setSelected(false);
-                }
-
-            }
-
+        if (itemArrayList.get(i).isSelected()) {
+            holder.radioFilter.setChecked(true);
         } else {
-            if (itemArrayList.get(i).isSelected()) {
-                holder.radioFilter.setChecked(true);
-            } else {
-                holder.radioFilter.setChecked(false);
-            }
+            holder.radioFilter.setChecked(false);
         }
 
     }
@@ -97,44 +68,23 @@ public class FilterRecyclerAdapter extends RecyclerView.Adapter<FilterRecyclerAd
         @Override
         public void onClick(View v) {
 
-            selectFlag = 1;
-            int pos = getAdapterPosition();
-
-            if (itemArrayList.get(pos).isSelected()) {
-                for (int i = 0; i < itemArrayList.size(); i++) {
-                    FilterItem.OptionDatum optionDatum = itemArrayList.get(i);
-
-
-                    optionDatum.setSelected(false);
-//
-                    mapFilter.put(paramKey, "");
-                    selectFilter.put(paramKey, "");
-                    ((FilterAct) activity).bindSelectFilter();
-
-                }
-                notifyDataSetChanged();
+            if (itemArrayList.get(getAdapterPosition()).isSelected()) {
+                AppLogger.e("if title position", "------------" + filterCurrentPosition);
+                AppLogger.e("if current position", "------------" + getAdapterPosition());
+                itemArrayList.get(getAdapterPosition()).setSelected(false);
+                ((FilterAct) activity).updateFilterData(getAdapterPosition(), false);
+//                filterSelectItems.get(filterCurrentPosition).getOptionData().get(getAdapterPosition()).setSelected(true);
+                notifyItemChanged(getAdapterPosition());
             } else {
-                for (int i = 0; i < itemArrayList.size(); i++) {
-                    FilterItem.OptionDatum optionDatum = itemArrayList.get(i);
-                    if (i != pos) {
-
-                        optionDatum.setSelected(false);
-//                    arrayListFilter.remove(itemArrayList.get(i).getValue());
-
-                        //arrayListFilter.remove(itemArrayList.get(getAdapterPosition()).getValue());
-
-                    } else {
-                        optionDatum.setSelected(true);
-//                    arrayListFilter.add(itemArrayList.get(i).getValue());
-                        mapFilter.put(paramKey, itemArrayList.get(i).getValue());
-                        selectFilter.put(paramKey, itemArrayList.get(i).getLabel());
-                        ((FilterAct) activity).bindSelectFilter();
-//                    arrayListFilter.add(itemArrayList.get(getAdapterPosition()).getValue());
-                    }
-                }
-                notifyDataSetChanged();
+                AppLogger.e("else title position", "------------" + filterCurrentPosition);
+                AppLogger.e("else current position", "------------" + getAdapterPosition());
+                itemArrayList.get(getAdapterPosition()).setSelected(true);
+                ((FilterAct) activity).updateFilterData(getAdapterPosition(), true);
+//                filterSelectItems.get(filterCurrentPosition).getOptionData().get(getAdapterPosition()).setSelected(false);
+                notifyItemChanged(getAdapterPosition());
             }
 
+            ((FilterAct) activity).bindSelectFilter();
 
         }
 
@@ -142,9 +92,5 @@ public class FilterRecyclerAdapter extends RecyclerView.Adapter<FilterRecyclerAd
         public boolean onLongClick(View v) {
             return false;
         }
-
-
     }
-
-
 }

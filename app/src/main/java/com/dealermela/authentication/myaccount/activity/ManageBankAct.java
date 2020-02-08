@@ -64,7 +64,7 @@ public class ManageBankAct extends DealerMelaBaseActivity {
     }
 
     private void getBankList() {
-        showProgressDialog("Bank", getString(R.string.please_wait));
+        showProgressDialog(AppConstants.PLEASE_WAIT);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<BankResponse> callApi = apiInterface.listBankDetail(customerId);
         callApi.enqueue(new Callback<BankResponse>() {

@@ -1,6 +1,7 @@
 package com.dealermela.util;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.widget.ImageView;
 
 import com.dealermela.R;
@@ -30,12 +31,13 @@ public class Utils {
         Request request = new Request.Builder().url(url).build();
         httpClient.newCall(request).enqueue(new Callback() {
             @Override
-            public void onFailure(Call call, IOException e) {
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
                 target.setImageResource(R.drawable.dml_logo);
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                assert response.body() != null;
                 InputStream stream = response.body().byteStream();
                 Sharp.loadInputStream(stream).into(target);
                 stream.close();

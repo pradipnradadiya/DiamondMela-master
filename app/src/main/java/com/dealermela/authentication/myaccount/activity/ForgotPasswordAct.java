@@ -86,7 +86,7 @@ public class ForgotPasswordAct extends DealerMelaBaseActivity {
     }
 
     private void forgotPassword(String email) {
-        showProgressDialog(getString(R.string.forgot_password), getString(R.string.please_wait));
+        showProgressDialog(AppConstants.PLEASE_WAIT);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<JsonObject> callApi = apiInterface.forgotPassword(email);
         callApi.enqueue(new Callback<JsonObject>() {

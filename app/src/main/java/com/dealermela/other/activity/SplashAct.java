@@ -88,6 +88,9 @@ public class SplashAct extends DealerMelaBaseActivity {
 //                        public void run() {
                 // This method will be executed once the timer is over
                 // Start your app main activity
+
+
+
                 SharedPreferences sharedPreferences = new SharedPreferences(SplashAct.this);
                 Gson gson = new Gson();
 
@@ -113,8 +116,6 @@ public class SplashAct extends DealerMelaBaseActivity {
             public void onFailure(@NonNull Call<PopularProductItem> call, @NonNull Throwable t) {
                 AppLogger.e("error", "------------" + t.getMessage());
             }
-
         });
     }
-
 }

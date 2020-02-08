@@ -205,7 +205,7 @@ public class EditProfileAct extends DealerMelaBaseActivity implements View.OnCli
     }
 
     private void addBank(String customerId, String bankName, String bankAccountNumber, String bankAccountHolder, String ifscCode, String branchName) {
-        showProgressDialog("Add Bank", getString(R.string.please_wait));
+        showProgressDialog(AppConstants.PLEASE_WAIT);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<JsonObject> callApi = apiInterface.addBankDetail(customerId, bankName, bankAccountNumber, bankAccountHolder, ifscCode, branchName);
         callApi.enqueue(new Callback<JsonObject>() {
@@ -267,7 +267,7 @@ public class EditProfileAct extends DealerMelaBaseActivity implements View.OnCli
     }
 
     private void getAddress(String customerId) {
-        showProgressDialog(getString(R.string.address), getString(R.string.please_wait));
+        showProgressDialog(AppConstants.PLEASE_WAIT);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<AddressManageResponse> callApi = apiInterface.getAllAddress(customerId);
         callApi.enqueue(new Callback<AddressManageResponse>() {

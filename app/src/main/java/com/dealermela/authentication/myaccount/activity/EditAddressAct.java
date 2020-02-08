@@ -272,7 +272,7 @@ public class EditAddressAct extends DealerMelaBaseActivity implements View.OnCli
 
     private void addAddress(String customerId, String addressBillingFlag, String addressShippingFlag, String firstName, String lastName, String street1, String street2, String city, String regionId, String region, String postcode, String countryId, String telephone) {
 
-        showProgressDialog(getString(R.string.address), getString(R.string.please_wait));
+        showProgressDialog(AppConstants.PLEASE_WAIT);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<JsonObject> callApi = apiInterface.addNewAddress(customerId, addressBillingFlag, addressShippingFlag, firstName, lastName, street1, street2, city, regionId, region, postcode, countryId, telephone);
         callApi.enqueue(new Callback<JsonObject>() {
@@ -309,7 +309,7 @@ public class EditAddressAct extends DealerMelaBaseActivity implements View.OnCli
 
     private void editBillingAddress(String customerId, String addressId, String firstName, String lastName, String street1, String street2, String city, String regionId, String region, String postcode, String countryId, String telephone) {
 
-        showProgressDialog(getString(R.string.address), getString(R.string.please_wait));
+        showProgressDialog(AppConstants.PLEASE_WAIT);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<JsonObject> callApi = apiInterface.editDefaultBilling(customerId, addressId, firstName, lastName, street1, street2, city, regionId, region, postcode, countryId, telephone);
         callApi.enqueue(new Callback<JsonObject>() {
@@ -348,7 +348,7 @@ public class EditAddressAct extends DealerMelaBaseActivity implements View.OnCli
 
     private void editShippingAddress(String customerId, String addressId, String firstName, String lastName, String street1, String street2, String city, String regionId, String region, String postcode, String countryId, String telephone) {
 
-        showProgressDialog(getString(R.string.address), getString(R.string.please_wait));
+        showProgressDialog(AppConstants.PLEASE_WAIT);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<JsonObject> callApi = apiInterface.editDefaultShipping(customerId, addressId, firstName, lastName, street1, street2, city, regionId, region, postcode, countryId, telephone);
         callApi.enqueue(new Callback<JsonObject>() {
@@ -383,7 +383,7 @@ public class EditAddressAct extends DealerMelaBaseActivity implements View.OnCli
     }
 
     private void editAdditionalAddress(String customerId, String addressId, String addressBillingFlag, String addressShippingFlag, String firstName, String lastName, String street1, String street2, String city, String regionId, String region, String postcode, String countryId, String telephone) {
-        showProgressDialog(getString(R.string.address), getString(R.string.please_wait));
+        showProgressDialog(AppConstants.PLEASE_WAIT);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<JsonObject> callApi = apiInterface.editAdditionalBilling(customerId, addressId, addressBillingFlag, addressShippingFlag, firstName, lastName, street1, street2, city, regionId, region, postcode, countryId, telephone);
         callApi.enqueue(new Callback<JsonObject>() {
@@ -420,7 +420,7 @@ public class EditAddressAct extends DealerMelaBaseActivity implements View.OnCli
     }
 
     private void getCountryList() {
-        showProgressDialog(getString(R.string.get_country), getString(R.string.please_wait));
+        showProgressDialog(AppConstants.PLEASE_WAIT);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<CountryResponse> callApi = apiInterface.getCountry();
         callApi.enqueue(new Callback<CountryResponse>() {
@@ -450,7 +450,7 @@ public class EditAddressAct extends DealerMelaBaseActivity implements View.OnCli
     }
 
     private void getStateList(String countryId) {
-        showProgressDialog(getString(R.string.get_state), getString(R.string.please_wait));
+        showProgressDialog(AppConstants.PLEASE_WAIT);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<StateResponse> callApi = apiInterface.getState(countryId);
         callApi.enqueue(new Callback<StateResponse>() {

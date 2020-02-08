@@ -9,6 +9,7 @@
 
     <!-- Base application theme. -->
     <style name="WhiteTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#ffffff</item>
         <item name="colorPrimaryDark">#cccccc</item>
@@ -135,12 +136,12 @@
 
     <!--Full Screen Theme-->
     <style name="WhiteTheme.FullScreen">
-        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowFullscreen">false</item>
     </style>
 
     <!--Full Screen Theme-->
     <style name="BlackTheme.FullScreen">
-        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowFullscreen">false</item>
     </style>
 
     <style name="WhiteTheme.NoActionBar">
@@ -233,6 +234,10 @@
 
     <style name="SpinnerEditTheme" parent="android:Widget.Spinner">
         <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
+        <item name="android:background">@drawable/spinner_drawable</item>
+    </style>
+
+    <style name="SpinnerThemeInventory" parent="android:Widget.Spinner">
         <item name="android:background">@drawable/spinner_drawable</item>
     </style>
 
@@ -672,6 +677,22 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:background">@color/dml_logo_color</item>
         <item name="colorAccent">@color/black</item>
+    </style>
+
+    <style name="tvInventoryItemTextStyle">
+        <item name="android:padding">1dp</item>
+        <item name="android:textSize">@dimen/twelve_sp</item>
+<!--        <item name="android:text">item</item>-->
+    </style>
+
+    <style name="more_less_textview">
+        <item name="android:textSize">@dimen/twelve_sp</item>
+        <item name="android:paddingStart">@dimen/ten_padding_margin</item>
+        <item name="android:paddingEnd">@dimen/ten_padding_margin</item>
+        <item name="android:paddingTop">@dimen/five_dp</item>
+        <item name="android:paddingBottom">@dimen/five_dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:text">more</item>
     </style>
 
 </resources>

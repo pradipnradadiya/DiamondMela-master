@@ -8,7 +8,6 @@ public class LoadingDialog {
 
     static ProgressDialog progressDialog;
 
-
     public static void showLoadingDialog(Context context, String message) {
 
         if (!(progressDialog != null && progressDialog.isShowing())) {

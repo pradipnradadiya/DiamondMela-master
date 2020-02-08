@@ -193,7 +193,7 @@ public class CreateReferralAct extends DealerMelaBaseActivity implements View.On
 
     private void addReferral(String franchiseeStatus, String firstName, String lastName, String email, String groupId, String password, String referralCommission, String parentFranchiseId, String telephone, String referralType, String isFranchisee) {
 
-        showProgressDialog(getString(R.string.create_referral), getString(R.string.please_wait));
+        showProgressDialog(AppConstants.PLEASE_WAIT);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<JsonObject> callApi = apiInterface.addReferral(franchiseeStatus, firstName, lastName, email, groupId, password, referralCommission, parentFranchiseId, telephone, referralType, isFranchisee);
         callApi.enqueue(new Callback<JsonObject>() {

@@ -105,7 +105,7 @@ public class ShippingChargeAct extends DealerMelaBaseActivity implements View.On
     }
 
     private void paymentSave(String payment_method, String shipping_method, String shipping_price) {
-        showProgressDialog("Shipping", getString(R.string.please_wait));
+        showProgressDialog(AppConstants.PLEASE_WAIT);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<JsonObject> callApi = apiInterface.savePayment(customerId, payment_method, shipping_method, shipping_price);
         callApi.enqueue(new Callback<JsonObject>() {

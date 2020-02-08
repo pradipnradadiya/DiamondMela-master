@@ -149,8 +149,6 @@ public abstract class DealerMelaBaseActivity extends AppCompatActivity implement
                 braceletProductId = "";
                 bangleProductId = "";
                 pendentProId = "";
-
-
                 finish();
             }
         });
@@ -205,7 +203,7 @@ public abstract class DealerMelaBaseActivity extends AppCompatActivity implement
         fragmentTransaction.commit();
     }
 
-    protected void showProgressDialog(String title, String message) {
+    protected void showProgressDialog(String title) {
 
         if (hud != null) {
             hud.dismiss();
@@ -213,7 +211,7 @@ public abstract class DealerMelaBaseActivity extends AppCompatActivity implement
         hud = KProgressHUD.create(this)
                 .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
                 .setLabel(title)
-                .setDetailsLabel(message)
+//                .setDetailsLabel(message)
                 .show();
 
 

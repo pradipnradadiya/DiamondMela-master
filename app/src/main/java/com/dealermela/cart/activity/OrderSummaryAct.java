@@ -104,7 +104,7 @@ public class OrderSummaryAct extends DealerMelaBaseActivity implements View.OnCl
     }
 
     private void orderSummary() {
-        showProgressDialog("Order Summary", getString(R.string.please_wait));
+        showProgressDialog(AppConstants.PLEASE_WAIT);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<OrderSummaryItem> callApi = apiInterface.orderSummary(customerId);
         callApi.enqueue(new Callback<OrderSummaryItem>() {
@@ -149,7 +149,7 @@ public class OrderSummaryAct extends DealerMelaBaseActivity implements View.OnCl
     }
 
     private void placeOrder() {
-        showProgressDialog("Order", getString(R.string.please_wait));
+        showProgressDialog(AppConstants.PLEASE_WAIT);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<JsonObject> callApi = apiInterface.placeOrder(customerId);
         callApi.enqueue(new Callback<JsonObject>() {

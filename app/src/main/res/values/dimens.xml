@@ -5,7 +5,6 @@
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
-
     <dimen name="cover_width">120dp</dimen>
     <dimen name="cover_height">180dp</dimen>
 
@@ -82,6 +81,8 @@
     <dimen name="ninenty_dp">90dp</dimen>
     <dimen name="download_product_popop_image_height_width">96dp</dimen>
     <dimen name="two_nine_zero">290dp</dimen>
+    <dimen name="image_width_height_inventory">80dp</dimen>
+    <dimen name="image_width_height_inventory2">85dp</dimen>
 
 
 </resources>
