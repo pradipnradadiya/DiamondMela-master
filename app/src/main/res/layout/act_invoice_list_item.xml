@@ -18,34 +18,46 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            android:padding="@dimen/eight_sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <com.dealermela.utility.DmlTextView
+                android:id="@+id/tvInvoiceNo"
                 style="@style/tvInventoryItemTextStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="Invoice No: 15454"
+                />
 
             <com.dealermela.utility.DmlTextView
+                android:id="@+id/tvCustomerName"
                 style="@style/tvInventoryItemTextStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="Customer Name: Pradip Radadiya" />
 
             <com.dealermela.utility.DmlTextView
+                android:id="@+id/tvInvoiceDate"
                 style="@style/tvInventoryItemTextStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="Invoice Date: 10/02/2020" />
 
             <com.dealermela.utility.DmlTextView
+                android:id="@+id/tvAmount"
                 style="@style/tvInventoryItemTextStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="Amount: Rs.25,120" />
 
             <com.dealermela.utility.DmlTextView
+                android:id="@+id/tvStatus"
                 style="@style/tvInventoryItemTextStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="Status: Complete" />
 
         </LinearLayout>
 

@@ -18,6 +18,7 @@ import com.dealermela.inventary.model.InventoryInvoiceItem;
 import com.dealermela.inventary.model.InventoryItem;
 import com.dealermela.inventary.model.InventoryPaymentItem;
 import com.dealermela.inventary.model.InventoryProductItem;
+import com.dealermela.inventary.model.InventoryQuotationItem;
 import com.dealermela.listing_and_detail.model.FilterItem;
 import com.dealermela.listing_and_detail.model.ListingItem;
 import com.dealermela.listing_and_detail.model.ProductDetailItem;
@@ -517,15 +518,23 @@ public interface ApiInterface {
     @POST("public/api/getTryProductsList")
     Call<InventoryProductItem> getTryProductsList(@Field("page") String page, @Field("customer_id") String customer_id,@Field("date") String date,@Field("submit_to_dml") String submitToDml);
 
+
     //Try product Add
     @FormUrlEncoded
     @POST("public/api/StoreTryProduct")
-    Call<JsonObject> storeTryProduct(@Field("product_id") String page, @Field("customer_id") String customer_id);
+    Call<JsonObject> storeTryProduct(@Field("product_id") String product_id, @Field("customer_id") String customer_id);
 
     //delete product from try list
     @FormUrlEncoded
     @POST("public/api/deleteProductFromTry")
     Call<JsonObject> deleteProductFromTry(@Field("customer_id") String customer_id, @Field("product_id") String product_id);
 
+
+
+    //************************************Quotation*****************************************
+    //quotation list
+    @FormUrlEncoded
+    @POST("public/api/getQuotationList")
+    Call<InventoryQuotationItem> getQuotationList(@Field("page") String page, @Field("customer_id") String customer_id);
 
 }

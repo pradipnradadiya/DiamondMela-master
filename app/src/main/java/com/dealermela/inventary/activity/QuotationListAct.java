@@ -10,14 +10,12 @@ import android.widget.ProgressBar;
 import com.dealermela.DealerMelaBaseActivity;
 import com.dealermela.R;
 import com.dealermela.interfaces.RecyclerViewClickListener;
-import com.dealermela.inventary.adapter.InventoryProductAdapter;
-import com.dealermela.inventary.model.InventoryProductItem;
-import com.dealermela.retrofit.APIClient;
+import com.dealermela.inventary.adapter.InventoryQuotationAdapter;
+import com.dealermela.inventary.model.InventoryQuotationItem;
 import com.dealermela.retrofit.APIClientLaravel;
 import com.dealermela.retrofit.ApiInterface;
 import com.dealermela.util.AppConstants;
 import com.dealermela.util.AppLogger;
-import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -28,19 +26,19 @@ import retrofit2.Response;
 
 import static com.dealermela.home.activity.MainActivity.customerId;
 
-public class ProductListAct extends DealerMelaBaseActivity {
+public class QuotationListAct extends DealerMelaBaseActivity {
     //page count
     private int page_count = 1;
-    private RecyclerView recycleViewProductList;
-    private ArrayList<InventoryProductItem.Datum> productList = new ArrayList<>();
-    private InventoryProductAdapter inventoryProductAdapter;
+    private RecyclerView recycleViewQuotationList;
+    private ArrayList<InventoryQuotationItem.Datum> quotationList = new ArrayList<>();
+    private InventoryQuotationAdapter inventoryQuotationAdapter;
     boolean isLoading = false;
     private ProgressBar progressBar;
     private ConstraintLayout constraintNoData;
 
     @Override
     protected int getLayoutResourceId() {
-        return R.layout.act_product_list;
+        return R.layout.act_quotation_list;
     }
 
     @Override
@@ -51,15 +49,15 @@ public class ProductListAct extends DealerMelaBaseActivity {
     @Override
     public void initView() {
         constraintNoData = findViewById(R.id.constraintNoData);
-        recycleViewProductList = findViewById(R.id.recycleViewProductList);
+        recycleViewQuotationList = findViewById(R.id.recycleViewPaymentList);
         progressBar = findViewById(R.id.progressBar);
     }
 
     @Override
     public void postInitView() {
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ProductListAct.this);
-        recycleViewProductList.setLayoutManager(linearLayoutManager);
-        inventoryProductAdapter = new InventoryProductAdapter(ProductListAct.this, productList, new RecyclerViewClickListener() {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(QuotationListAct.this);
+        recycleViewQuotationList.setLayoutManager(linearLayoutManager);
+        inventoryQuotationAdapter = new InventoryQuotationAdapter(QuotationListAct.this, quotationList, new RecyclerViewClickListener() {
             @Override
             public void onClick(View view, int position) {
             }
@@ -77,21 +75,21 @@ public class ProductListAct extends DealerMelaBaseActivity {
             }
 
         });
-        recycleViewProductList.setAdapter(inventoryProductAdapter);
+        recycleViewQuotationList.setAdapter(inventoryQuotationAdapter);
     }
 
     @Override
     public void addListener() {
-        recycleViewProductList.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        recycleViewQuotationList.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
                 LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
                 if (!isLoading) {
-                    if (linearLayoutManager != null && linearLayoutManager.findLastCompletelyVisibleItemPosition() == productList.size() - 1) {
+                    if (linearLayoutManager != null && linearLayoutManager.findLastCompletelyVisibleItemPosition() == quotationList.size() - 1) {
                         //bottom of list!
                         page_count++;
-                        getProductList("", "");
+                        getQuotationList();
                         isLoading = true;
                     }
                 }
@@ -101,44 +99,44 @@ public class ProductListAct extends DealerMelaBaseActivity {
 
     @Override
     public void loadData() {
-        getProductList("", "");
+        getQuotationList();
     }
 
-    private void getProductList(String date, String submitToDml) {
+    private void getQuotationList() {
         if (page_count != 1) {
-            productList.add(null);
-            inventoryProductAdapter.notifyItemInserted(productList.size() - 1);
+            quotationList.add(null);
+            inventoryQuotationAdapter.notifyItemInserted(quotationList.size() - 1);
         }
         ApiInterface apiInterface = APIClientLaravel.getClient().create(ApiInterface.class);
         AppLogger.e("customerId", "-------" + customerId);
-        Call<InventoryProductItem> callApi = apiInterface.getTryProductsList(String.valueOf(page_count), customerId, date, submitToDml);
-        callApi.enqueue(new Callback<InventoryProductItem>() {
+        Call<InventoryQuotationItem> callApi = apiInterface.getQuotationList(String.valueOf(page_count), customerId);
+        callApi.enqueue(new Callback<InventoryQuotationItem>() {
             @Override
-            public void onResponse(@NonNull Call<InventoryProductItem> call, @NonNull Response<InventoryProductItem> response) {
+            public void onResponse(@NonNull Call<InventoryQuotationItem> call, @NonNull Response<InventoryQuotationItem> response) {
                 AppLogger.e("response", "----------" + Objects.requireNonNull(response.body()).getStatus());
                 if (response.isSuccessful()) {
                     if (response.body().getStatus().equalsIgnoreCase(AppConstants.STATUS_CODE_SUCCESS)) {
                         if (page_count != 1) {
-                            productList.remove(productList.size() - 1);
-                            int scrollPosition = productList.size();
-                            inventoryProductAdapter.notifyItemRemoved(scrollPosition);
+                            quotationList.remove(quotationList.size() - 1);
+                            int scrollPosition = quotationList.size();
+                            inventoryQuotationAdapter.notifyItemRemoved(scrollPosition);
                         }
-                        productList.addAll(response.body().getData());
-                        inventoryProductAdapter.notifyDataSetChanged();
+                        quotationList.addAll(response.body().getData());
+                        inventoryQuotationAdapter.notifyDataSetChanged();
                         isLoading = false;
                         progressBar.setVisibility(View.INVISIBLE);
                         constraintNoData.setVisibility(View.GONE);
                     } else if (response.body().getStatus().equalsIgnoreCase(AppConstants.STATUS_CODE_FAIL)) {
                         if (page_count != 1) {
-                            productList.remove(productList.size() - 1);
-                            int scrollPosition = productList.size();
-                            inventoryProductAdapter.notifyItemRemoved(scrollPosition);
+                            quotationList.remove(quotationList.size() - 1);
+                            int scrollPosition = quotationList.size();
+                            inventoryQuotationAdapter.notifyItemRemoved(scrollPosition);
                         } else {
                             constraintNoData.setVisibility(View.VISIBLE);
                         }
                     } else {
                         progressBar.setVisibility(View.INVISIBLE);
-                        if (!productList.isEmpty()) {
+                        if (!quotationList.isEmpty()) {
                             constraintNoData.setVisibility(View.VISIBLE);
                         }
 
@@ -147,26 +145,9 @@ public class ProductListAct extends DealerMelaBaseActivity {
             }
 
             @Override
-            public void onFailure(@NonNull Call<InventoryProductItem> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<InventoryQuotationItem> call, @NonNull Throwable t) {
                 AppLogger.e("error", t.getMessage());
             }
         });
     }
-
-    private void deleteProductFromTry(String productIds){
-        ApiInterface apiInterface = APIClientLaravel.getClient().create(ApiInterface.class);
-        Call<JsonObject> callApi = apiInterface.deleteProductFromTry(productIds,customerId);
-        callApi.enqueue(new Callback<JsonObject>() {
-            @Override
-            public void onResponse(@NonNull Call<JsonObject> call, @NonNull Response<JsonObject> response) {
-
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<JsonObject> call, @NonNull Throwable t) {
-
-            }
-        });
-    }
-
 }

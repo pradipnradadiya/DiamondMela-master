@@ -31,6 +31,7 @@ import com.dealermela.retrofit.ApiInterface;
 import com.dealermela.util.AppConstants;
 import com.dealermela.util.AppLogger;
 import com.dealermela.util.CommonUtils;
+import com.google.gson.JsonObject;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -40,6 +41,8 @@ import java.util.Objects;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.dealermela.home.activity.MainActivity.customerId;
 
 public class InventoryListAct extends DealerMelaBaseActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
     //page count
@@ -262,6 +265,24 @@ public class InventoryListAct extends DealerMelaBaseActivity implements AdapterV
             }
         });
     }
+
+    private void tryProduct(String productIds){
+        ApiInterface apiInterface = APIClientLaravel.getClient().create(ApiInterface.class);
+        Call<JsonObject> callApi = apiInterface.storeTryProduct(productIds,customerId);
+        callApi.enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(@NonNull Call<JsonObject> call, @NonNull Response<JsonObject> response) {
+
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<JsonObject> call, @NonNull Throwable t) {
+
+            }
+        });
+    }
+
+
 
     private void inventoryAction(String productsIds, String action) {
         showProgressDialog(AppConstants.PLEASE_WAIT);

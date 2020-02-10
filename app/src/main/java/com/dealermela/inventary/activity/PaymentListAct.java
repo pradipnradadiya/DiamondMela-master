@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.dealermela.DealerMelaBaseActivity;
 import com.dealermela.R;
@@ -16,6 +17,7 @@ import com.dealermela.retrofit.APIClientLaravel;
 import com.dealermela.retrofit.ApiInterface;
 import com.dealermela.util.AppConstants;
 import com.dealermela.util.AppLogger;
+import com.dealermela.util.CommonUtils;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -35,6 +37,7 @@ public class PaymentListAct extends DealerMelaBaseActivity {
     boolean isLoading = false;
     private ProgressBar progressBar;
     private ConstraintLayout constraintNoData;
+    private TextView tvTotalPaid,tvTotalRemaining;
 
     @Override
     protected int getLayoutResourceId() {
@@ -48,6 +51,8 @@ public class PaymentListAct extends DealerMelaBaseActivity {
 
     @Override
     public void initView() {
+        tvTotalRemaining = findViewById(R.id.tvTotalRemaining);
+        tvTotalPaid = findViewById(R.id.tvTotalPaid);
         constraintNoData = findViewById(R.id.constraintNoData);
         recycleViewPaymentList = findViewById(R.id.recycleViewPaymentList);
         progressBar = findViewById(R.id.progressBar);
@@ -116,6 +121,10 @@ public class PaymentListAct extends DealerMelaBaseActivity {
                 AppLogger.e("response", "----------" + Objects.requireNonNull(response.body()).getStatus());
                 if (response.isSuccessful()) {
                     if (response.body().getStatus().equalsIgnoreCase(AppConstants.STATUS_CODE_SUCCESS)) {
+                        if (page_count == 1){
+                            tvTotalPaid.setText(CommonUtils.priceFormat(response.body().getTotalPaid()));
+                            tvTotalRemaining.setText(CommonUtils.priceFormat(response.body().getTotalRemaining()));
+                        }
                         if (page_count != 1) {
                             paymentList.remove(paymentList.size() - 1);
                             int scrollPosition = paymentList.size();

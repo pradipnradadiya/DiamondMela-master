@@ -11,10 +11,10 @@ public class InventoryPaymentItem {
     private String status;
     @SerializedName("total_paid")
     @Expose
-    private Integer totalPaid;
+    private Float totalPaid;
     @SerializedName("total_remaining")
     @Expose
-    private Integer totalRemaining;
+    private Float totalRemaining;
     @SerializedName("data")
     @Expose
     private ArrayList<Datum> data = null;
@@ -27,19 +27,19 @@ public class InventoryPaymentItem {
         this.status = status;
     }
 
-    public Integer getTotalPaid() {
+    public Float getTotalPaid() {
         return totalPaid;
     }
 
-    public void setTotalPaid(Integer totalPaid) {
+    public void setTotalPaid(Float totalPaid) {
         this.totalPaid = totalPaid;
     }
 
-    public Integer getTotalRemaining() {
+    public Float getTotalRemaining() {
         return totalRemaining;
     }
 
-    public void setTotalRemaining(Integer totalRemaining) {
+    public void setTotalRemaining(Float totalRemaining) {
         this.totalRemaining = totalRemaining;
     }
 
@@ -58,13 +58,13 @@ public class InventoryPaymentItem {
         private String invoiceNumber;
         @SerializedName("invoice_amount")
         @Expose
-        private String invoiceAmount;
+        private Float invoiceAmount;
         @SerializedName("remaining")
         @Expose
-        private String remaining;
+        private Float remaining;
         @SerializedName("remaining_amount")
         @Expose
-        private String remainingAmount;
+        private Float remainingAmount;
         @SerializedName("payment_form")
         @Expose
         private String paymentForm;
@@ -76,7 +76,7 @@ public class InventoryPaymentItem {
         private Object dueDate;
         @SerializedName("paid_amount")
         @Expose
-        private String paidAmount;
+        private Float paidAmount;
         @SerializedName("id")
         @Expose
         private Integer id;
@@ -98,27 +98,27 @@ public class InventoryPaymentItem {
             this.invoiceNumber = invoiceNumber;
         }
 
-        public String getInvoiceAmount() {
+        public Float getInvoiceAmount() {
             return invoiceAmount;
         }
 
-        public void setInvoiceAmount(String invoiceAmount) {
+        public void setInvoiceAmount(Float invoiceAmount) {
             this.invoiceAmount = invoiceAmount;
         }
 
-        public String getRemaining() {
+        public Float getRemaining() {
             return remaining;
         }
 
-        public void setRemaining(String remaining) {
+        public void setRemaining(Float remaining) {
             this.remaining = remaining;
         }
 
-        public String getRemainingAmount() {
+        public Float getRemainingAmount() {
             return remainingAmount;
         }
 
-        public void setRemainingAmount(String remainingAmount) {
+        public void setRemainingAmount(Float remainingAmount) {
             this.remainingAmount = remainingAmount;
         }
 
@@ -146,11 +146,11 @@ public class InventoryPaymentItem {
             this.dueDate = dueDate;
         }
 
-        public String getPaidAmount() {
+        public Float getPaidAmount() {
             return paidAmount;
         }
 
-        public void setPaidAmount(String paidAmount) {
+        public void setPaidAmount(Float paidAmount) {
             this.paidAmount = paidAmount;
         }
 

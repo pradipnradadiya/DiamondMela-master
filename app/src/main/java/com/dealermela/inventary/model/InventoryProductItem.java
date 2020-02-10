@@ -122,6 +122,8 @@ public class InventoryProductItem {
         @Expose
         private String diamondQuality;
 
+        private boolean isOpen = false;
+
         public Integer getEntityId() {
             return entityId;
         }
@@ -362,5 +364,12 @@ public class InventoryProductItem {
             this.diamondQuality = diamondQuality;
         }
 
+        public boolean isOpen() {
+            return isOpen;
+        }
+
+        public void setOpen(boolean open) {
+            isOpen = open;
+        }
     }
 }

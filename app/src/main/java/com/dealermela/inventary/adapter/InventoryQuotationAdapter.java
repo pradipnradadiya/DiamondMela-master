@@ -12,18 +12,19 @@ import android.widget.TextView;
 
 import com.dealermela.R;
 import com.dealermela.interfaces.RecyclerViewClickListener;
-import com.dealermela.inventary.model.InventoryInvoiceItem;
+import com.dealermela.inventary.model.InventoryPaymentItem;
+import com.dealermela.inventary.model.InventoryQuotationItem;
+import com.dealermela.util.CommonUtils;
 
 import java.util.List;
 
-public class InventoryInvoiceAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class InventoryQuotationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final Activity activity;
     private final int VIEW_TYPE_ITEM = 0;
-    private final List<InventoryInvoiceItem.Datum> itemArrayList;
+    private final List<InventoryQuotationItem.Datum> itemArrayList;
     private RecyclerViewClickListener clickListener;
 
-
-    public InventoryInvoiceAdapter(Activity activity, List<InventoryInvoiceItem.Datum> itemArrayList, RecyclerViewClickListener clickListener) {
+    public InventoryQuotationAdapter(Activity activity, List<InventoryQuotationItem.Datum> itemArrayList, RecyclerViewClickListener clickListener) {
         super();
         this.activity = activity;
         this.itemArrayList = itemArrayList;
@@ -34,7 +35,7 @@ public class InventoryInvoiceAdapter extends RecyclerView.Adapter<RecyclerView.V
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         if (viewType == VIEW_TYPE_ITEM) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.act_invoice_list_item, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.act_payment_list_item, parent, false);
             return new ItemViewHolder(view);
         } else {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_loading, parent, false);
@@ -63,24 +64,14 @@ public class InventoryInvoiceAdapter extends RecyclerView.Adapter<RecyclerView.V
     }
 
     private class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
-        private TextView tvInvoiceNo,tvCustomerName,tvInvoiceDate,tvAmount,tvStatus;
+
         ItemViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvInvoiceNo = itemView.findViewById(R.id.tvInvoiceNo);
-            tvCustomerName = itemView.findViewById(R.id.tvCustomerName);
-            tvInvoiceDate = itemView.findViewById(R.id.tvInvoiceDate);
-            tvAmount = itemView.findViewById(R.id.tvAmount);
-            tvStatus = itemView.findViewById(R.id.tvStatus);
             itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);
         }
 
-        public void setData(InventoryInvoiceItem.Datum datum) {
-            tvInvoiceNo.setText(Html.fromHtml("<b>Invoice No: </b>" + datum.getInvoiceNumber()));
-            tvCustomerName.setText(Html.fromHtml("<b>Customer Name: </b>" + datum.getCustomerFirstname()+" "+datum.getCustomerLastname()));
-            tvInvoiceDate.setText(Html.fromHtml("<b>Invoice Date: </b>" + datum.getInvoiceCreatedDate()));
-            tvAmount.setText(Html.fromHtml("<b>Amount: </b>" + datum.getGrandTotal()));
-            tvStatus.setText(Html.fromHtml("<b>Status: </b>" + datum.getStatus()));
+        public void setData(InventoryQuotationItem.Datum datum) {
         }
 
         @Override
@@ -111,7 +102,7 @@ public class InventoryInvoiceAdapter extends RecyclerView.Adapter<RecyclerView.V
     }
 
     private void populateItemRows(final ItemViewHolder holder, final int position) {
-        final InventoryInvoiceItem.Datum datum = itemArrayList.get(position);
+        final InventoryQuotationItem.Datum datum = itemArrayList.get(position);
         holder.setData(datum);
     }
 }

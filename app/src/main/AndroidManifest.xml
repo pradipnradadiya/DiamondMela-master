@@ -136,6 +136,7 @@
             android:screenOrientation="portrait" />
         <activity android:name=".inventary.activity.PaymentListAct" />
         <activity android:name=".inventary.activity.ProductListAct" />
+        <activity android:name=".inventary.activity.QuotationListAct" />
 
         <meta-data
             android:name="io.fabric.ApiKey"

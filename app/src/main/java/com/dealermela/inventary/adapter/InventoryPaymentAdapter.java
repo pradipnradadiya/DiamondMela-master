@@ -3,15 +3,18 @@ package com.dealermela.inventary.adapter;
 import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.dealermela.R;
 import com.dealermela.interfaces.RecyclerViewClickListener;
 import com.dealermela.inventary.model.InventoryInvoiceItem;
 import com.dealermela.inventary.model.InventoryPaymentItem;
+import com.dealermela.util.CommonUtils;
 
 import java.util.List;
 
@@ -62,16 +65,25 @@ public class InventoryPaymentAdapter extends RecyclerView.Adapter<RecyclerView.V
     }
 
     private class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
+        private TextView tvInvoiceNo, tvInvoiceAmount, tvPaidAmount, tvRemainingAmount, tvPaymentStatus;
 
         ItemViewHolder(@NonNull View itemView) {
             super(itemView);
-
+            tvInvoiceNo = itemView.findViewById(R.id.tvInvoiceNo);
+            tvInvoiceAmount = itemView.findViewById(R.id.tvInvoiceAmount);
+            tvPaidAmount = itemView.findViewById(R.id.tvPaidAmount);
+            tvRemainingAmount = itemView.findViewById(R.id.tvRemainingAmount);
+            tvPaymentStatus = itemView.findViewById(R.id.tvPaymentStatus);
             itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);
         }
 
         public void setData(InventoryPaymentItem.Datum datum) {
-
+            tvInvoiceNo.setText(Html.fromHtml("<b>Invoice No: </b>" + datum.getInvoiceNumber()));
+            tvInvoiceAmount.setText(Html.fromHtml("<b>Invoice Amount: </b>" + CommonUtils.priceFormat(datum.getInvoiceAmount())));
+            tvPaidAmount.setText(Html.fromHtml("<b>Paid Amount: </b>" +  CommonUtils.priceFormat(datum.getPaidAmount())));
+            tvRemainingAmount.setText(Html.fromHtml("<b>Remaining Amount: </b>" +  CommonUtils.priceFormat(datum.getRemainingAmount())));
+            tvPaymentStatus.setText(Html.fromHtml("<b>Status: </b>" + datum.getPaymentStatus()));
         }
 
         @Override

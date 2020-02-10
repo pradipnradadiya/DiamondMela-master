@@ -85,7 +85,7 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
     private SharedPreferences sharedPreferences;
     private LoginResponse loginResponse;
     private LinearLayout linContainer;
-    private LinearLayout linHome, linCollection, linOrders, linTransaction, linDownload, linPolicies, linCart, linFAQ, linContactUs, linLogout, linMyStock;
+    private LinearLayout linInventory, linCollection, linOrders, linTransaction, linDownload, linPolicies, linCart, linFAQ, linContactUs, linLogout, linMyStock;
     private ScrollView scrollViewCollection;
     private boolean doubleBackToExitPressedOnce = false;
 //    private RelativeLayout relCart;
@@ -291,7 +291,7 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
         linContainer = headerLayout.findViewById(R.id.linContainer);
         scrollViewCollection = headerLayout.findViewById(R.id.scrollViewCollection);
 
-        linHome = headerLayout.findViewById(R.id.linHome);
+        linInventory = headerLayout.findViewById(R.id.linInventory);
         linCollection = headerLayout.findViewById(R.id.linCollection);
         linOrders = headerLayout.findViewById(R.id.linOrders);
         linTransaction = headerLayout.findViewById(R.id.linTransaction);
@@ -358,7 +358,7 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
         tvSignUp.setOnClickListener(this);
         tvUserName.setOnClickListener(this);
 
-        linHome.setOnClickListener(this);
+        linInventory.setOnClickListener(this);
         linCollection.setOnClickListener(this);
         linOrders.setOnClickListener(this);
         linTransaction.setOnClickListener(this);
@@ -446,7 +446,7 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
                 onBackPressed();
                 break;
 
-            case R.id.linHome:
+            case R.id.linInventory:
                 Intent intent = new Intent(MainActivity.this, InventoryListAct.class);
                 startActivity(intent);
                 onBackPressed();

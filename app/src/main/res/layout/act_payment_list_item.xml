@@ -20,29 +20,35 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="@dimen/eight_sp"
             android:orientation="vertical">
 
             <com.dealermela.utility.DmlTextView
+                android:id="@+id/tvInvoiceNo"
                 style="@style/tvInventoryItemTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <com.dealermela.utility.DmlTextView
+                android:id="@+id/tvInvoiceAmount"
                 style="@style/tvInventoryItemTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <com.dealermela.utility.DmlTextView
+                android:id="@+id/tvPaidAmount"
                 style="@style/tvInventoryItemTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <com.dealermela.utility.DmlTextView
+                android:id="@+id/tvRemainingAmount"
                 style="@style/tvInventoryItemTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <com.dealermela.utility.DmlTextView
+                android:id="@+id/tvPaymentStatus"
                 style="@style/tvInventoryItemTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
