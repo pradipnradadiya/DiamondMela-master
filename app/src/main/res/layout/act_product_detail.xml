@@ -183,6 +183,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
+                    android:id="@+id/cardDiamondBox"
                     android:layout_width="@dimen/one_three_five_dp"
                     android:layout_height="@dimen/ninenty_dp"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
@@ -191,6 +192,7 @@
                     app:cardElevation="0dp">
 
                     <LinearLayout
+                        android:id="@+id/linDiamondBox"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"

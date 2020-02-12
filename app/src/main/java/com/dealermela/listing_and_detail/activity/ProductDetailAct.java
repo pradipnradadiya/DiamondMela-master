@@ -11,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -142,8 +143,11 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
     private TextView tvBeltPrice;
     private View viewBelt;
 
-    public static String diamondValue="SI-IJ";
-
+    public static String diamondValue = "SI-IJ";
+    private LinearLayout linDiamondBox;
+    private TextView tvDiamondDetailLabel;
+    private RelativeLayout relDiamondDetailTotal;
+    private CardView cardDiamondBox;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -171,6 +175,10 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
     @Override
     public void initView() {
         bindToolBar("Detail Page");
+        linDiamondBox = findViewById(R.id.linDiamondBox);
+        tvDiamondDetailLabel = findViewById(R.id.tvDiamondDetail);
+        relDiamondDetailTotal = findViewById(R.id.relDiamondDetailTotal);
+        cardDiamondBox = findViewById(R.id.cardDiamondBox);
         relBelt = findViewById(R.id.relBelt);
         tvBeltPrice = findViewById(R.id.tvBeltPrice);
         viewBelt = findViewById(R.id.viewBelt);
@@ -358,14 +366,14 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
     //get all product detail
     private void getProductDetail(final String productId, String metalCarat, String metalQualityColor, String ringSize, String stoneQuality, String bangleProId, String braceletProId, String pendentProId) {
 
-        AppLogger.e("productId","--------------"+productId);
-        AppLogger.e("metalCarat","--------------"+metalCarat);
-        AppLogger.e("metalQualityColor","--------------"+metalQualityColor);
-        AppLogger.e("ringSize","--------------"+ringSize);
-        AppLogger.e("stoneQuality","--------------"+stoneQuality);
-        AppLogger.e("bangleProId","--------------"+bangleProId);
-        AppLogger.e("braceletProId","--------------"+braceletProId);
-        AppLogger.e("pendentProId","--------------"+pendentProId);
+        AppLogger.e("productId", "--------------" + productId);
+        AppLogger.e("metalCarat", "--------------" + metalCarat);
+        AppLogger.e("metalQualityColor", "--------------" + metalQualityColor);
+        AppLogger.e("ringSize", "--------------" + ringSize);
+        AppLogger.e("stoneQuality", "--------------" + stoneQuality);
+        AppLogger.e("bangleProId", "--------------" + bangleProId);
+        AppLogger.e("braceletProId", "--------------" + braceletProId);
+        AppLogger.e("pendentProId", "--------------" + pendentProId);
 
         linProgress.setVisibility(View.VISIBLE);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
@@ -455,8 +463,6 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
                     viewPendentSets.setVisibility(View.GONE);
                     tvPendentHeading.setVisibility(View.GONE);
                 }
-
-
 
 
                 ImageSliderAdapter imageSliderAdapter = new ImageSliderAdapter(ProductDetailAct.this, response.body().getSlider());
@@ -569,8 +575,17 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
 
                 //using for Diamond detail adapter
                 if (!response.body().getDiamonddetails().isEmpty()) {
+                    linDiamondBox.setVisibility(View.VISIBLE);
+                    tvDiamondDetailLabel.setVisibility(View.VISIBLE);
+                    relDiamondDetailTotal.setVisibility(View.VISIBLE);
+                    cardDiamondBox.setVisibility(View.VISIBLE);
                     DiamondDetailAdapter diamondDetailAdapter = new DiamondDetailAdapter(ProductDetailAct.this, response.body().getDiamonddetails());
                     recycleViewDiamondDetail.setAdapter(diamondDetailAdapter);
+                }else{
+                    linDiamondBox.setVisibility(View.GONE);
+                    tvDiamondDetailLabel.setVisibility(View.GONE);
+                    relDiamondDetailTotal.setVisibility(View.GONE);
+                    cardDiamondBox.setVisibility(View.GONE);
                 }
 
                 //using for gemstone detail adapter
@@ -580,9 +595,10 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
                     GemstoneDetailAdapter gemstoneDetailAdapter = new GemstoneDetailAdapter(ProductDetailAct.this, response.body().getGemstonedetails());
                     recycleViewGemstoneDetail.setAdapter(gemstoneDetailAdapter);
                 }
+
                 //Product Detail
                 tvProductName.setText(response.body().getProductDetails().get(0).getProductName());
-               // bindToolBar(response.body().getProductDetails().get(0).getProductName());
+                // bindToolBar(response.body().getProductDetails().get(0).getProductName());
                 tvSku.setText(response.body().getProductDetails().get(0).getSku());
                 cSku = response.body().getProductDetails().get(0).getSku();
                 tvCertificateNo.setText(response.body().getProductDetails().get(0).getCertificateNo());
@@ -597,14 +613,22 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
 //                metalPrice = metalPrice.substring(1, metalPrice.length() - 1);
 //                tvMetalPrice.setText(AppConstants.RS + CommonUtils.rupeeFormat(metalPrice));
 
-
-                tvDiamondPiecesTitle.setText("Diamond (" + response.body().getDiamondmainprice().get(0).getPices() + ")");
-                tvDiamondPrice.setText(AppConstants.RS + CommonUtils.rupeeFormat(response.body().getDiamondmainprice().get(0).getDimondprice()));
-                try {
-                    tvEstimatedTotalValue.setText(AppConstants.RS + CommonUtils.rupeeFormat(response.body().getDiamondmainprice().get(0).getDimondprice()));
-                } catch (Exception e) {
-                    e.printStackTrace();
+                if (response.body().getDiamondmainprice().isEmpty()) {
+                    linDiamondBox.setVisibility(View.GONE);
+                    tvDiamondDetailLabel.setVisibility(View.GONE);
+                    relDiamondDetailTotal.setVisibility(View.GONE);
+                    cardDiamondBox.setVisibility(View.GONE);
+                } else {
+                    tvDiamondPiecesTitle.setText("Diamond (" + response.body().getDiamondmainprice().get(0).getPices() + ")");
+                    tvDiamondPrice.setText(AppConstants.RS + CommonUtils.rupeeFormat(response.body().getDiamondmainprice().get(0).getDimondprice()));
+                    try {
+                        tvEstimatedTotalValue.setText(AppConstants.RS + CommonUtils.rupeeFormat(response.body().getDiamondmainprice().get(0).getDimondprice()));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
+
+
                 tvMetalPurity.setText(response.body().getMetaldetails().get(0).getMetalquality());
                 tvMetalWeightApprox.setText(response.body().getMetaldetails().get(0).getMetalweight());
 
@@ -622,10 +646,16 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
                 cPrice = response.body().getProductDetails().get(0).getPrice();
                 tvGrandTotal.setText(CommonUtils.priceFormat(Float.parseFloat(response.body().getProductDetails().get(0).getPrice())));
                 tvProductPrice.setText(CommonUtils.priceFormat(Float.parseFloat(response.body().getProductDetails().get(0).getPrice())));
+
+
                 tvColorGold.setText("(" + caratValue + " " + metalValue + ")");
                 cMetalDetail = caratValue + " " + metalValue;
                 cStoneDetail = diamondValue;
-                cStoneWeight = response.body().getDiamonddetails().get(0).getTotalweight();
+
+                if (!response.body().getDiamonddetails().isEmpty()) {
+                    cStoneWeight = response.body().getDiamonddetails().get(0).getTotalweight();
+
+                }
 
             }
 
@@ -665,9 +695,6 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
                 images = new ArrayList<>();
                 assert response.body() != null;
                 AppLogger.e(AppConstants.RESPONSE, "------------" + response.body().getSlider());
-
-
-
 
 
                 cProductId = response.body().getSimpleProductId();
@@ -723,8 +750,21 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
                 }
 //                cBracelet = response.body().getBraceletsSize().get(0).getLabel();
                 //using for Diamond detail adapter
-                DiamondDetailAdapter diamondDetailAdapter = new DiamondDetailAdapter(ProductDetailAct.this, response.body().getDiamonddetails());
-                recycleViewDiamondDetail.setAdapter(diamondDetailAdapter);
+
+                if (response.body().getDiamonddetails()!= null){
+                    linDiamondBox.setVisibility(View.VISIBLE);
+                    tvDiamondDetailLabel.setVisibility(View.VISIBLE);
+                    relDiamondDetailTotal.setVisibility(View.VISIBLE);
+                    cardDiamondBox.setVisibility(View.VISIBLE);
+                    DiamondDetailAdapter diamondDetailAdapter = new DiamondDetailAdapter(ProductDetailAct.this, response.body().getDiamonddetails());
+                    recycleViewDiamondDetail.setAdapter(diamondDetailAdapter);
+                }else {
+                    linDiamondBox.setVisibility(View.GONE);
+                    tvDiamondDetailLabel.setVisibility(View.GONE);
+                    relDiamondDetailTotal.setVisibility(View.GONE);
+                    cardDiamondBox.setVisibility(View.GONE);
+                }
+
 
                 //Product Detail
                 tvProductName.setText(response.body().getProductDetails().get(0).getProductName());
@@ -899,8 +939,20 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
                         linButton.setVisibility(View.VISIBLE);
                     }
 
-                    DiamondDetailRTSAdapter diamondDetailAdapter = new DiamondDetailRTSAdapter(ProductDetailAct.this, response.body().getDiamonddetails());
-                    recycleViewDiamondDetail.setAdapter(diamondDetailAdapter);
+                    AppLogger.e("getDiamonddetails", "-------" + response.body().getDiamonddetails());
+                    if (response.body().getDiamonddetails() != null) {
+                        linDiamondBox.setVisibility(View.VISIBLE);
+                        tvDiamondDetailLabel.setVisibility(View.VISIBLE);
+                        relDiamondDetailTotal.setVisibility(View.VISIBLE);
+                        cardDiamondBox.setVisibility(View.VISIBLE);
+                        DiamondDetailRTSAdapter diamondDetailAdapter = new DiamondDetailRTSAdapter(ProductDetailAct.this, response.body().getDiamonddetails());
+                        recycleViewDiamondDetail.setAdapter(diamondDetailAdapter);
+                    }else{
+                        linDiamondBox.setVisibility(View.GONE);
+                        tvDiamondDetailLabel.setVisibility(View.GONE);
+                        relDiamondDetailTotal.setVisibility(View.GONE);
+                        cardDiamondBox.setVisibility(View.GONE);
+                    }
 
                     //Product Detail
                     assert response.body() != null;
@@ -919,9 +971,23 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
                     tvMetalPrice.setText(String.valueOf(CommonUtils.priceFormat(metalPrice)));
 
 
-                    tvDiamondPiecesTitle.setText("Diamond (" + response.body().getDiamondmainprice().get(0).getPices() + ")");
-                    tvDiamondPrice.setText(AppConstants.RS + CommonUtils.rupeeFormat(response.body().getDiamondmainprice().get(0).getDimondprice()));
-                    tvEstimatedTotalValue.setText(AppConstants.RS + CommonUtils.rupeeFormat(response.body().getDiamondmainprice().get(0).getDimondprice()));
+                    if (response.body().getDiamondmainprice().isEmpty()) {
+                        linDiamondBox.setVisibility(View.GONE);
+                        tvDiamondDetailLabel.setVisibility(View.GONE);
+                        relDiamondDetailTotal.setVisibility(View.GONE);
+                        cardDiamondBox.setVisibility(View.GONE);
+
+                    } else {
+                        linDiamondBox.setVisibility(View.VISIBLE);
+                        tvDiamondDetailLabel.setVisibility(View.VISIBLE);
+                        relDiamondDetailTotal.setVisibility(View.VISIBLE);
+                        cardDiamondBox.setVisibility(View.VISIBLE);
+                        tvDiamondPiecesTitle.setText("Diamond (" + response.body().getDiamondmainprice().get(0).getPices() + ")");
+                        tvDiamondPrice.setText(AppConstants.RS + CommonUtils.rupeeFormat(response.body().getDiamondmainprice().get(0).getDimondprice()));
+                        tvEstimatedTotalValue.setText(AppConstants.RS + CommonUtils.rupeeFormat(response.body().getDiamondmainprice().get(0).getDimondprice()));
+                    }
+
+
                     tvMetalPurity.setText(response.body().getMetaldetails().get(0).getMetalquality());
                     tvMetalWeightApprox.setText(response.body().getMetaldetails().get(0).getMetalweight());
                     tvMetalEstimatedTotal.setText(AppConstants.RS + String.valueOf(response.body().getMetaldetails().get(0).getMetalestimatedprice()));

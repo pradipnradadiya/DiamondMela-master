@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_cart" />
 
-    <com.dealermela.utility.DmlTextView
+    <com.dealermela.utility.DmlTextViewSemiBold
         android:id="@+id/tvBestCategoryName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

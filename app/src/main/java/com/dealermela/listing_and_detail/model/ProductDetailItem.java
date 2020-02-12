@@ -626,8 +626,6 @@ public class ProductDetailItem {
     }
 
     public class StockItem {
-
-
     }
 
     public class BraceletsSize {

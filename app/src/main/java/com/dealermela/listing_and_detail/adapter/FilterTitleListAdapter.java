@@ -80,7 +80,7 @@ public class FilterTitleListAdapter extends BaseAdapter {
 
 
         AppLogger.e("svg url", "-------"+items.get(position).getIcon());
-//        Utils.fetchSvg(context, items.get(position).getIcon(), imgIcon);
+        Utils.fetchSvg(context, items.get(position).getIcon(), imgIcon);
 
 
         if (selectedPosition == position) {

@@ -6,7 +6,9 @@ import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SnapHelper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -182,6 +184,8 @@ public class HomeFrg extends DealerMelaBaseFragment implements View.OnClickListe
                     if (response.body().getStatus().equalsIgnoreCase(AppConstants.STATUS_CODE_SUCCESS)) {
                         HeaderMenuAdapter headerMenuAdapter = new HeaderMenuAdapter(getActivity(), response.body().getData());
                         recycleViewHeader.setAdapter(headerMenuAdapter);
+//                        SnapHelper snapHelper = new PagerSnapHelper();
+//                        snapHelper.attachToRecyclerView(recycleViewHeader);
 
                         BestCategoryAdapter bestCategoryAdapter = new BestCategoryAdapter(getActivity(), response.body().getData());
                         recycleViewBestProducts.setAdapter(bestCategoryAdapter);

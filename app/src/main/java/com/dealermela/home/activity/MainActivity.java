@@ -333,7 +333,9 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
             tvSignUp.setVisibility(View.VISIBLE);
             imgDot.setVisibility(View.VISIBLE);
             tvUserName.setVisibility(View.GONE);
+            linInventory.setVisibility(View.GONE);
         } else {
+            linInventory.setVisibility(View.VISIBLE);
             tvLogin.setVisibility(View.GONE);
             tvSignUp.setVisibility(View.GONE);
             imgDot.setVisibility(View.GONE);
@@ -343,8 +345,6 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
             if (loginResponse.getCustomerRole().equalsIgnoreCase("Referral")) {
                 tvCreateReferral.setVisibility(View.GONE);
             }
-
-
         }
 
 
@@ -459,6 +459,7 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
                     scrollViewCollection.setVisibility(View.VISIBLE);
                 }
                 break;
+
             case R.id.linOrders:
                 startNewActivity(OrderTabActivity.class);
                 onBackPressed();
@@ -468,18 +469,22 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
                 startNewActivity(TransactionAct.class);
                 onBackPressed();
                 break;
+
             case R.id.linDownload:
                 startNewActivity(DownloadAct.class);
                 onBackPressed();
                 break;
+
             case R.id.linPolicies:
                 startNewActivity(PolicyAct.class);
                 onBackPressed();
                 break;
+
             case R.id.linCart:
                 startNewActivity(CartAct.class);
                 onBackPressed();
                 break;
+
             case R.id.linFAQ:
                 break;
             case R.id.linContactUs:

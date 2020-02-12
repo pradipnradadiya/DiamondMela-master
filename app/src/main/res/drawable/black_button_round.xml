@@ -3,7 +3,6 @@
     android:shape="rectangle"
     android:padding="10dp">
 
-
     <stroke android:color="?buttonTextColor" android:width="@dimen/one_sp_view"/>
     <corners
         android:radius="25dp"/>

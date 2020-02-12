@@ -78,6 +78,7 @@
             android:layout_height="@dimen/two_dp" />
 
         <com.dealermela.utility.DmlTextViewBold
+            android:id="@+id/tvDiamondDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/twenty_sp"
@@ -90,12 +91,14 @@
             android:layout_marginTop="@dimen/ten_padding_margin" />
 
         <RelativeLayout
+            android:id="@+id/relDiamondDetailTotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/ten_padding_margin"
             android:paddingBottom="@dimen/five_sp">
 
             <com.dealermela.utility.DmlTextViewBold
+                android:id="@+id/tvDiamondDetailTotal"
                 style="@style/product_full_detail_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

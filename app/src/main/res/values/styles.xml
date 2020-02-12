@@ -134,12 +134,12 @@
 
     <!--Full Screen Theme-->
     <style name="WhiteTheme.FullScreen">
-        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowFullscreen">true</item>
     </style>
 
     <!--Full Screen Theme-->
     <style name="BlackTheme.FullScreen">
-        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowFullscreen">true</item>
     </style>
 
     <style name="WhiteTheme.NoActionBar">

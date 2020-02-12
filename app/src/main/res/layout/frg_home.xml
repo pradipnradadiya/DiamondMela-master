@@ -30,7 +30,7 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/one_sp_view"
+                    android:layout_height="@dimen/two_dp"
                     android:layout_marginTop="@dimen/ten_sp"
                     android:background="?transaction_line_color" />
             </LinearLayout>
@@ -149,13 +149,13 @@
                     coverflow:spacing="0.6" />
             </LinearLayout>
 
-            <com.dealermela.utility.DmlButton
+            <com.dealermela.utility.DmlButtonBold
                 android:id="@+id/btnViewAll"
                 android:layout_width="@dimen/hundred_sp"
                 android:layout_height="@dimen/thirty_five_sp"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/twenty_sp"
-                android:background="@drawable/black_button_round"
+                android:background="@drawable/selected"
                 android:elevation="@dimen/ten_sp"
                 android:text="@string/view_all"
                 android:textColor="?buttonTextColor"
@@ -236,7 +236,7 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/one_sp_view"
+                    android:layout_height="@dimen/two_dp"
                     android:background="?transaction_line_color" />
 
 
@@ -259,6 +259,7 @@
 
 
                 <View
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/one_sp_view"
                     android:layout_marginTop="@dimen/activity_vertical_margin"
@@ -385,7 +386,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/one_sp_view"
+                android:layout_height="@dimen/two_dp"
                 android:layout_marginTop="@dimen/twenty_sp"
                 android:background="?transaction_line_color" />
 
@@ -467,6 +468,7 @@
                 app:reverseLayout="true" />
 
             <View
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/one_sp_view"
                 android:layout_marginTop="@dimen/fifteen_sp"
