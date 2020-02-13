@@ -60,7 +60,7 @@ public class UtilSnackbar {
 
         Snackbar
                 .make(rootView, mMessage, Snackbar.LENGTH_LONG)
-                .setAction("Sign In", new View.OnClickListener() {
+                .setAction("Login", new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         Intent intent = new Intent(activity, LoginAct.class);

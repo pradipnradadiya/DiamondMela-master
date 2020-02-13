@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -51,8 +53,10 @@ public class LoginAct extends DealerMelaBaseActivity implements View.OnClickList
     private Button btnLogin;
     private SharedPreferences sharedPreferences;
     private DatabaseCartAdapter databaseCartAdapter;
+    private CheckBox checkBox;
     private Cursor c;
     private int count = 0;
+    private boolean flag = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,6 +77,7 @@ public class LoginAct extends DealerMelaBaseActivity implements View.OnClickList
     @Override
     public void initView() {
         ImageView imgLogo = findViewById(R.id.imgLogo);
+        checkBox = findViewById(R.id.checkBox);
         edEmail = findViewById(R.id.edEmail);
         edPassword = findViewById(R.id.edPassword);
         tvRemPwd = findViewById(R.id.tvRemPwd);
@@ -92,6 +97,16 @@ public class LoginAct extends DealerMelaBaseActivity implements View.OnClickList
         tvRemPwd.setOnClickListener(this);
         tvForgotPwd.setOnClickListener(this);
         tvNewAccount.setOnClickListener(this);
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (compoundButton.isChecked()){
+                    flag =true;
+                }else{
+                    flag =false;
+                }
+            }
+        });
     }
 
     @Override
@@ -130,6 +145,11 @@ public class LoginAct extends DealerMelaBaseActivity implements View.OnClickList
                 if (!Validator.checkPasswordLength(edPassword)) {
 
                 } else {
+                    if (flag){
+                        sharedPreferences.saveRemember("true");
+                    }else{
+                        sharedPreferences.saveRemember("false");
+                    }
                     checkLogin(edEmail.getText().toString(), edPassword.getText().toString(), CommonUtils.getDeviceID(LoginAct.this), "ASDSds56445df5g4d5f4gd5fg5f4g5ffd");
                 }
     }

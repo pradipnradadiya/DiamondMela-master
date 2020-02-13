@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -128,6 +129,12 @@ public abstract class DealerMelaBaseActivity extends AppCompatActivity implement
         // toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(headerTitle);
+        if (headerTitle.equalsIgnoreCase("")){
+
+        }else {
+            Typeface fromAsset = Typeface.createFromAsset(getAssets(), "fonts/montserrat_semibold.ttf");
+            ((TextView) toolbar.getChildAt(1)).setTypeface(fromAsset);
+        }
         setSupportActionBar(toolbar);
 
         // add back arrow to toolbar

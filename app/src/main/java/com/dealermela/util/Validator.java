@@ -99,6 +99,22 @@ public final class Validator {
         return true;
     }
 
+    public static boolean isValidPhoneNumber(CharSequence target) {
+        if (target.length() != 10) {
+            return false;
+        } else {
+            return android.util.Patterns.PHONE.matcher(target).matches();
+        }
+    }
+
+    public static boolean isValidZip(CharSequence target) {
+        if (target.length() != 6) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public static boolean checkAlphaNumeric(EditText edt) {
         String PATTERN = "[-\\p{Alnum}]+";
         Pattern pattern = Pattern.compile(PATTERN);

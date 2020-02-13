@@ -117,4 +117,18 @@
 
     </style>
 
+    <!--Full Screen Theme-->
+    <style name="WhiteTheme.FullScreen">
+        <item name="android:windowFullscreen">false</item>
+    </style>
+
+    <!--Full Screen Theme-->
+    <style name="BlackTheme.FullScreen">
+        <item name="android:windowFullscreen">false</item>
+    </style>
+    <style name="WhiteTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
 </resources>

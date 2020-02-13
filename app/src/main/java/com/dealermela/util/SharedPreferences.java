@@ -9,6 +9,7 @@ public class SharedPreferences {
     private final Editor editor;
     private static final String SHARED = AppConstants.MY_PREF;
     private static final String LOGIN = AppConstants.PREF_LOGIN;
+    private static final String REMEMBER_PWD = AppConstants.REMEMBER_PWD;
     private static final String BILLING = AppConstants.PREF_BILLING_ADDRESS;
     private static final String SHIPPING = AppConstants.PREF_SHIPPING_ADDRESS;
     private static final String POPULAR_PRODUCTS = "POPULAR_PRODUCTS";
@@ -21,6 +22,17 @@ public class SharedPreferences {
     }
 
     //Get and Save User Id
+    public String getRemember() {
+        return sharedPreferences.getString(REMEMBER_PWD, "");
+    }
+
+    public void saveRemember(String data) {
+        editor.putString(REMEMBER_PWD, data);
+        editor.commit();
+    }
+
+
+  //Get and Save User Id
     public String getLoginData() {
         return sharedPreferences.getString(LOGIN, "");
     }

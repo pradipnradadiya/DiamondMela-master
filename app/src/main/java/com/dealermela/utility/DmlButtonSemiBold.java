@@ -22,7 +22,7 @@ public class DmlButtonSemiBold extends android.support.v7.widget.AppCompatButton
     }
 
     private void setFont() {
-        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/montserrat_bold.ttf");
+        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/montserrat_semibold.ttf");
         setTypeface(font, Typeface.NORMAL);
     }
 

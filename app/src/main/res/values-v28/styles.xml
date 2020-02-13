@@ -1,5 +1,6 @@
 <resources>
 
+
     <!--Transparent Theme-->
     <style name="AppTheme.Transparent" parent="WhiteTheme">
         <item name="android:windowIsTranslucent">true</item>
@@ -142,21 +143,21 @@
 
     <!--Full Screen Theme-->
     <style name="WhiteTheme.FullScreen">
-        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowFullscreen">false</item>
         <!--<item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>-->
     </style>
 
     <!--Full Screen Theme-->
     <style name="BlackTheme.FullScreen">
-        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowFullscreen">false</item>
         <!--<item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>-->
     </style>
 
     <style name="WhiteTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
-
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
@@ -225,6 +226,7 @@
         <item name="android:textColor">?textViewTextColor</item>
         <item name="android:textAlignment">center</item>
         <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">true</item>
         <item name="android:background">?attr/selectableItemBackground</item>
     </style>
 

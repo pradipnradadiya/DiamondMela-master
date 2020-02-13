@@ -7,6 +7,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -52,7 +54,7 @@ public class ForgotPasswordAct extends DealerMelaBaseActivity {
 
     @Override
     public void init() {
-
+        closeOptionsMenu();
     }
 
     @Override
@@ -148,5 +150,26 @@ public class ForgotPasswordAct extends DealerMelaBaseActivity {
             return false;
         }
         return true;
+    }
+
+    //Option menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.detail_menu, menu);
+        return false;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_search) {
+            return true;
+        }
+        if (id == R.id.action_cart) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

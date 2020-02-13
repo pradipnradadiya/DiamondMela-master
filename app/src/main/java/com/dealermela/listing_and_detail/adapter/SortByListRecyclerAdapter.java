@@ -14,6 +14,7 @@ import com.dealermela.listing_and_detail.activity.FilterAct;
 import com.dealermela.listing_and_detail.activity.ListAct;
 import com.dealermela.listing_and_detail.activity.ProductDetailAct;
 import com.dealermela.listing_and_detail.model.FilterItem;
+import com.dealermela.util.ThemePreferences;
 
 import java.util.List;
 
@@ -22,11 +23,13 @@ public class SortByListRecyclerAdapter extends RecyclerView.Adapter<SortByListRe
 
     private final Activity activity;
     private final List<FilterItem.SortBy> itemArrayList;
+    private ThemePreferences themePreferences;
 
     public SortByListRecyclerAdapter(Activity activity, List<FilterItem.SortBy> itemArrayList) {
         super();
         this.activity = activity;
         this.itemArrayList = itemArrayList;
+        themePreferences=new ThemePreferences(activity);
     }
 
     @NonNull
@@ -38,7 +41,29 @@ public class SortByListRecyclerAdapter extends RecyclerView.Adapter<SortByListRe
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int i) {
+        if (themePreferences.getTheme().equalsIgnoreCase("black")) {
+            if (itemArrayList.get(i).isSelected()){
+                holder.tvSortTitle.setTextColor(activity.getResources().getColor(R.color.red));
+            }else{
+                holder.tvSortTitle.setTextColor(activity.getResources().getColor(R.color.white));
+            }
+        }else if (themePreferences.getTheme().equalsIgnoreCase("white")) {
+            if (itemArrayList.get(i).isSelected()){
+                holder.tvSortTitle.setTextColor(activity.getResources().getColor(R.color.red));
+            }else{
+                holder.tvSortTitle.setTextColor(activity.getResources().getColor(R.color.black));
+            }
+        }else{
+            if (itemArrayList.get(i).isSelected()){
+                holder.tvSortTitle.setTextColor(activity.getResources().getColor(R.color.red));
+            }else{
+                holder.tvSortTitle.setTextColor(activity.getResources().getColor(R.color.black));
+            }
+        }
+
+
         holder.tvSortTitle.setText(itemArrayList.get(i).getLabel());
+
     }
 
     @Override
@@ -59,7 +84,7 @@ public class SortByListRecyclerAdapter extends RecyclerView.Adapter<SortByListRe
 
         @Override
         public void onClick(View v) {
-            ((ListAct)activity).sortValueGetAndDialogClose(itemArrayList.get(getAdapterPosition()).getValue());
+            ((ListAct)activity).sortValueGetAndDialogClose(itemArrayList.get(getAdapterPosition()).getValue(),getAdapterPosition());
         }
 
         @Override

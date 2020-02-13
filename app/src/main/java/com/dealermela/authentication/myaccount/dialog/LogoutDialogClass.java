@@ -58,6 +58,7 @@ public class LogoutDialogClass extends Dialog implements android.view.View.OnCli
         sharedPreferences.saveLoginData("");
         sharedPreferences.saveShipping("");
         sharedPreferences.saveBillingAddress("");
+        sharedPreferences.saveRemember("");
         customerId="";
         activity.startActivity(new Intent(activity,LoginAct.class));
         activity.finishAffinity();

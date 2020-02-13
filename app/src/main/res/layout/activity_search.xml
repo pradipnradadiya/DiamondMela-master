@@ -38,6 +38,13 @@
         app:layout_constraintBottom_toBottomOf="@+id/include16"
         app:layout_constraintEnd_toEndOf="@+id/include16"
         app:layout_constraintStart_toStartOf="@+id/include16"
+        android:paddingStart="@dimen/ten_padding_margin"
+        android:layout_marginTop="@dimen/ten_padding_margin"
+        android:layout_marginBottom="@dimen/ten_padding_margin"
+        android:drawableStart="@drawable/serch_ic"
+        android:drawablePadding="@dimen/ten_padding_margin"
+        android:layout_marginEnd="@dimen/ten_padding_margin"
+        android:background="@drawable/edit_pro_btn"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View

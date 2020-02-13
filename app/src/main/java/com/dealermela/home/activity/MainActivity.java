@@ -99,6 +99,8 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
             viewBottomPolicies;
 
     private DrawerLayout drawer;
+    SpaceNavigationView spaceNavigationView;
+    private boolean isOnce = true;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -107,17 +109,20 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
         drawer = findViewById(R.id.drawer_layout);
 
 
-        SpaceNavigationView spaceNavigationView = findViewById(R.id.space);
+        spaceNavigationView = findViewById(R.id.space);
         spaceNavigationView.initWithSaveInstanceState(savedInstanceState);
 
         fragment = new HomeFrg();
         replaceFragment(fragment);
 
+//        spaceNavigationView.
+
         //Bottom bar
         spaceNavigationView.addSpaceItem(new SpaceItem("", R.drawable.ic_home));
+        spaceNavigationView.addSpaceItem(new SpaceItem("", R.drawable.ic_referral));
         spaceNavigationView.addSpaceItem(new SpaceItem("", R.drawable.ic_compare));
         spaceNavigationView.addSpaceItem(new SpaceItem("", R.drawable.ic_profile));
-        spaceNavigationView.addSpaceItem(new SpaceItem("", R.drawable.ic_referral));
+
         spaceNavigationView.showIconOnly();
 
         //Set bottom menu onClick listener
@@ -131,19 +136,22 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
             public void onItemClick(int itemIndex, String itemName) {
                 Log.e("item index", "-------------" + itemIndex);
                 if (itemIndex == 0) {
-                    fragment = new HomeFrg();
-                    replaceFragment(fragment);
+                    if (isOnce){
+                        fragment = new HomeFrg();
+                        replaceFragment(fragment);
+                    }
+
                 } else if (itemIndex == 1) {
                     if (sharedPreferences.getLoginData().equalsIgnoreCase("")) {
                         showSnackBar(drawer);
                     } else {
-                        startNewActivity(TransactionAct.class);
+                        startNewActivity(CreateReferralAct.class);
                     }
                 } else if (itemIndex == 2) {
                     if (sharedPreferences.getLoginData().equalsIgnoreCase("")) {
                         showSnackBar(drawer);
                     } else {
-                        startNewActivity(OrderTabActivity.class);
+                        startNewActivity(TransactionAct.class);
                     }
                 } else if (itemIndex == 3) {
                     if (sharedPreferences.getLoginData().equalsIgnoreCase("")) {
@@ -157,26 +165,26 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
             @Override
             public void onItemReselected(int itemIndex, String itemName) {
                 if (itemIndex == 0) {
-                    fragment = new HomeFrg();
-                    replaceFragment(fragment);
+//                    fragment = new HomeFrg();
+//                    replaceFragment(fragment);
                 } else if (itemIndex == 1) {
-                    if (sharedPreferences.getLoginData().equalsIgnoreCase("")) {
-                        showSnackBar(drawer);
-                    } else {
-                        startNewActivity(TransactionAct.class);
-                    }
+//                    if (sharedPreferences.getLoginData().equalsIgnoreCase("")) {
+//                        showSnackBar(drawer);
+//                    } else {
+//                        startNewActivity(TransactionAct.class);
+//                    }
                 } else if (itemIndex == 2) {
-                    if (sharedPreferences.getLoginData().equalsIgnoreCase("")) {
-                        showSnackBar(drawer);
-                    } else {
-                        startNewActivity(OrderTabActivity.class);
-                    }
+//                    if (sharedPreferences.getLoginData().equalsIgnoreCase("")) {
+//                        showSnackBar(drawer);
+//                    } else {
+//                        startNewActivity(OrderTabActivity.class);
+//                    }
                 } else if (itemIndex == 3) {
-                    if (sharedPreferences.getLoginData().equalsIgnoreCase("")) {
-                        showSnackBar(drawer);
-                    } else {
-                        startNewActivity(EditProfileAct.class);
-                    }
+//                    if (sharedPreferences.getLoginData().equalsIgnoreCase("")) {
+//                        showSnackBar(drawer);
+//                    } else {
+//                        startNewActivity(EditProfileAct.class);
+//                    }
                 }
 
             }
@@ -215,7 +223,7 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
         Switch switchAB = item
                 .getActionView().findViewById(R.id.switchAB);
 
-        if (themePreferences.getTheme().equalsIgnoreCase("black")) {
+        if (themePreferences.getTheme().equalsIgnoreCase("white")) {
             switchAB.setChecked(false);
         } else {
             switchAB.setChecked(true);
@@ -226,12 +234,12 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
             public void onCheckedChanged(CompoundButton buttonView,
                                          boolean isChecked) {
                 if (isChecked) {
-                    themePreferences.saveTheme("white");
+                    themePreferences.saveTheme("black");
                     finish();
                     startActivity(getIntent());
                     overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
                 } else {
-                    themePreferences.saveTheme("black");
+                    themePreferences.saveTheme("white");
                     finish();
                     startActivity(getIntent());
                     overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
@@ -385,7 +393,7 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
                 if (sharedPreferences.getLoginData().equalsIgnoreCase("")) {
                     Snackbar snackBar = Snackbar
                             .make(v, "Please first login", Snackbar.LENGTH_LONG)
-                            .setAction("SIGN IN", new View.OnClickListener() {
+                            .setAction("Login", new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
                                     loginFlag = 1;
@@ -410,7 +418,7 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
                 if (sharedPreferences.getLoginData().equalsIgnoreCase("")) {
                     Snackbar snackBar = Snackbar
                             .make(v, "Please first login", Snackbar.LENGTH_LONG)
-                            .setAction("SIGN IN", new View.OnClickListener() {
+                            .setAction("Login", new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
                                     loginFlag = 1;
@@ -433,6 +441,7 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
 
             case R.id.tvLogin:
                 startNewActivity(LoginAct.class);
+                finishAffinity();
                 onBackPressed();
                 break;
 
@@ -592,6 +601,8 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
     @Override
     protected void onResume() {
         super.onResume();
+        isOnce = false;
+        spaceNavigationView.changeCurrentItem(0);
         postInitView();
         mapFilter.clear();
         selectFilter.clear();
@@ -610,7 +621,6 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
             viewBottomTransaction.setVisibility(View.VISIBLE);
             viewBottomDownload.setVisibility(View.VISIBLE);
             viewBottomPolicies.setVisibility(View.VISIBLE);
-
 
         } else {
             linOrders.setVisibility(View.GONE);
@@ -702,7 +712,7 @@ public class MainActivity extends DealerMelaBaseActivity implements View.OnClick
     private void showSnackBar(View v) {
         Snackbar snackBar = Snackbar
                 .make(v, "Please first login", Snackbar.LENGTH_LONG)
-                .setAction("SIGN IN", new View.OnClickListener() {
+                .setAction("Login", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         loginFlag = 1;

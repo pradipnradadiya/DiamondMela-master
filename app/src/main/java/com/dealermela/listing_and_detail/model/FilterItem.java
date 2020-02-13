@@ -148,6 +148,7 @@ public class FilterItem {
         @SerializedName("value")
         @Expose
         private String value;
+        private boolean isSelected = false;
 
         public String getLabel() {
             return label;
@@ -165,6 +166,13 @@ public class FilterItem {
             this.value = value;
         }
 
+        public boolean isSelected() {
+            return isSelected;
+        }
+
+        public void setSelected(boolean selected) {
+            isSelected = selected;
+        }
     }
 
 }

@@ -341,7 +341,7 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
                 if (sharedPreferences.getLoginData().equalsIgnoreCase("")) {
                     Snackbar snackBar = Snackbar
                             .make(v, "Please first login", Snackbar.LENGTH_LONG)
-                            .setAction("SIGN IN", new View.OnClickListener() {
+                            .setAction("Login", new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
                                     loginFlag = 1;

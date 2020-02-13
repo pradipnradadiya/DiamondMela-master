@@ -30,9 +30,9 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/two_dp"
+                    android:layout_height="@dimen/five_dp"
                     android:layout_marginTop="@dimen/ten_sp"
-                    android:background="?transaction_line_color" />
+                    android:background="@drawable/bottom_shadow_gradient" />
             </LinearLayout>
 
             <RelativeLayout

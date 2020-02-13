@@ -212,16 +212,6 @@ public class ListAct extends DealerMelaBaseActivity implements View.OnClickListe
 
                 }
 
-
-
-
-
-
-
-
-
-
-
                 /*if (downloadItemArrayList.isEmpty()){
                     CommonUtils.showToast(ListAct.this,"Loaded Product is already downloaded, scroll down and download.");
                 }else{
@@ -264,17 +254,11 @@ public class ListAct extends DealerMelaBaseActivity implements View.OnClickListe
                                                    public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                                                        super.onScrolled(recyclerView, dx, dy);
                                                        if (!sharedPreferences.getLoginData().equalsIgnoreCase("")) {
-                                                           if (dy > 0) {
-                                                               // Scroll Down
-                                                               if (fabDownload.isShown()) {
-                                                                   fabDownload.hide();
-                                                               }
-                                                           } else if (dy < 0) {
-                                                               // Scroll Up
-                                                               if (!fabDownload.isShown()) {
-                                                                   fabDownload.show();
-                                                               }
+                                                           if (dy > 0 ||dy<0 && fabDownload.isShown())
+                                                           {
+                                                               fabDownload.hide();
                                                            }
+
                                                        }
 
 
@@ -325,7 +309,17 @@ public class ListAct extends DealerMelaBaseActivity implements View.OnClickListe
                                                        }
                                                    }
 
+                                                   @Override
+                                                   public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                                                       if (!sharedPreferences.getLoginData().equalsIgnoreCase("")) {
+                                                           if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                                                               fabDownload.show();
+                                                           }
+                                                       }
 
+                                                       super.onScrollStateChanged(recyclerView, newState);
+
+                                                   }
                                                }
 
         );
@@ -481,8 +475,16 @@ public class ListAct extends DealerMelaBaseActivity implements View.OnClickListe
 
     }
 
-    public void sortValueGetAndDialogClose(String value) {
+    public void sortValueGetAndDialogClose(String value,int position) {
         AppLogger.e("value", "-----------" + value);
+
+        for (int i=0;i<sortByList.size();i++){
+            if (position == i){
+                sortByList.get(i).setSelected(true);
+            }else{
+                sortByList.get(i).setSelected(false);
+            }
+        }
         itemArrayList.clear();
         parentShimmerLayout.setVisibility(View.VISIBLE);
         linNoData.setVisibility(View.GONE);

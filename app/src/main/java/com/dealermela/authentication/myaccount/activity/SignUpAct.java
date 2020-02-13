@@ -11,6 +11,8 @@ import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -69,7 +71,7 @@ public class SignUpAct extends DealerMelaBaseActivity implements View.OnClickLis
 
     @Override
     public void init() {
-
+        closeOptionsMenu();
     }
 
     @Override
@@ -282,7 +284,7 @@ public class SignUpAct extends DealerMelaBaseActivity implements View.OnClickLis
                     try {
                         JSONObject jsonObject = new JSONObject(String.valueOf(response.body()));
                         status = jsonObject.getString("status");
-                        ;
+
                         message = jsonObject.getString("message");
 
                         if (status.equalsIgnoreCase(AppConstants.STATUS_CODE_SUCCESS)) {
@@ -385,13 +387,23 @@ public class SignUpAct extends DealerMelaBaseActivity implements View.OnClickLis
             return false;
         } else if (!Validator.checkEmptyInputEditText(edContact, tilContactNumber, getString(R.string.sign_up_please_enter_contact_no))) {
             return false;
+        } else if (!Validator.isValidPhoneNumber(Objects.requireNonNull(edContact.getText()).toString())) {
+            edContact.requestFocus();
+            edContact.setError(getString(R.string.login_please_enter_valid_mobile));
+            return false;
         } else if (!Validator.checkEmptyInputEditText(edAddress, tilAddress, getString(R.string.sign_up_please_enter_address))) {
             return false;
         } else if (!Validator.checkEmptyInputEditText(edCity, tilCity, getString(R.string.sign_up_please_enter_city))) {
             return false;
         } else if (!Validator.checkEmptyInputEditText(edZipCode, tilZipCode, getString(R.string.sign_up_please_enter_zip_code))) {
             return false;
-        } else if (!Validator.checkEmptyInputEditText(edPassword, tilPassword, getString(R.string.sign_up_please_enter_password))) {
+        }else if (!Validator.isValidZip(Objects.requireNonNull(edZipCode.getText()).toString())) {
+            edZipCode.requestFocus();
+            edZipCode.setError(getString(R.string.login_please_enter_valid_zip));
+            return false;
+        }
+
+        else if (!Validator.checkEmptyInputEditText(edPassword, tilPassword, getString(R.string.sign_up_please_enter_password))) {
             return false;
         } else if (!Validator.checkPasswordLength(edPassword)) {
             return false;
@@ -425,6 +437,27 @@ public class SignUpAct extends DealerMelaBaseActivity implements View.OnClickLis
             spinnerState.setAdapter(adapter);
 
         }
+    }
+
+    //Option menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.detail_menu, menu);
+        return false;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_search) {
+            return true;
+        }
+        if (id == R.id.action_cart) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 }

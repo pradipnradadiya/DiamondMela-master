@@ -96,14 +96,24 @@ public class SplashAct extends DealerMelaBaseActivity {
 
                 sharedPreferences.savePopularProducts(gson.toJson(arrayListPopularProduct));
 
-                if (sharedPreferences.getLoginData().equalsIgnoreCase("")) {
-                    startNewActivity(MainActivity.class);
-                    // close this activity
-                    finish();
-                } else {
+                if (sharedPreferences.getRemember().equalsIgnoreCase("true")){
+                    if (sharedPreferences.getLoginData().equalsIgnoreCase("")) {
+                        startNewActivity(MainActivity.class);
+                        // close this activity
+                        finish();
+                    } else {
+                        startNewActivity(MainActivity.class);
+                        finish();
+                    }
+                }else{
+                    sharedPreferences.saveLoginData("");
+                    sharedPreferences.saveShipping("");
+                    sharedPreferences.saveBillingAddress("");
+                    sharedPreferences.saveRemember("");
                     startNewActivity(MainActivity.class);
                     finish();
                 }
+
 
 //                        }
 //                    }, AppConstants.SPLASH_TIME_OUT);

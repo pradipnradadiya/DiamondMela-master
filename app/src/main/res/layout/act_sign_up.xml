@@ -106,6 +106,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/contact_number"
+                    android:maxLength="10"
                     android:inputType="phone" />
 
             </android.support.design.widget.TextInputLayout>
@@ -240,6 +241,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/zip_code"
+                    android:maxLength="6"
                     android:inputType="numberDecimal" />
 
             </android.support.design.widget.TextInputLayout>
@@ -295,8 +297,7 @@
                     style="@style/textInputStyleSignUp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/password"
-
+                    android:hint="Password"
                     android:inputType="textPassword" />
 
             </android.support.design.widget.TextInputLayout>
@@ -336,12 +337,15 @@
                     android:id="@+id/tvTermsCondition"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="8sp"
-                    android:text="@string/terms_condition"
+                    android:paddingStart="@dimen/eight_sp"
+                    android:paddingBottom="@dimen/eight_sp"
+                    android:paddingTop="@dimen/eight_sp"
+                    android:text="T&amp;C and "
                     android:textColor="@color/white"
                     android:textSize="12sp" />
 
                 <com.dealermela.utility.DmlTextView
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/amp"
@@ -354,7 +358,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dealership_guideline"
                     android:textColor="?login_signup_text_color"
-                    android:padding="8sp"
+                    android:paddingBottom="@dimen/eight_sp"
+                    android:paddingTop="@dimen/eight_sp"
                     android:textSize="12sp" />
 
             </LinearLayout>

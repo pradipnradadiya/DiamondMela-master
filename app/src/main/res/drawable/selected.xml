@@ -26,7 +26,7 @@
                 <shape>
                     <padding android:bottom="5dp" />
                     <solid android:color="?login_signup_text_color" />
-                    <stroke android:width="@dimen/two_dp" android:color="?toolbarTextColor" />
+                    <stroke android:width="@dimen/one_sp_view" android:color="?toolbarTextColor" />
                     <corners android:radius="25dp" />
                     <padding android:bottom="10dp" android:left="10dp" android:right="10dp" android:top="5dp" />
 
@@ -50,7 +50,7 @@
                 <shape>
                     <padding android:bottom="5dp" />
                     <solid android:color="?transaction_round_back" />
-                    <stroke android:width="@dimen/two_dp" android:color="?toolbarTextColor" />
+                    <stroke android:width="@dimen/one_sp_view" android:color="?toolbarTextColor" />
                     <corners android:radius="25dp" />
 
                 </shape>

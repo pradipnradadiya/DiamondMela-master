@@ -134,12 +134,12 @@
 
     <!--Full Screen Theme-->
     <style name="WhiteTheme.FullScreen">
-        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowFullscreen">false</item>
     </style>
 
     <!--Full Screen Theme-->
     <style name="BlackTheme.FullScreen">
-        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowFullscreen">false</item>
     </style>
 
     <style name="WhiteTheme.NoActionBar">
@@ -215,6 +215,7 @@
         <item name="android:textColor">?textViewTextColor</item>
         <item name="android:textAlignment">center</item>
         <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">true</item>
         <item name="android:background">?attr/selectableItemBackground</item>
     </style>
 

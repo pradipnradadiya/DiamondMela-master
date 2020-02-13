@@ -139,7 +139,7 @@ public class ListingRecyclerAdapter extends RecyclerView.Adapter<ListingRecycler
                 if (sharedPreferences.getLoginData().equalsIgnoreCase("")){
                     Snackbar snackBar = Snackbar
                             .make(v, "Please first login", Snackbar.LENGTH_LONG)
-                            .setAction("SIGN IN", new View.OnClickListener() {
+                            .setAction("Login", new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
                                     loginFlag = 0;
