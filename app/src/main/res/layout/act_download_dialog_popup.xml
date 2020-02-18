@@ -48,6 +48,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/imgProductImage" />
 
             <com.dealermela.utility.DmlTextView
+                android:visibility="gone"
                 android:id="@+id/tvGoldType"
                 style="@style/download_popup_text"
                 android:layout_width="0dp"

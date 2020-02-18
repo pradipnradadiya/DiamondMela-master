@@ -185,12 +185,13 @@ public class ListAct extends DealerMelaBaseActivity implements View.OnClickListe
                         count++;
                     }
                 }
+                stringBuilder.deleteCharAt(stringBuilder.length() - 1);
                 if (stringBuilder.toString().equals("")) {
                     CommonUtils.showWarningToast(ListAct.this, "Loaded Product is already downloaded, scroll down and download.");
                 } else {
                     new IOSDialog.Builder(ListAct.this)
                             .setTitle("Download Product")
-                            .setMessage("Are you sure want to  add " + count + " products in cart.?")
+                            .setMessage("Are you sure to download " + count + " products?")
                             .setCancelable(false)
                             .setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
                                 @Override
@@ -254,8 +255,7 @@ public class ListAct extends DealerMelaBaseActivity implements View.OnClickListe
                                                    public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                                                        super.onScrolled(recyclerView, dx, dy);
                                                        if (!sharedPreferences.getLoginData().equalsIgnoreCase("")) {
-                                                           if (dy > 0 ||dy<0 && fabDownload.isShown())
-                                                           {
+                                                           if (dy > 0 || dy < 0 && fabDownload.isShown()) {
                                                                fabDownload.hide();
                                                            }
 
@@ -475,13 +475,13 @@ public class ListAct extends DealerMelaBaseActivity implements View.OnClickListe
 
     }
 
-    public void sortValueGetAndDialogClose(String value,int position) {
+    public void sortValueGetAndDialogClose(String value, int position) {
         AppLogger.e("value", "-----------" + value);
 
-        for (int i=0;i<sortByList.size();i++){
-            if (position == i){
+        for (int i = 0; i < sortByList.size(); i++) {
+            if (position == i) {
                 sortByList.get(i).setSelected(true);
-            }else{
+            } else {
                 sortByList.get(i).setSelected(false);
             }
         }
@@ -699,6 +699,7 @@ a
                     try {
                         JSONObject jsonObject = new JSONObject(String.valueOf(response.body()));
                         if (jsonObject.getString("status").equalsIgnoreCase(AppConstants.STATUS_CODE_SUCCESS)) {
+                            CommonUtils.showSuccessToast(ListAct.this, "Product added successfully.");
                             listingRecyclerAdapter.updateDownloadFlag();
                         }
                     } catch (JSONException e) {

@@ -77,7 +77,7 @@ public class EditContactInfoAct extends DealerMelaBaseActivity implements View.O
 
     @Override
     public void initView() {
-        bindToolBar("Edit Contact Information");
+        bindToolBar("Edit Contact");
 
         view_state = findViewById(R.id.view_state);
         tilState = findViewById(R.id.tilState);
@@ -104,7 +104,7 @@ public class EditContactInfoAct extends DealerMelaBaseActivity implements View.O
         edFnm.setText(loginResponse.getData().getFirstname());
         edLnm.setText(loginResponse.getData().getLastname());
         edEmail.setText(loginResponse.getData().getEmail());
-        edContact.setText(loginResponse.getData().getTelephone());
+        edContact.setText(loginResponse.getData().getContactNumber());
         edAddress.setText(loginResponse.getData().getStreet());
         edCity.setText(loginResponse.getData().getCity());
         edZipCode.setText(loginResponse.getData().getPostcode());
@@ -250,6 +250,7 @@ public class EditContactInfoAct extends DealerMelaBaseActivity implements View.O
 //                Save data to session
                 Gson gson = new Gson();
                 String json = gson.toJson(response.body());
+                AppLogger.e("login json","----------------"+json);
                 sharedPreferences.saveLoginData(json);
                 finish();
 

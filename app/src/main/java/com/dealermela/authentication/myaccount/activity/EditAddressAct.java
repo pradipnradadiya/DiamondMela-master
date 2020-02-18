@@ -18,8 +18,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dealermela.DealerMelaBaseActivity;
 import com.dealermela.R;
@@ -30,6 +32,7 @@ import com.dealermela.retrofit.APIClient;
 import com.dealermela.retrofit.ApiInterface;
 import com.dealermela.util.AppConstants;
 import com.dealermela.util.AppLogger;
+import com.dealermela.util.CommonUtils;
 import com.dealermela.util.ThemePreferences;
 import com.dealermela.util.Validator;
 import com.google.gson.Gson;
@@ -42,6 +45,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import es.dmoral.toasty.Toasty;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -69,6 +73,7 @@ public class EditAddressAct extends DealerMelaBaseActivity implements View.OnCli
     private String status = "";
     private CheckBox checkBoxDefaultBilling, checkBoxShippingBilling;
     private ThemePreferences themePreferences;
+    private TextView lblState;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -117,6 +122,7 @@ public class EditAddressAct extends DealerMelaBaseActivity implements View.OnCli
     @Override
     public void initView() {
 
+        lblState = findViewById(R.id.lblState);
         edFnm = findViewById(R.id.edFnm);
         edLnm = findViewById(R.id.edLnm);
         edTelephone = findViewById(R.id.edTelephone);
@@ -149,6 +155,7 @@ public class EditAddressAct extends DealerMelaBaseActivity implements View.OnCli
 //            edAddress2.setText(defaultBilling.getStreet());
             edZipCode.setText(defaultBilling.getPostcode());
             edCity.setText(defaultBilling.getCity());
+            edState.setText(defaultBilling.getRegion());
             compareValue = defaultBilling.getCountryId();
 
             checkBoxShippingBilling.setVisibility(View.GONE);
@@ -160,6 +167,7 @@ public class EditAddressAct extends DealerMelaBaseActivity implements View.OnCli
             edTelephone.setText(defaultShipping.getTelephone());
             edAddress1.setText(defaultShipping.getStreet());
 //            edAddress2.setText(defaultShipping.getStreet());
+            edState.setText(defaultShipping.getRegion());
             edZipCode.setText(defaultShipping.getPostcode());
             edCity.setText(defaultShipping.getCity());
             compareValue = defaultShipping.getCountryId();
@@ -173,6 +181,7 @@ public class EditAddressAct extends DealerMelaBaseActivity implements View.OnCli
             edTelephone.setText(additionalAddress.getTelephone());
             edAddress1.setText(additionalAddress.getStreet());
 //            edAddress2.setText(additionalAddress.getStreet());
+            edState.setText(additionalAddress.getRegion());
             edZipCode.setText(additionalAddress.getPostcode());
             edCity.setText(additionalAddress.getCity());
             compareValue = additionalAddress.getCountryId();
@@ -187,6 +196,7 @@ public class EditAddressAct extends DealerMelaBaseActivity implements View.OnCli
         List<String> countryA = new ArrayList<>();
 
         if (!countryArray.isEmpty()) {
+
             for (int i = 0; i <= countryArray.size() - 1; i++) {
                 spinnerArray.add(countryArray.get(i).getName());
                 countryA.add(countryArray.get(i).getCountryId());
@@ -205,6 +215,8 @@ public class EditAddressAct extends DealerMelaBaseActivity implements View.OnCli
                 int spinnerPosition = adapter1.getPosition(compareValue);
                 spinnerCountry.setSelection(spinnerPosition);
             }
+
+        } else {
 
         }
 
@@ -228,12 +240,16 @@ public class EditAddressAct extends DealerMelaBaseActivity implements View.OnCli
                 AppLogger.e("item", "---------" + countryArray.get(position).getName());
                 countryId = countryArray.get(position).getCountryId();
                 if (countryArray.get(position).getCountryId().equalsIgnoreCase("IN")) {
+                    lblState.setVisibility(View.VISIBLE);
+                    spinnerState.setVisibility(View.VISIBLE);
                     getStateList(countryArray.get(position).getCountryId());
                     tilState.setVisibility(View.GONE);
                     edState.setText("");
                     spinnerState.setVisibility(View.VISIBLE);
                     viewState.setVisibility(View.VISIBLE);
                 } else {
+                    lblState.setVisibility(View.GONE);
+                    spinnerState.setVisibility(View.GONE);
                     tilState.setVisibility(View.VISIBLE);
 //                    edState.setText(defaultBilling.getRegion());
                     spinnerState.setVisibility(View.GONE);
@@ -290,8 +306,8 @@ public class EditAddressAct extends DealerMelaBaseActivity implements View.OnCli
                         e.printStackTrace();
                     }
 
-                    ViewDialog viewDialog=new ViewDialog();
-                    viewDialog.showDialog(EditAddressAct.this,"Thank you!",message,"OK","","1");
+                    ViewDialog viewDialog = new ViewDialog();
+                    viewDialog.showDialog(EditAddressAct.this, "Thank you!", message, "OK", "", "1");
 
 
                 }
@@ -322,16 +338,16 @@ public class EditAddressAct extends DealerMelaBaseActivity implements View.OnCli
                 if (response.isSuccessful()) {
                     try {
                         JSONObject jsonObject = new JSONObject(String.valueOf(response.body()));
-                        message = jsonObject.getString("message");
+                        ViewDialog viewDialog = new ViewDialog();
+                        if (jsonObject.getString("status").equalsIgnoreCase(AppConstants.STATUS_CODE_SUCCESS)) {
+                            message = jsonObject.getString("message");
+                            viewDialog.showDialog(EditAddressAct.this, "Thank you!", message, "OK", "", "1");
+                        } else {
+                            CommonUtils.showErrorToast(EditAddressAct.this, jsonObject.getString("status"));
+                        }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
-                    ViewDialog viewDialog=new ViewDialog();
-                    viewDialog.showDialog(EditAddressAct.this,"Thank you!",message,"OK","","1");
-
-
-
 
                 }
 
@@ -366,8 +382,8 @@ public class EditAddressAct extends DealerMelaBaseActivity implements View.OnCli
                         e.printStackTrace();
                     }
 
-                    ViewDialog viewDialog=new ViewDialog();
-                    viewDialog.showDialog(EditAddressAct.this,"Thank you!",message,"OK","","1");
+                    ViewDialog viewDialog = new ViewDialog();
+                    viewDialog.showDialog(EditAddressAct.this, "Thank you!", message, "OK", "", "1");
 
                 }
 
@@ -402,8 +418,8 @@ public class EditAddressAct extends DealerMelaBaseActivity implements View.OnCli
                         e.printStackTrace();
                     }
 
-                    ViewDialog viewDialog=new ViewDialog();
-                    viewDialog.showDialog(EditAddressAct.this,"Thank you!",message,"OK","","1");
+                    ViewDialog viewDialog = new ViewDialog();
+                    viewDialog.showDialog(EditAddressAct.this, "Thank you!", message, "OK", "", "1");
 
 
                 }
@@ -482,6 +498,8 @@ public class EditAddressAct extends DealerMelaBaseActivity implements View.OnCli
         List<String> spinnerArray = new ArrayList<>();
 
         if (!stateArray.isEmpty()) {
+            lblState.setVisibility(View.VISIBLE);
+            spinnerState.setVisibility(View.VISIBLE);
             for (int i = 0; i <= stateArray.size() - 1; i++) {
                 spinnerArray.add(stateArray.get(i).getName());
             }
@@ -506,6 +524,9 @@ public class EditAddressAct extends DealerMelaBaseActivity implements View.OnCli
                 spinnerState.setSelection(spinnerPosition);
             }
 
+        } else {
+            lblState.setVisibility(View.GONE);
+            spinnerState.setVisibility(View.GONE);
         }
     }
 
@@ -625,12 +646,12 @@ public class EditAddressAct extends DealerMelaBaseActivity implements View.OnCli
             TextView tvTitle = dialog.findViewById(R.id.tvTitle);
             TextView tvMsg = dialog.findViewById(R.id.tvMsg);
             Button btnYes = dialog.findViewById(R.id.btnYes);
-            Button btnNo =  dialog.findViewById(R.id.btnNo);
+            Button btnNo = dialog.findViewById(R.id.btnNo);
             tvTitle.setText(title);
             tvMsg.setText(msg);
             btnYes.setText(btnYesText);
             btnNo.setText(btnNoText);
-            if (isVisible.equalsIgnoreCase("1")){
+            if (isVisible.equalsIgnoreCase("1")) {
                 btnNo.setVisibility(View.GONE);
             }
 

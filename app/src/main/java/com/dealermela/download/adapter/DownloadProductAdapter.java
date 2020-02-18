@@ -19,6 +19,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -307,6 +308,7 @@ public class DownloadProductAdapter extends RecyclerView.Adapter<DownloadProduct
                         if (jsonObject.getString("status").equalsIgnoreCase(AppConstants.STATUS_CODE_SUCCESS)) {
                             hud.dismiss();
                             String url = jsonObject.getString("image");
+                            String fileExtension = MimeTypeMap.getFileExtensionFromUrl(url);
                             DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
                             request.setDescription(sku);
                             request.setTitle(sku);
@@ -319,17 +321,10 @@ public class DownloadProductAdapter extends RecyclerView.Adapter<DownloadProduct
                                 folder = new File(Environment
                                         .getExternalStorageDirectory() + "/Diamond Mela/Download Product");
                             }
-
-
-                            /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-                                request.allowScanningByMediaScanner();
-                                request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-                            }*/
-
-
                             request.allowScanningByMediaScanner();
                             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-                            @SuppressLint("SimpleDateFormat") String fileName = new SimpleDateFormat("yyyyMMddHHmm'.txt'").format(new Date());
+                            @SuppressLint("SimpleDateFormat") String fileName = new SimpleDateFormat("yyyyMMddHHmm").format(new Date());
+                            fileName += "."+fileExtension;
                             request.setDestinationInExternalPublicDir(folder.getAbsolutePath(), sku + fileName);
 
                             DownloadManager manager = (DownloadManager) activity.getSystemService(Context.DOWNLOAD_SERVICE);

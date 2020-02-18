@@ -20,6 +20,7 @@ import com.dealermela.retrofit.APIClient;
 import com.dealermela.retrofit.ApiInterface;
 import com.dealermela.util.AppConstants;
 import com.dealermela.util.AppLogger;
+import com.dealermela.util.SharedPreferences;
 import com.google.gson.Gson;
 
 import retrofit2.Call;
@@ -162,6 +163,13 @@ public class ManageAddressAct extends DealerMelaBaseActivity implements View.OnC
                     tvSCity.setText(response.body().getDefaultShipping().getCity()+","+response.body().getDefaultBilling().getRegion()+","+response.body().getDefaultBilling().getPostcode());
                     tvSCountry.setText(response.body().getDefaultShipping().getCountry());
                     tvSTelephone.setText("T: "+response.body().getDefaultShipping().getTelephone());
+
+
+                    SharedPreferences sharedPreferences = new SharedPreferences(ManageAddressAct.this);
+                    sharedPreferences.saveBillingAddress(response.body().getDefaultBilling().getFirstname() + " " +response.body().getDefaultBilling().getLastname() + ",\n" + response.body().getDefaultBilling().getStreet() + ",\n" + response.body().getDefaultBilling().getCity() + ", " + response.body().getDefaultBilling().getRegion() + ", " + response.body().getDefaultBilling().getPostcode() + ",\n" + response.body().getDefaultBilling().getCountryId() + "\nT: " + response.body().getDefaultBilling().getTelephone());
+                    sharedPreferences.saveShipping(response.body().getDefaultShipping().getFirstname() + " " + response.body().getDefaultShipping().getLastname() + ",\n" + response.body().getDefaultShipping().getStreet() + ",\n" + response.body().getDefaultShipping().getCity() + ", " + response.body().getDefaultShipping().getRegion() + ", " + response.body().getDefaultShipping().getPostcode() + ",\n" + response.body().getDefaultShipping().getCountryId() + "\nT: " + response.body().getDefaultShipping().getTelephone());
+
+
                     hideProgressDialog();
 
 

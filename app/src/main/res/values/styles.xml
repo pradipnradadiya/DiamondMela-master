@@ -216,6 +216,7 @@
         <item name="android:textAlignment">center</item>
         <item name="android:gravity">center</item>
         <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">12dp</item>
         <item name="android:background">?attr/selectableItemBackground</item>
     </style>
 
@@ -279,6 +280,12 @@
         <item name="android:textAllCaps">false</item>
     </style>
 
+    <style name="edit_profile_button1">
+        <item name="android:padding">@dimen/ten_sp</item>
+        <item name="android:textSize">@dimen/twelve_sp</item>
+        <item name="android:background">@drawable/edit_pro_btn</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
     <style name="textAddBank">
         <item name="android:layout_marginStart">@dimen/zero_sp</item>
         <item name="android:layout_marginEnd">@dimen/zero_sp</item>

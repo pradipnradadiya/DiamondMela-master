@@ -91,7 +91,7 @@ public class DownloadAct extends DealerMelaBaseActivity implements View.OnClickL
 
     @Override
     public void initView() {
-        bindToolBar("Downloaded Products");
+        bindToolBar("Download Products");
         radioGroup = findViewById(R.id.radioGroupFilter);
         checkBoxSelectAll = findViewById(R.id.checkBoxSelectAll);
         recycleViewDownloadProducts = findViewById(R.id.recycleViewDownloadProducts);
@@ -197,8 +197,6 @@ public class DownloadAct extends DealerMelaBaseActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnDownload:
-
-
                 if (Build.VERSION.SDK_INT >= 23) {
                     if (checkPermission()) {
                         // Code for above or equal 23 API Oriented Device
@@ -358,10 +356,10 @@ public class DownloadAct extends DealerMelaBaseActivity implements View.OnClickL
                             AppLogger.e("image", jsonArray.get(i).toString());
 
                             AppLogger.e("i", "" + i);
-                            new DownloadImages(DownloadAct.this, jsonArray.get(i).toString(), photoPictureDirectoryPath);
-                            if (i == jsonArray.length() - 2) {
+                            new DownloadImages(DownloadAct.this, jsonArray.get(i).toString().trim(), photoPictureDirectoryPath);
+//                            if (i == jsonArray.length() - 2) {
                                 CommonUtils.showSuccessToast(DownloadAct.this, "All image saved in gallery");
-                            }
+//                            }
                         }
 
 //                        downloadProductAdapter.selectionItemPosition.clear();
@@ -436,12 +434,55 @@ public class DownloadAct extends DealerMelaBaseActivity implements View.OnClickL
         }
 
         if (listString.toString().equals("")) {
-            downloadAllProduct(customerId, "");
+            new IOSDialog.Builder(DownloadAct.this)
+                    .setTitle(getString(R.string.delete))
+                    .setMessage("Are u sure u want download all item?")
+                    .setCancelable(false)
+                    .setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            AppLogger.e("string data", "------" + listString);
+
+                            downloadAllProduct(customerId, "");
+
+                        }
+                    })
+                    .setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    }).show();
+
+
 //            CommonUtils.showToast(DownloadAct.this, "Please select at least one item after download all.");
         } else {
-            listString.deleteCharAt(listString.length() - 1);
-            AppLogger.e("list string","----------"+listString);
-            downloadAllProduct(customerId, listString.toString());
+            new IOSDialog.Builder(DownloadAct.this)
+                    .setTitle(getString(R.string.delete))
+                    .setMessage("Are u sure u want download selected item?")
+                    .setCancelable(false)
+                    .setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            AppLogger.e("string data", "------" + listString);
+
+
+                            listString.deleteCharAt(listString.length() - 1);
+                            AppLogger.e("list string","----------"+listString);
+                            downloadAllProduct(customerId, listString.toString());
+
+                        }
+                    })
+                    .setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    }).show();
+
+
         }
 
 

@@ -9,12 +9,12 @@
     android:layout_height="match_parent">
 
     <com.dealermela.utility.DmlTextViewBold
-        android:id="@+id/dmlTextViewBold7"
+        android:id="@+id/tvNoData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/sixteen_sp"
         android:layout_marginEnd="@dimen/sixteen_sp"
-        android:text="No data available."
+        android:text="No data found."
         android:textAlignment="center"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"

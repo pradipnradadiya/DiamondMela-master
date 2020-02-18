@@ -127,6 +127,7 @@ public class MyOrderFrg extends DealerMelaBaseFragment {
                         AppLogger.e("order", "----------" + orderType);
                         AppLogger.e("page", "----------" + page_count);
 //        getOrderList("984", loginResponse.getData().getGroupId(), orderType, String.valueOf(page_count));
+                        linNoData.setVisibility(View.GONE);
                         getOrderList(customerId, loginResponse.getData().getGroupId(), orderType, String.valueOf(page_count));
                     }
                 });

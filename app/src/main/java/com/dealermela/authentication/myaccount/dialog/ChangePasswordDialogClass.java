@@ -45,19 +45,19 @@ public class ChangePasswordDialogClass extends Dialog implements View.OnClickLis
     public ChangePasswordDialogClass(Activity activity) {
         super(activity);
         // TODO Auto-generated constructor stub
+
         this.activity = activity;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        d= new Dialog(activity);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.dialog_change_password);
-
         edCurrentPassword = findViewById(R.id.edCurrentPassword);
         edNewPassword = findViewById(R.id.edNewPassword);
         edConfirmPassword = findViewById(R.id.edConfirmPassword);
-
         Button btnChangePassword = findViewById(R.id.btnChangePassword);
         btnChangePassword.setOnClickListener(this);
 
@@ -81,7 +81,7 @@ public class ChangePasswordDialogClass extends Dialog implements View.OnClickLis
     private void changePassword(String customerId, String currentPassword, String newPassword) {
         final ProgressDialog progressDialog = new ProgressDialog(activity);
         progressDialog.setTitle("Change Password");
-        progressDialog.setMessage("PLease wait..");
+        progressDialog.setMessage("Please wait..");
         progressDialog.setCancelable(false);
         progressDialog.show();
 
@@ -114,16 +114,16 @@ public class ChangePasswordDialogClass extends Dialog implements View.OnClickLis
                                 .setPositiveButton(activity.getString(R.string.ok), new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
-                                        dialog.dismiss();
                                         // continue with delete
                                         dialog.dismiss();
-                                        SharedPreferences sharedPreferences=new SharedPreferences(activity);
-                                        sharedPreferences.saveLoginData("");
-                                        activity.startActivity(new Intent(activity, LoginAct.class));
-                                        activity.finishAffinity();
+                                        dismiss();
+//                                        SharedPreferences sharedPreferences = new SharedPreferences(activity);
+//                                        sharedPreferences.saveLoginData("");
+//                                        activity.startActivity(new Intent(activity, LoginAct.class));
+//                                        activity.finishAffinity();
                                     }
                                 })
-                               .show();
+                                .show();
 
 
 
@@ -170,15 +170,15 @@ public class ChangePasswordDialogClass extends Dialog implements View.OnClickLis
     private boolean validateChangePassword() {
         if (!Validator.checkEmptyInputLayout(edCurrentPassword, "Please enter current password.")) {
             return false;
-        } else if (!Validator.checkPasswordLength(edNewPassword)) {
-            return false;
         } else if (!Validator.checkEmptyInputLayout(edNewPassword, "Please enter new password.")) {
+            return false;
+        } else if (!Validator.checkPasswordLength(edNewPassword)) {
             return false;
         } else if (!Validator.checkEmptyInputLayout(edConfirmPassword, "Please enter confirm password.")) {
             return false;
         } else if (!Objects.requireNonNull(edNewPassword.getText()).toString().equals(Objects.requireNonNull(edConfirmPassword.getText()).toString())) {
             //are equal
-            edConfirmPassword.setError("Confirm password is invalid.");
+            edConfirmPassword.setError("Not matched with new password.");
             edConfirmPassword.requestFocus();
             return false;
         }

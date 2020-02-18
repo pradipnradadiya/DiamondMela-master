@@ -106,10 +106,10 @@ public class SplashAct extends DealerMelaBaseActivity {
                         finish();
                     }
                 }else{
-                    sharedPreferences.saveLoginData("");
-                    sharedPreferences.saveShipping("");
-                    sharedPreferences.saveBillingAddress("");
-                    sharedPreferences.saveRemember("");
+//                    sharedPreferences.saveLoginData("");
+//                    sharedPreferences.saveShipping("");
+//                    sharedPreferences.saveBillingAddress("");
+//                    sharedPreferences.saveRemember("");
                     startNewActivity(MainActivity.class);
                     finish();
                 }

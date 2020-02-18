@@ -83,8 +83,8 @@
                     tools:ignore="ContentDescription" />
 
                 <ImageView
-                    style="@style/pop_product_image_tint"
                     android:id="@+id/img_arrow"
+                    style="@style/pop_product_image_tint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -93,8 +93,8 @@
                     tools:ignore="ContentDescription" />
 
                 <ImageView
-                    style="@style/pop_product_image_tint"
                     android:id="@+id/img_line"
+                    style="@style/pop_product_image_tint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -104,8 +104,8 @@
 
 
                 <ImageView
-                    style="@style/pop_product_image_tint"
                     android:id="@+id/img_left_line"
+                    style="@style/pop_product_image_tint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -152,10 +152,10 @@
             <com.dealermela.utility.DmlButtonBold
                 android:id="@+id/btnViewAll"
                 android:layout_width="@dimen/hundred_sp"
-                android:layout_height="@dimen/thirty_five_sp"
+                android:layout_height="@dimen/btn_height"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/twenty_sp"
-                android:background="@drawable/selected"
+                android:background="@drawable/black_button_round"
                 android:elevation="@dimen/ten_sp"
                 android:text="@string/view_all"
                 android:textColor="?buttonTextColor"
@@ -236,34 +236,32 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/two_dp"
+                    android:layout_height="@dimen/one_sp_view"
                     android:background="?transaction_line_color" />
 
 
+                <LinearLayout
+                    android:id="@+id/lin_product"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/twenty_sp"
+                    android:orientation="vertical">
 
-                    <LinearLayout
-                        android:id="@+id/lin_product"
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycleViewBestProducts"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/twenty_sp"
-                        android:orientation="vertical">
+                        android:layout_marginEnd="@dimen/eight_sp" />
 
-                        <android.support.v7.widget.RecyclerView
-                            android:id="@+id/recycleViewBestProducts"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/eight_sp" />
-
-                    </LinearLayout>
-
+                </LinearLayout>
 
 
                 <View
-                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/one_sp_view"
                     android:layout_marginTop="@dimen/activity_vertical_margin"
-                    android:background="?transaction_line_color" />
+                    android:background="?transaction_line_color"
+                    android:visibility="gone" />
 
                 <ImageView
                     android:id="@+id/imgSingleBanner"
@@ -359,8 +357,8 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            style="@style/pop_product_image_tint"
                             android:id="@+id/imageView15"
+                            style="@style/pop_product_image_tint"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -386,7 +384,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/two_dp"
+                android:layout_height="@dimen/one_sp_view"
                 android:layout_marginTop="@dimen/twenty_sp"
                 android:background="?transaction_line_color" />
 
@@ -414,8 +412,8 @@
                     tools:ignore="ContentDescription" />
 
                 <ImageView
-                    style="@style/pop_product_image_tint"
                     android:id="@+id/img_right"
+                    style="@style/pop_product_image_tint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -424,15 +422,14 @@
                     tools:ignore="ContentDescription" />
 
                 <ImageView
-                    style="@style/pop_product_image_tint"
                     android:id="@+id/img_left"
+                    style="@style/pop_product_image_tint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toStartOf="@+id/txt_popular_product_new"
                     android:src="@drawable/ic_titledesignline"
-                    tools:ignore="ContentDescription"
-                     />
+                    tools:ignore="ContentDescription" />
 
                 <com.dealermela.utility.DmlTextViewBold
                     android:id="@+id/txt_popular_product_new"
@@ -468,11 +465,11 @@
                 app:reverseLayout="true" />
 
             <View
-                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/one_sp_view"
                 android:layout_marginTop="@dimen/fifteen_sp"
-                android:background="?transaction_line_color" />
+                android:background="?transaction_line_color"
+                android:visibility="gone" />
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"

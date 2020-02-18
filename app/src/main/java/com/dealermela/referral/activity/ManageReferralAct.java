@@ -3,6 +3,7 @@ package com.dealermela.referral.activity;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -31,6 +32,7 @@ public class ManageReferralAct extends DealerMelaBaseActivity implements View.On
     private RecyclerView recycleViewReferralList;
     private Button btnCreateReferral;
     private ReferralListRecyclerAdapter referralListRecyclerAdapter;
+    private ConstraintLayout constraintNoData;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,7 @@ public class ManageReferralAct extends DealerMelaBaseActivity implements View.On
         bindToolBar("List of Referrals");
         progressBar = findViewById(R.id.progressBar);
         recycleViewReferralList = findViewById(R.id.recycleViewReferralList);
+        constraintNoData = findViewById(R.id.constraintNoData);
         btnCreateReferral = findViewById(R.id.btnCreateReferral);
     }
 
@@ -84,8 +87,13 @@ public class ManageReferralAct extends DealerMelaBaseActivity implements View.On
                 assert response.body() != null;
                 progressBar.setVisibility(View.GONE);
                 if (response.isSuccessful()) {
-                    referralListRecyclerAdapter = new ReferralListRecyclerAdapter(ManageReferralAct.this, response.body().getData());
-                    recycleViewReferralList.setAdapter(referralListRecyclerAdapter);
+
+                    if (!response.body().getData().isEmpty()) {
+                        referralListRecyclerAdapter = new ReferralListRecyclerAdapter(ManageReferralAct.this, response.body().getData());
+                        recycleViewReferralList.setAdapter(referralListRecyclerAdapter);
+                    }else{
+                        constraintNoData.setVisibility(View.VISIBLE);
+                    }
                 }
             }
 

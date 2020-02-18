@@ -6,8 +6,8 @@ import com.dealermela.R;
 
 public final class AppConstants {
     //    API base url
-    public static final String BASE_URL = "http://www.diamondmela.com/";
-//    public static final String BASE_URL = "http://123.108.51.11/index.php/";
+//    public static final String BASE_URL = "http://www.diamondmela.com/";
+    public static final String BASE_URL = "http://123.108.51.11/index.php/";
     public static final String BASE_URL_LARAVEL = "http://203.112.144.109/dmlsoftwaretest/";
     public static final String INVENTORY_IMAGE = "http://203.112.144.7/media/catalog/product";
     public static final String IMAGE_URL = "http://www.diamondmela.com/media/";
@@ -35,6 +35,8 @@ public final class AppConstants {
     public static final String REMEMBER_PWD = "REMEMBER_PWD";
     public static final String PREF_BILLING_ADDRESS = "billing";
     public static final String PREF_SHIPPING_ADDRESS = "shipping";
+    public static final String PREF_PASSWORD = "pwd";
+    public static final String PREF_EMAILS = "emails";
     public static final String BLACK_THEME = "blackTheme";
 
     public static final String RESPONSE = "response";

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
@@ -38,6 +39,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.kaopiz.kprogresshud.KProgressHUD;
+import com.ligl.android.widget.iosdialog.IOSDialog;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -58,7 +60,6 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
     private final Activity activity;
     private final List<OrderItem.Datum> itemArrayList;
     private KProgressHUD hud;
-
 
 
     public MyOrderAdapter(Activity activity, List<OrderItem.Datum> itemArrayList) {
@@ -84,14 +85,13 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
 //        AppLogger.e("position", "----------------" + i);
 
 
-
-        if (itemArrayList.get(i).getOrderItems().isEmpty()){
-            holder.tvTitle.setText(Html.fromHtml("<b>" + "Title : " + "</b> " ));
-            holder.tvSku.setText(Html.fromHtml("<b>" + "Sku : " + "</b> " ));
-            holder.tvMetalDetail.setText(Html.fromHtml("<b>" + "Metal Detail : " + "</b> " ));
-            holder.tvStoneDetail.setText(Html.fromHtml("<b>" + "Stone Detail : " + "</b> " ));
+        if (itemArrayList.get(i).getOrderItems().isEmpty()) {
+            holder.tvTitle.setText(Html.fromHtml("<b>" + "Title : " + "</b> "));
+            holder.tvSku.setText(Html.fromHtml("<b>" + "Sku : " + "</b> "));
+            holder.tvMetalDetail.setText(Html.fromHtml("<b>" + "Metal Detail : " + "</b> "));
+            holder.tvStoneDetail.setText(Html.fromHtml("<b>" + "Stone Detail : " + "</b> "));
             holder.imgProduct.setImageURI("");
-        }else{
+        } else {
             holder.tvTitle.setText(itemArrayList.get(i).getOrderItems().get(0).getProductName());
             holder.tvSku.setText(Html.fromHtml("<b>" + "Sku : " + "</b> " + itemArrayList.get(i).getOrderItems().get(0).getProductSku()));
             holder.tvMetalDetail.setText(Html.fromHtml("<b>" + "Metal Detail : " + "</b> " + itemArrayList.get(i).getOrderItems().get(0).getProductMetalquality() + "(" + itemArrayList.get(i).getOrderItems().get(0).getProductMetalweight() + ")"));
@@ -105,13 +105,11 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
         holder.tvStatus.setText(itemArrayList.get(i).getOrderStatus());
 
 
-
-
         if (itemArrayList.get(i).getOrderStatus().equalsIgnoreCase("Canceled")) {
             holder.imgCancel.setVisibility(View.GONE);
             holder.imgPrint.setVisibility(View.GONE);
             holder.imgView.setVisibility(View.VISIBLE);
-            AppLogger.e("canceled","------");
+            AppLogger.e("canceled", "------");
         }
 
 
@@ -119,16 +117,15 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
             holder.imgPrint.setVisibility(View.GONE);
             holder.imgCancel.setVisibility(View.VISIBLE);
             holder.imgView.setVisibility(View.VISIBLE);
-            AppLogger.e("pending","------");
+            AppLogger.e("pending", "------");
         }
 
         if (itemArrayList.get(i).getOrderStatus().equalsIgnoreCase("Complete")) {
             holder.imgPrint.setVisibility(View.VISIBLE);
             holder.imgCancel.setVisibility(View.GONE);
             holder.imgView.setVisibility(View.VISIBLE);
-            AppLogger.e("pending","------");
+            AppLogger.e("pending", "------");
         }
-
 
         if (itemArrayList.get(i).getOrderItems().size() > 1) {
             holder.cardViewMore.setVisibility(View.VISIBLE);
@@ -151,7 +148,7 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
             @Override
             public void onClick(View v) {
 
-                AppLogger.e("order id","------"+itemArrayList.get(i).getOrderid());
+                AppLogger.e("order id", "------" + itemArrayList.get(i).getOrderid());
                 printOrder(itemArrayList.get(i).getOrderid());
             }
         });
@@ -160,7 +157,28 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
         holder.imgCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cancelOrder(itemArrayList.get(i).getOrderid(), i);
+
+                new IOSDialog.Builder(activity)
+                        .setTitle("Cancel Order")
+                        .setMessage("Are you sure want to  cancel order.?")
+                        .setCancelable(false)
+                        .setPositiveButton(activity.getString(R.string.ok), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                                cancelOrder(itemArrayList.get(i).getOrderid(), i);
+
+
+                            }
+                        })
+                        .setNegativeButton(activity.getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }).show();
+
+
             }
         });
 
@@ -278,7 +296,7 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
         hud.show();
 
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
-        Call<JsonObject> callApi = apiInterface.printOrder(orderId,customerId,loginResponse.getData().getGroupId());
+        Call<JsonObject> callApi = apiInterface.printOrder(orderId, customerId, loginResponse.getData().getGroupId());
         callApi.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(@NonNull Call<JsonObject> call, @NonNull Response<JsonObject> response) {
@@ -289,9 +307,9 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
                         JSONObject jsonObject = new JSONObject(response.body().toString());
                         if (jsonObject.getString("status").equalsIgnoreCase(AppConstants.STATUS_CODE_SUCCESS)) {
                             hud.dismiss();
-                            String pdfUrl=jsonObject.getString("pdf");
-                            Intent intent=new Intent(activity,OrderPrintAct.class);
-                            intent.putExtra(AppConstants.NAME,pdfUrl);
+                            String pdfUrl = jsonObject.getString("pdf");
+                            Intent intent = new Intent(activity, OrderPrintAct.class);
+                            intent.putExtra(AppConstants.NAME, pdfUrl);
                             activity.startActivity(intent);
 
                         }

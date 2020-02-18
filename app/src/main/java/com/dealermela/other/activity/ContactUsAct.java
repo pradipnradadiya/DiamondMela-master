@@ -78,46 +78,6 @@ public class ContactUsAct extends DealerMelaBaseActivity implements View.OnClick
     public void addListener() {
         btnSubmit.setOnClickListener(this);
 
-        edName.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (s.length() > 0) {
-                    tilName.setErrorEnabled(false);
-                }
-            }
-        });
-
-        edEmail.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (s.length() > 0) {
-
-                    tilEmail.setErrorEnabled(false);
-
-                }
-            }
-        });
-
     }
 
     @Override
@@ -127,16 +87,26 @@ public class ContactUsAct extends DealerMelaBaseActivity implements View.OnClick
 
     private boolean validateData() {
         if (TextUtils.isEmpty(Objects.requireNonNull(edName.getText()).toString())) {
-            tilName.setError("Please enter name.");
-            tilName.requestFocus();
+            edName.setError("Please enter name.");
+            edName.requestFocus();
             return false;
         } else if (TextUtils.isEmpty(Objects.requireNonNull(edEmail.getText()).toString())) {
-            tilEmail.setError("Please enter email id.");
-            tilEmail.requestFocus();
+            edEmail.setError(getString(R.string.sign_up_please_enter_email));
+            edEmail.requestFocus();
             return false;
         } else if (!Validator.checkEmail(edEmail)) {
-            tilEmail.setError("Please enter valid email id.");
-            tilEmail.requestFocus();
+            edEmail.setError(getString(R.string.login_please_enter_valid_email));
+            edEmail.requestFocus();
+            return false;
+        } else if (!Validator.checkEmptyInputEditText(edTelephone, tilTelephone, getString(R.string.sign_up_please_enter_contact_no))) {
+            return false;
+        } else if (!Validator.isValidPhoneNumber(Objects.requireNonNull(edTelephone.getText()).toString())) {
+            edTelephone.requestFocus();
+            edTelephone.setError(getString(R.string.login_please_enter_valid_mobile));
+            return false;
+        }else if(TextUtils.isEmpty(Objects.requireNonNull(edComment.getText()).toString())){
+            edComment.setError("Please enter comment.");
+            edComment.requestFocus();
             return false;
         }
         return true;
@@ -149,7 +119,7 @@ public class ContactUsAct extends DealerMelaBaseActivity implements View.OnClick
                 boolean valid = validateData();
                 if (valid) {
                     AppLogger.e("valid", "-------");
-                    addContactUs(Objects.requireNonNull(edName.getText()).toString(),edComment.getText().toString(),edEmail.getText().toString());
+                    addContactUs(Objects.requireNonNull(edName.getText()).toString(), edComment.getText().toString(), edEmail.getText().toString());
                 } else {
                     AppLogger.e("not valid", "-------");
                 }
@@ -160,7 +130,7 @@ public class ContactUsAct extends DealerMelaBaseActivity implements View.OnClick
     private void addContactUs(String name, String comment, String email) {
         showProgressDialog(AppConstants.PLEASE_WAIT);
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
-        Call<JsonObject> callApi = apiInterface.contactUs(name,comment,email);
+        Call<JsonObject> callApi = apiInterface.contactUs(name, comment, email);
         callApi.enqueue(new Callback<JsonObject>() {
             @SuppressLint("SetTextI18n")
             @Override
@@ -183,8 +153,8 @@ public class ContactUsAct extends DealerMelaBaseActivity implements View.OnClick
 
                                         edName.setText("");
                                         edComment.setText("");
+                                        edTelephone.setText("");
                                         edEmail.setText("");
-
 
 
                                     }

@@ -70,6 +70,7 @@ public class LoginAct extends DealerMelaBaseActivity implements View.OnClickList
 
     @Override
     public void init() {
+
         databaseCartAdapter = new DatabaseCartAdapter(LoginAct.this);
         sharedPreferences = new SharedPreferences(LoginAct.this);
     }
@@ -88,7 +89,12 @@ public class LoginAct extends DealerMelaBaseActivity implements View.OnClickList
 
     @Override
     public void postInitView() {
+        if (sharedPreferences.getRemember().equalsIgnoreCase("true")) {
+            edEmail.setText(sharedPreferences.getEmail());
+            edPassword.setText(sharedPreferences.getPassword());
+        } else {
 
+        }
     }
 
     @Override
@@ -100,10 +106,10 @@ public class LoginAct extends DealerMelaBaseActivity implements View.OnClickList
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (compoundButton.isChecked()){
-                    flag =true;
-                }else{
-                    flag =false;
+                if (compoundButton.isChecked()) {
+                    flag = true;
+                } else {
+                    flag = false;
                 }
             }
         });
@@ -145,9 +151,9 @@ public class LoginAct extends DealerMelaBaseActivity implements View.OnClickList
                 if (!Validator.checkPasswordLength(edPassword)) {
 
                 } else {
-                    if (flag){
+                    if (flag) {
                         sharedPreferences.saveRemember("true");
-                    }else{
+                    } else {
                         sharedPreferences.saveRemember("false");
                     }
                     checkLogin(edEmail.getText().toString(), edPassword.getText().toString(), CommonUtils.getDeviceID(LoginAct.this), "ASDSds56445df5g4d5f4gd5fg5f4g5ffd");
@@ -172,8 +178,9 @@ public class LoginAct extends DealerMelaBaseActivity implements View.OnClickList
                     String json = gson.toJson(response.body());
                     AppLogger.e(AppConstants.RESPONSE, "-----------------" + json);
                     sharedPreferences.saveLoginData(json);
+                    sharedPreferences.saveEmail(edEmail.getText().toString().trim());
+                    sharedPreferences.savePassword(edPassword.getText().toString().trim());
                     customerId = response.body().getData().getEntityId();
-
                     sharedPreferences.saveBillingAddress(response.body().getData().getDefaultBillingNew().getFirstname() + " " + response.body().getData().getDefaultBillingNew().getLastname() + ",\n" + response.body().getData().getDefaultBillingNew().getStreet() + ",\n" + response.body().getData().getDefaultBillingNew().getCity() + ", " + response.body().getData().getDefaultBillingNew().getRegion() + ", " + response.body().getData().getDefaultBillingNew().getPostcode() + ",\n" + response.body().getData().getDefaultBillingNew().getCountryId() + "\nT: " + response.body().getData().getDefaultBillingNew().getTelephone());
                     sharedPreferences.saveShipping(response.body().getData().getDefaultShippingNew().getFirstname() + " " + response.body().getData().getDefaultBillingNew().getLastname() + ",\n" + response.body().getData().getDefaultBillingNew().getStreet() + ",\n" + response.body().getData().getDefaultBillingNew().getCity() + ", " + response.body().getData().getDefaultBillingNew().getRegion() + ", " + response.body().getData().getDefaultBillingNew().getPostcode() + ",\n" + response.body().getData().getDefaultBillingNew().getCountryId() + "\nT: " + response.body().getData().getDefaultBillingNew().getTelephone());
 

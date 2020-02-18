@@ -108,7 +108,6 @@ public abstract class DealerMelaBaseActivity extends AppCompatActivity implement
         postInitView();
         addListener();
         loadData();
-
         //mProgressDialog = new ProgressDialog(this , R.style.MyProgressDialogStyle);
 
     }
@@ -129,9 +128,9 @@ public abstract class DealerMelaBaseActivity extends AppCompatActivity implement
         // toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(headerTitle);
-        if (headerTitle.equalsIgnoreCase("")){
+        if (headerTitle.equalsIgnoreCase("")) {
 
-        }else {
+        } else {
             Typeface fromAsset = Typeface.createFromAsset(getAssets(), "fonts/montserrat_semibold.ttf");
             ((TextView) toolbar.getChildAt(1)).setTypeface(fromAsset);
         }
@@ -357,7 +356,6 @@ public abstract class DealerMelaBaseActivity extends AppCompatActivity implement
 
     }
 
-
     public void getCartCount() {
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         Call<JsonObject> callApi = apiInterface.getCartDownloadCount(customerId);
@@ -398,6 +396,5 @@ public abstract class DealerMelaBaseActivity extends AppCompatActivity implement
 
         });
     }
-
 
 }

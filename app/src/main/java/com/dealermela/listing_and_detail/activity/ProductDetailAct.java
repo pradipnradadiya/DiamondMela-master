@@ -1,7 +1,6 @@
 package com.dealermela.listing_and_detail.activity;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -15,8 +14,6 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -240,6 +237,7 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
 
     @Override
     public void postInitView() {
+        recycleViewDiamondDetail.setNestedScrollingEnabled(false);
         //Set layout ring adapter
         GridLayoutManager gridLayoutRing = new GridLayoutManager(ProductDetailAct.this, 1);
         gridLayoutRing.setOrientation(LinearLayoutManager.HORIZONTAL);
@@ -581,7 +579,7 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
                     cardDiamondBox.setVisibility(View.VISIBLE);
                     DiamondDetailAdapter diamondDetailAdapter = new DiamondDetailAdapter(ProductDetailAct.this, response.body().getDiamonddetails());
                     recycleViewDiamondDetail.setAdapter(diamondDetailAdapter);
-                }else{
+                } else {
                     linDiamondBox.setVisibility(View.GONE);
                     tvDiamondDetailLabel.setVisibility(View.GONE);
                     relDiamondDetailTotal.setVisibility(View.GONE);
@@ -630,7 +628,7 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
 
 
                 tvMetalPurity.setText(response.body().getMetaldetails().get(0).getMetalquality());
-                tvMetalWeightApprox.setText(response.body().getMetaldetails().get(0).getMetalweight());
+                tvMetalWeightApprox.setText(response.body().getMetaldetails().get(0).getMetalweight() + " gms");
 
                 if (productCategoryId.equalsIgnoreCase(AppConstants.COLLECTION_ID) || productCategoryId.equalsIgnoreCase(AppConstants.RUBBER_ID)) {
                     relBelt.setVisibility(View.VISIBLE);
@@ -751,14 +749,14 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
 //                cBracelet = response.body().getBraceletsSize().get(0).getLabel();
                 //using for Diamond detail adapter
 
-                if (response.body().getDiamonddetails()!= null){
+                if (response.body().getDiamonddetails() != null) {
                     linDiamondBox.setVisibility(View.VISIBLE);
                     tvDiamondDetailLabel.setVisibility(View.VISIBLE);
                     relDiamondDetailTotal.setVisibility(View.VISIBLE);
                     cardDiamondBox.setVisibility(View.VISIBLE);
                     DiamondDetailAdapter diamondDetailAdapter = new DiamondDetailAdapter(ProductDetailAct.this, response.body().getDiamonddetails());
                     recycleViewDiamondDetail.setAdapter(diamondDetailAdapter);
-                }else {
+                } else {
                     linDiamondBox.setVisibility(View.GONE);
                     tvDiamondDetailLabel.setVisibility(View.GONE);
                     relDiamondDetailTotal.setVisibility(View.GONE);
@@ -790,7 +788,7 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
 
                 AppLogger.e("metal purity", "----------" + response.body().getMetaldetails().get(0).getMetalquality());
                 tvMetalPurity.setText(response.body().getMetaldetails().get(0).getMetalquality());
-                tvMetalWeightApprox.setText(response.body().getMetaldetails().get(0).getMetalweight());
+                tvMetalWeightApprox.setText(response.body().getMetaldetails().get(0).getMetalweight() + " gms");
                 tvMetalEstimatedTotal.setText(AppConstants.RS + String.valueOf(response.body().getMetaldetails().get(0).getMetalestimatedprice()));
                 linProgress.setVisibility(View.GONE);
 
@@ -930,7 +928,6 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
                 assert response.body() != null;
 
                 if (response.body().getStatus().equalsIgnoreCase(AppConstants.STATUS_CODE_SUCCESS)) {
-
                     if (response.body().getStock().equalsIgnoreCase("0")) {
                         linButton.setVisibility(View.GONE);
                         btnSoldOut.setVisibility(View.VISIBLE);
@@ -938,7 +935,6 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
                         btnSoldOut.setVisibility(View.GONE);
                         linButton.setVisibility(View.VISIBLE);
                     }
-
                     AppLogger.e("getDiamonddetails", "-------" + response.body().getDiamonddetails());
                     if (response.body().getDiamonddetails() != null) {
                         linDiamondBox.setVisibility(View.VISIBLE);
@@ -947,30 +943,23 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
                         cardDiamondBox.setVisibility(View.VISIBLE);
                         DiamondDetailRTSAdapter diamondDetailAdapter = new DiamondDetailRTSAdapter(ProductDetailAct.this, response.body().getDiamonddetails());
                         recycleViewDiamondDetail.setAdapter(diamondDetailAdapter);
-                    }else{
+                    } else {
                         linDiamondBox.setVisibility(View.GONE);
                         tvDiamondDetailLabel.setVisibility(View.GONE);
                         relDiamondDetailTotal.setVisibility(View.GONE);
                         cardDiamondBox.setVisibility(View.GONE);
                     }
-
                     //Product Detail
                     assert response.body() != null;
                     tvProductName.setText(response.body().getProductDetails().get(0).getProductName());
-
                     tvSku.setText(response.body().getProductDetails().get(0).getSku());
                     cSku = response.body().getProductDetails().get(0).getSku();
                     tvCertificateNo.setText(response.body().getProductDetails().get(0).getCertificateNo());
-
                     cMetalWeight = response.body().getMetaldetails().get(0).getMetalweight();
-
-
                     //Metal Diamond Detail
                     Float metalPrice = Float.parseFloat(response.body().getMetalprice().get(0).toString());
 //                metalPrice = metalPrice.substring(1, metalPrice.length() - 1);
                     tvMetalPrice.setText(String.valueOf(CommonUtils.priceFormat(metalPrice)));
-
-
                     if (response.body().getDiamondmainprice().isEmpty()) {
                         linDiamondBox.setVisibility(View.GONE);
                         tvDiamondDetailLabel.setVisibility(View.GONE);
@@ -986,13 +975,10 @@ public class ProductDetailAct extends DealerMelaBaseActivity implements View.OnC
                         tvDiamondPrice.setText(AppConstants.RS + CommonUtils.rupeeFormat(response.body().getDiamondmainprice().get(0).getDimondprice()));
                         tvEstimatedTotalValue.setText(AppConstants.RS + CommonUtils.rupeeFormat(response.body().getDiamondmainprice().get(0).getDimondprice()));
                     }
-
-
                     tvMetalPurity.setText(response.body().getMetaldetails().get(0).getMetalquality());
-                    tvMetalWeightApprox.setText(response.body().getMetaldetails().get(0).getMetalweight());
+                    tvMetalWeightApprox.setText(response.body().getMetaldetails().get(0).getMetalweight() + " gms");
                     tvMetalEstimatedTotal.setText(AppConstants.RS + String.valueOf(response.body().getMetaldetails().get(0).getMetalestimatedprice()));
                     linProgress.setVisibility(View.GONE);
-
                     if (productCategoryId.equalsIgnoreCase(AppConstants.COLLECTION_ID) || productCategoryId.equalsIgnoreCase(AppConstants.RUBBER_ID)) {
                         relBelt.setVisibility(View.VISIBLE);
                         viewBelt.setVisibility(View.VISIBLE);
